@@ -8,13 +8,13 @@ test('filter → cell → evidence → archive works from the root', async ({ pa
   await page.getByLabel('Asset', { exact: true }).selectOption('us-equities');
   await expect(
     page.getByRole('link', {
-      name: 'Open Paper Moon Fictional Asset Management US equities',
+      name: 'Open Paper Moon Fictional Asset Management US equities: Overweight',
       exact: true,
     }),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: /Open .* Gold/ })).toHaveCount(0);
   const paperCell = page.getByRole('link', {
-    name: 'Open Paper Moon Fictional Asset Management US equities',
+    name: 'Open Paper Moon Fictional Asset Management US equities: Overweight',
     exact: true,
   });
   if (testInfo.project.use.hasTouch) await paperCell.tap();
@@ -34,7 +34,12 @@ test('filter → cell → evidence → archive works from the root', async ({ pa
   await expect(page.getByText('Reconstructed archive · revision 1', { exact: true })).toBeVisible();
   await expect(page.getByText('Includes retrospective coverage', { exact: false })).toBeVisible();
   await page.getByLabel('Asset', { exact: true }).selectOption('em-equities');
-  await page.getByRole('link', { name: 'Open Fable Grove Fictional Research EM equities' }).click();
+  await page
+    .getByRole('link', {
+      name: 'Open Fable Grove Fictional Research EM equities: Neutral',
+      exact: true,
+    })
+    .click();
   await expect(page.getByText(/Selected observation: demo-late-import-em-equities/)).toBeVisible();
   await expect(page.getByText('No source-level check recorded by this cut')).toBeVisible();
   expect(errors).toEqual([]);
@@ -72,7 +77,7 @@ test('keyboard access, empty filters and readable layout', async ({ page }, test
   await expect(page.getByRole('main')).toBeFocused();
   await page.getByLabel('Asset', { exact: true }).selectOption('us-equities');
   const cell = page.getByRole('link', {
-    name: 'Open Paper Moon Fictional Asset Management US equities',
+    name: 'Open Paper Moon Fictional Asset Management US equities: Overweight',
     exact: true,
   });
   await cell.focus();

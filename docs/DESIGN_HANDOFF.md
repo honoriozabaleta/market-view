@@ -110,3 +110,7 @@ Native links, buttons, radios, selects and `details` only; nothing essential dep
 - Scratch interaction checks (Chromium and WebKit): scroll buttons by keyboard, sticky stream column, horizon by arrow keys, status key by keyboard and touch, reasons by touch, filter persistence through detail and archive, methodology anchor focus, dates on the mobile detail, initial load at scroll top without forced focus, and a published build without filters or demo note. Chromium's Tab order runs filters → status key → matrix region → row header → cell link → reasons. Playwright WebKit skips plain links on Tab, as Safari does by default.
 
 Limits: automated engines at emulated widths, not a physical iPad, iPhone or Safari installation, and no screen-reader audit. Segoe UI Variable is used where Windows provides it; other platforms fall back to their system UI font, so letter widths differ slightly from these Windows captures.
+
+## Engineering release follow-up
+
+See [RELEASE_REVIEW.md](RELEASE_REVIEW.md) for the independent diff review and executed checks. The Graphite styles/layout remain unchanged. Items 1, 2 and 6 in the earlier "For the owner and Codex" list are now resolved: links carry a validated comparison horizon through detail/evidence/reload, archive URLs cannot select future-created snapshots, and matrix accessible names include the visible original stance. Existing links without a horizon retain the 12-month default. `InstantLabel` now preserves fractional UTC precision. No domain rule, source dataset, editorial approval or snapshot was changed.

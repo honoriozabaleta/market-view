@@ -94,6 +94,7 @@ export function Comparison({
           query={query}
           snapshotId={snapshotId}
           coverage={coverage}
+          horizonMonths={filters.horizon}
         />
       )}
       {allCells.length > 0 && <CoverageCounts data={data} counts={counts} filters={filters} />}

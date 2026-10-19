@@ -3,6 +3,7 @@ import { assets } from '../../domain/catalog';
 import { compareInstants, InstantSchema } from '../../domain/schema';
 import {
   changeBetween,
+  defaultCohort,
   editoriallyEligible,
   eligibleObservations,
   publicationUpperBoundForUI,
@@ -19,6 +20,7 @@ import {
   SourceDetail,
   StanceBadge,
   contextParams,
+  comparisonHorizon,
   label,
 } from '../components';
 import { now } from '../clock';
@@ -40,6 +42,7 @@ export function ObservationDetail({
   evidenceOnly: boolean;
 }) {
   const snapshotId = params.get('snapshot') ?? undefined;
+  const horizonMonths = comparisonHorizon(params);
   const pinned = snapshotId ? snapshotQuery(dataset, snapshotId) : null;
   const cutoffValue = params.get('cutoff') ?? now;
   const knowledgeValue = params.get('knowledgeAt') ?? cutoffValue;
@@ -59,6 +62,7 @@ export function ObservationDetail({
   );
   if (
     !validDates ||
+    horizonMonths === null ||
     (snapshotId && !pinned) ||
     !observation ||
     !editoriallyEligible(
@@ -76,7 +80,13 @@ export function ObservationDetail({
   const stream = dataset.streams.find((s) => s.id === p.streamId)!;
   const institution = dataset.institutions.find((i) => i.id === stream.institutionId)!;
   const detailData = pinned ? { ...dataset, observations: pinned.observations } : dataset;
-  const cell = selectCell(detailData, stream, observation.assetId, query);
+  const cell = selectCell(
+    detailData,
+    stream,
+    observation.assetId,
+    query,
+    defaultCohort(observation.assetId, horizonMonths),
+  );
   const mapping = dataset.mappings.find((m) => m.id === observation.mappingRuleId);
   const review = dataset.reviews.find((r) => r.observationId === observation.id)!;
   const knowledgeAt = query.nature === 'recorded' ? query.cutoff : query.knowledgeAt!;
@@ -130,7 +140,7 @@ export function ObservationDetail({
           <p>
             <a
               className="button-link"
-              href={`#/observations/${observation.id}?${contextParams(query, snapshotId)}`}
+              href={`#/observations/${observation.id}?${contextParams(query, snapshotId, horizonMonths)}`}
             >
               Open full view detail
             </a>
@@ -156,7 +166,9 @@ export function ObservationDetail({
                   <p>
                     <StanceBadge status={cell.status} />
                   </p>
-                  <p className="subtle">Status in the default 12-month comparison at this cut.</p>
+                  <p className="subtle">
+                    Status in the {horizonMonths}-month comparison at this cut.
+                  </p>
                 </>
               ) : observation.normalizedStance ? (
                 <>
@@ -288,7 +300,7 @@ export function ObservationDetail({
               </ul>
               <a
                 className="button-link"
-                href={`#/evidence/${observation.id}?${contextParams(query, snapshotId)}`}
+                href={`#/evidence/${observation.id}?${contextParams(query, snapshotId, horizonMonths)}`}
               >
                 View evidence
               </a>
@@ -334,7 +346,7 @@ export function ObservationDetail({
                     ? `${cell.notRenewed ? 'Not renewed in a later partial publication. ' : ''}${
                         cell.reasons.length
                           ? cell.reasons.join('; ')
-                          : 'Meets the default 12-month cohort.'
+                          : `Meets the ${horizonMonths}-month cohort.`
                       }`
                     : 'This revision is not the comparison cell at this cut; a later or replacing revision is used there.'}
                 </dd>

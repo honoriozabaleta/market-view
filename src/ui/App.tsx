@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { dataset } from '../data/load';
-import { DateLabel, EmptyState } from './components';
+import { comparisonHorizon, DateLabel, EmptyState } from './components';
 import { initialFilters, type Filters } from './Filters';
 import { now } from './clock';
 import { Latest } from './pages/Latest';
@@ -37,6 +37,10 @@ export function App() {
     if (lastRoute.current === route) return;
     const initial = lastRoute.current === null;
     lastRoute.current = route;
+    const params = new URLSearchParams(search);
+    const horizon = comparisonHorizon(params);
+    if (params.has('horizon') && horizon !== null)
+      setFilters((current) => (current.horizon === horizon ? current : { ...current, horizon }));
     const target =
       section === 'methodology' && subsection
         ? document.getElementById(`method-${subsection}`)
@@ -52,7 +56,7 @@ export function App() {
     }
     mainRef.current?.focus({ preventScroll: true });
     window.scrollTo(0, 0);
-  }, [route, section, subsection]);
+  }, [route, section, subsection, search]);
   return (
     <>
       <a

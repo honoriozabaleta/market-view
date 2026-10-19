@@ -1,4 +1,5 @@
 import { dataset } from '../../data/load';
+import { compareInstants } from '../../domain/schema';
 import { availableQuarters, quarterOf, snapshotQuery, type Query } from '../selectors-ui';
 import { ChangeHistory, DateLabel, EmptyState, InstantLabel, PageHead } from '../components';
 import { Comparison } from '../Comparison';
@@ -40,8 +41,8 @@ export function Archive({
 }) {
   const quarters = availableQuarters(dataset, now);
   const active = params.get('cut') || quarters[0]?.id;
-  const savedSnapshots = dataset.snapshots.filter((s) => s.createdAt <= now);
-  const snapshot = dataset.snapshots.find((s) => s.id === active);
+  const savedSnapshots = dataset.snapshots.filter((s) => compareInstants(s.createdAt, now) <= 0);
+  const snapshot = savedSnapshots.find((s) => s.id === active);
   const quarter = quarters.find((q) => q.id === active);
   const pinned = snapshot ? snapshotQuery(dataset, snapshot.id) : null;
   const query: Query = pinned?.query ?? { cutoff: quarter?.cutoff ?? now, nature: 'recorded' };

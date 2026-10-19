@@ -21,7 +21,7 @@ export function DateLabel({
 export function InstantLabel({ value }: { value: string }) {
   return (
     <time dateTime={value} className="date">
-      {value.slice(0, 10)} {value.slice(11, 19)} UTC
+      {value.slice(0, 10)} {value.slice(11).replace(/Z$/, '')} UTC
     </time>
   );
 }
@@ -162,8 +162,18 @@ export function PageHead({
     </header>
   );
 }
-export function contextParams(query: Query, snapshotId?: string) {
-  const params = new URLSearchParams({ cutoff: query.cutoff, nature: query.nature });
+/** URL presentation context; source horizons and domain comparison rules remain unchanged. */
+export function comparisonHorizon(params: URLSearchParams): number | null {
+  const value = params.get('horizon');
+  if (value === null) return 12; // Existing direct links retain their documented default.
+  return value === '3' || value === '12' ? Number(value) : null;
+}
+export function contextParams(query: Query, snapshotId?: string, horizonMonths = 12) {
+  const params = new URLSearchParams({
+    cutoff: query.cutoff,
+    nature: query.nature,
+    horizon: String(horizonMonths),
+  });
   if (query.knowledgeAt) params.set('knowledgeAt', query.knowledgeAt);
   if (snapshotId) params.set('snapshot', snapshotId);
   return params.toString();

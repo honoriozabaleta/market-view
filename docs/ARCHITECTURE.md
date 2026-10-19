@@ -34,6 +34,8 @@ Routes use hashes: `#/latest`, `#/institutions/:id`, `#/archive?cut=...`, `#/obs
 
 `BASE_PATH` is build-time configuration, separate from hash routing. The browser suite uses a strict local file server with no SPA fallback, at `/` and `/market-view/`. There are no server rewrites to conceal broken links. Root and subdirectory artifacts are built separately.
 
+Post-design review: detail/evidence links also carry the selected comparison `horizon` (3 or 12 months); missing values retain the existing 12-month default and invalid values are rejected. This context feeds `defaultCohort` without changing the source horizon. Entering a linked context restores that horizon in shared filter state, including after a detail reload. Archive deep links resolve only snapshots created by the current query clock.
+
 ## Versioning and extension
 
 Keep schema and methodology versions explicit. This first implementation supports methodology 1.0.0; a future methodology needs version-aware schemas/selectors and explicit comparison boundaries. Do not change the literal without designing historical compatibility. Publication IDs identify content versions; observations identify extraction/research revisions. Snapshots pin both. `scripts/archive-integrity.ts` compares existing closed archives and their referenced observations, reviews, publications, mappings and stream/source/institution context against a Git baseline. A policy/context change affecting archived evidence requires an appended context/version, not mutation.

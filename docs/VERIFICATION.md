@@ -1,5 +1,7 @@
 # Verification record
 
+The independent post-design review, reproduced issues, fixes and latest test totals are recorded in [RELEASE_REVIEW.md](RELEASE_REVIEW.md). The record below describes the earlier foundation verification.
+
 Executed locally on Windows on **2026-10-19**, with Node 24.18.1 and npm 11.16.0. No GitHub workflow, publication, push or merge was executed.
 
 | Command/action actually run                    | Result                                                                                                                                |

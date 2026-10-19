@@ -18,6 +18,7 @@ type Props = {
   query: Query;
   snapshotId?: string;
   coverage: Coverage;
+  horizonMonths: number;
 };
 
 /**
@@ -53,12 +54,14 @@ function CellBody({
   query,
   snapshotId,
   idPrefix,
+  horizonMonths,
 }: {
   cell: Cell;
   data: Dataset;
   query: Query;
   snapshotId?: string;
   idPrefix: string;
+  horizonMonths: number;
 }) {
   const o = cell.observation;
   const p = data.publications.find((x) => x.id === o?.publicationId);
@@ -71,9 +74,9 @@ function CellBody({
         <>
           <a
             className="cell-link"
-            aria-label={`Open ${institutionName(data, cell.stream)} ${asset.label}`}
+            aria-label={`Open ${institutionName(data, cell.stream)} ${asset.label}: ${o.originalStance ?? 'No explicit stance'}`}
             aria-describedby={`${id}-status ${id}-stance ${id}-dates`}
-            href={`#/observations/${o.id}?${contextParams(query, snapshotId)}`}
+            href={`#/observations/${o.id}?${contextParams(query, snapshotId, horizonMonths)}`}
           >
             <span className="cell-stance" id={`${id}-stance`}>
               {o.originalStance ?? 'No explicit stance'}
@@ -152,7 +155,7 @@ function useHorizontalScroll() {
   return { ref, state, scroll };
 }
 
-function MatrixTable({ data, cells, query, snapshotId, coverage }: Props) {
+function MatrixTable({ data, cells, query, snapshotId, coverage, horizonMonths }: Props) {
   const columns = assets.filter((a) => cells.some((c) => c.assetId === a.id));
   const rows = data.streams.filter((s) => cells.some((c) => c.stream.id === s.id));
   const { ref, state, scroll } = useHorizontalScroll();
@@ -236,6 +239,7 @@ function MatrixTable({ data, cells, query, snapshotId, coverage }: Props) {
                           query={query}
                           snapshotId={snapshotId}
                           idPrefix="mx"
+                          horizonMonths={horizonMonths}
                         />
                       </td>
                     );
@@ -250,7 +254,7 @@ function MatrixTable({ data, cells, query, snapshotId, coverage }: Props) {
   );
 }
 
-function AssetList({ data, cells, query, snapshotId, coverage }: Props) {
+function AssetList({ data, cells, query, snapshotId, coverage, horizonMonths }: Props) {
   const columns = assets.filter((a) => cells.some((c) => c.assetId === a.id));
   return (
     <div className="asset-list">
@@ -276,6 +280,7 @@ function AssetList({ data, cells, query, snapshotId, coverage }: Props) {
                     query={query}
                     snapshotId={snapshotId}
                     idPrefix="al"
+                    horizonMonths={horizonMonths}
                   />
                 </li>
               );
