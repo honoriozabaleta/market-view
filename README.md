@@ -1,6 +1,6 @@
 # Market View
 
-A personal institutional research and asset management project for comparing **research streams** with traceable evidence. This foundation is a static React + TypeScript application, not a live market terminal. The visual design is intentionally a functional baseline for the next design pass.
+A personal institutional research and asset management project for comparing **research streams** with traceable evidence. This foundation is a static React + TypeScript application, not a live market terminal. Its editorial presentation layer is documented in the [design handoff](docs/DESIGN_HANDOFF.md); the visual pass did not change financial contracts.
 
 ## Run locally
 

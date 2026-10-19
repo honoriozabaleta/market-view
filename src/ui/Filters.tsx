@@ -1,5 +1,6 @@
 import { assets } from '../domain/catalog';
 import type { Dataset } from '../domain/schema';
+import { statusLabels, statusOrder } from './components';
 export type Filters = { asset: string; stream: string; horizon: number; status: string };
 export const initialFilters: Filters = { asset: 'all', stream: 'all', horizon: 12, status: 'all' };
 export function ComparisonFilters({
@@ -11,9 +12,14 @@ export function ComparisonFilters({
   value: Filters;
   onChange: (value: Filters) => void;
 }) {
+  const pristine =
+    value.asset === initialFilters.asset &&
+    value.stream === initialFilters.stream &&
+    value.horizon === initialFilters.horizon &&
+    value.status === initialFilters.status;
   return (
     <form className="filters" onSubmit={(e) => e.preventDefault()} aria-label="Comparison filters">
-      <div className="filter-field">
+      <div className="filter-field filter-asset">
         <label htmlFor="filter-asset">Asset</label>
         <select
           id="filter-asset"
@@ -28,7 +34,7 @@ export function ComparisonFilters({
           ))}
         </select>
       </div>
-      <div className="filter-field">
+      <div className="filter-field filter-stream">
         <label htmlFor="filter-stream">Research stream</label>
         <select
           id="filter-stream"
@@ -45,18 +51,24 @@ export function ComparisonFilters({
             ))}
         </select>
       </div>
-      <div className="filter-field">
-        <label htmlFor="filter-horizon">Comparison horizon</label>
-        <select
-          id="filter-horizon"
-          value={value.horizon}
-          onChange={(e) => onChange({ ...value, horizon: Number(e.target.value) })}
-        >
-          <option value={12}>12 months</option>
-          <option value={3}>3 months</option>
-        </select>
-      </div>
-      <div className="filter-field">
+      <fieldset className="filter-field filter-horizon">
+        <legend>Comparison horizon</legend>
+        <div className="segmented">
+          {[12, 3].map((h) => (
+            <label key={h}>
+              <input
+                type="radio"
+                name="filter-horizon"
+                value={h}
+                checked={value.horizon === h}
+                onChange={() => onChange({ ...value, horizon: h })}
+              />
+              <span>{h} months</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <div className="filter-field filter-status">
         <label htmlFor="filter-status">Display status</label>
         <select
           id="filter-status"
@@ -64,22 +76,19 @@ export function ComparisonFilters({
           onChange={(e) => onChange({ ...value, status: e.target.value })}
         >
           <option value="all">All statuses</option>
-          {[
-            'favorable',
-            'neutral',
-            'unfavorable',
-            'not-disclosed',
-            'not-comparable',
-            'stale',
-            'withdrawn',
-          ].map((s) => (
+          {statusOrder.map((s) => (
             <option key={s} value={s}>
-              {s.replaceAll('-', ' ')}
+              {statusLabels[s]}
             </option>
           ))}
         </select>
       </div>
-      <button type="button" onClick={() => onChange(initialFilters)}>
+      <button
+        type="button"
+        className="button-quiet filter-reset"
+        disabled={pristine}
+        onClick={() => onChange(initialFilters)}
+      >
         Reset filters
       </button>
     </form>

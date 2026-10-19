@@ -1,6 +1,5 @@
-import type { Cell, Query } from '../domain/selectors';
+import type { Cell, Query, descriptiveCounts } from '../domain/selectors';
 import { compareInstants, type Dataset, type Observation } from '../domain/schema';
-import { assets } from '../domain/catalog';
 
 export function DateLabel({
   value,
@@ -9,24 +8,158 @@ export function DateLabel({
   value: string | null;
   precision?: string;
 }) {
-  if (!value) return <span>Not disclosed</span>;
+  if (!value) return <span className="date-missing">Not disclosed</span>;
   const label = precision === 'month' ? value.slice(0, 7) : value.slice(0, 10);
   return (
-    <time dateTime={value}>
+    <time dateTime={value} className="date">
       {label}
       {precision === 'month' ? ' (month only)' : ''}
     </time>
   );
 }
-export function StanceBadge({ status }: { status: Cell['status'] }) {
-  return <span className={`stance stance-${status}`}>{status.replaceAll('-', ' ')}</span>;
+/** Exact UTC instant (cutoffs, snapshot creation): never shortened to a calendar day. */
+export function InstantLabel({ value }: { value: string }) {
+  return (
+    <time dateTime={value} className="date">
+      {value.slice(0, 10)} {value.slice(11, 19)} UTC
+    </time>
+  );
 }
-export function EmptyState({ title, children }: { title: string; children: React.ReactNode }) {
+
+export const statusLabels: Record<Cell['status'], string> = {
+  favorable: 'Favorable',
+  neutral: 'Neutral',
+  unfavorable: 'Unfavorable',
+  'not-disclosed': 'Not disclosed',
+  'not-comparable': 'Not comparable',
+  stale: 'Stale',
+  withdrawn: 'Withdrawn',
+};
+export const statusOrder = Object.keys(statusLabels) as Cell['status'][];
+/** Plain-language reading of each status; mirrors docs/METHODOLOGY.md, adds no rule. */
+const statusDefinitions: Record<Cell['status'], string> = {
+  favorable:
+    'Explicit allocation label with a documented mapping for this stream, universe, horizon, reference and currency.',
+  neutral:
+    'Explicit allocation label mapped to neutral under the same exact rules. Never inferred from silence or omission.',
+  unfavorable: 'Explicit allocation label mapped to unfavorable under the same exact rules.',
+  'not-disclosed':
+    'No dated, eligible explicit observation in our coverage. Absence is not neutral.',
+  'not-comparable':
+    'Covered, but outside the selected cohort: different type, horizon, reference, universe or currency, or no documented mapping. Its evidence remains available.',
+  stale:
+    'Source publication is older than the stream’s age policy, even when it was verified recently.',
+  withdrawn: 'The source explicitly withdrew the view; the earlier stance is not carried forward.',
+};
+
+export type Counts = ReturnType<typeof descriptiveCounts>;
+/**
+ * Proportional strip of descriptiveCounts. The favorable/neutral/unfavorable split is drawn only
+ * when coverage is sufficient; otherwise only comparable vs not compared. Always paired with text.
+ */
+export function CountBar({ count }: { count: Counts }) {
+  const notCompared = count.cohortSize - count.denominator;
+  const segments: [string, number][] = count.sufficient
+    ? [
+        ['favorable', count.favorable],
+        ['neutral', count.neutral],
+        ['unfavorable', count.unfavorable],
+      ]
+    : [['comparable', count.denominator]];
+  return (
+    <span className="count-bar" aria-hidden="true">
+      {segments.map(
+        ([kind, value]) =>
+          value > 0 && (
+            <span key={kind} className={`seg seg-${kind}`} style={{ flexGrow: value }} />
+          ),
+      )}
+      {notCompared > 0 && <span className="seg seg-excluded" style={{ flexGrow: notCompared }} />}
+    </span>
+  );
+}
+export function coverageText(count: Counts) {
+  return `${count.denominator} of ${count.cohortSize} comparable`;
+}
+
+export function StanceBadge({ status, id }: { status: Cell['status']; id?: string }) {
+  return (
+    <span id={id} className={`stance stance-${status}`}>
+      {statusLabels[status]}
+    </span>
+  );
+}
+export function StatusKey() {
+  return (
+    <div className="status-key">
+      <dl>
+        {statusOrder.map((s) => (
+          <div key={s}>
+            <dt>
+              <StanceBadge status={s} />
+            </dt>
+            <dd>{statusDefinitions[s]}</dd>
+          </div>
+        ))}
+        <div>
+          <dt>
+            <span className="annotation">Not renewed</span>
+          </dt>
+          <dd>
+            A later publication from the same stream did not restate this asset. The view keeps its
+            own date; it is not reaffirmed.
+          </dd>
+        </div>
+      </dl>
+      <p className="subtle">
+        When states coexist the cell shows withdrawn first, then stale, then comparability.
+        Allocation labels are not price forecasts or directional calls. Color only repeats the text
+        label.
+      </p>
+    </div>
+  );
+}
+
+export function EmptyState({
+  title,
+  children,
+  action,
+}: {
+  title: string;
+  children: React.ReactNode;
+  action?: React.ReactNode;
+}) {
   return (
     <section className="empty-state">
       <h2>{title}</h2>
       <p>{children}</p>
+      {action}
     </section>
+  );
+}
+export function PageHead({
+  kicker,
+  title,
+  children,
+  aside,
+  back,
+}: {
+  kicker?: string;
+  title: string;
+  children?: React.ReactNode;
+  aside?: React.ReactNode;
+  back?: React.ReactNode;
+}) {
+  return (
+    <header className={aside ? 'page-head page-head-split' : 'page-head'}>
+      <div className="page-head-main">
+        {back}
+        {kicker && <p className="kicker">{kicker}</p>}
+        <h1>{title}</h1>
+        {children}
+      </div>
+      {aside && <div className="page-head-aside">{aside}</div>}
+    </header>
   );
 }
 export function contextParams(query: Query, snapshotId?: string) {
@@ -35,109 +168,8 @@ export function contextParams(query: Query, snapshotId?: string) {
   if (snapshotId) params.set('snapshot', snapshotId);
   return params.toString();
 }
-export function ComparisonMatrix({
-  data,
-  cells,
-  query,
-  snapshotId,
-}: {
-  data: Dataset;
-  cells: Cell[];
-  query: Query;
-  snapshotId?: string;
-}) {
-  return (
-    <div
-      className="matrix-scroll"
-      role="region"
-      aria-label="Research comparison matrix"
-      tabIndex={0}
-    >
-      <table className="matrix">
-        <caption>
-          Latest explicit observations in selected coverage. One stream per institution. Dates
-          belong to each observation.
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Research stream</th>
-            {assets
-              .filter((a) => cells.some((c) => c.assetId === a.id))
-              .map((a) => (
-                <th scope="col" key={a.id}>
-                  {a.label}
-                </th>
-              ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.streams
-            .filter((s) => cells.some((c) => c.stream.id === s.id))
-            .map((s) => (
-              <tr key={s.id}>
-                <th scope="row">
-                  <a href={`#/institutions/${s.institutionId}`}>
-                    {data.institutions.find((i) => i.id === s.institutionId)?.name}
-                  </a>
-                  <span className="subtle block">
-                    {s.team} · {s.series}
-                  </span>
-                </th>
-                {assets
-                  .filter((a) => cells.some((c) => c.assetId === a.id))
-                  .map((a) => {
-                    const cell = cells.find((c) => c.stream.id === s.id && c.assetId === a.id);
-                    if (!cell) return <td key={a.id}>Filtered out</td>;
-                    const o = cell.observation;
-                    const p = data.publications.find((p) => p.id === o?.publicationId);
-                    return (
-                      <td key={a.id} data-asset={a.label}>
-                        <StanceBadge status={cell.status} />
-                        {o && p ? (
-                          <>
-                            <a
-                              className="cell-link"
-                              aria-label={`Open ${data.institutions.find((i) => i.id === s.institutionId)?.name} ${a.label}`}
-                              href={`#/observations/${o.id}?${contextParams(query, snapshotId)}`}
-                            >
-                              {o.originalStance ?? 'No explicit stance'}
-                              <span className="block subtle">
-                                Published{' '}
-                                <DateLabel value={p.publishedDate} precision={p.datePrecision} />
-                              </span>
-                            </a>
-                            <span className="block subtle">
-                              Verified <DateLabel value={o.verifiedAt} />
-                            </span>
-                            {cell.notRenewed && (
-                              <span className="block annotation">
-                                Not renewed in later publication
-                              </span>
-                            )}
-                          </>
-                        ) : (
-                          <span className="block subtle">No eligible dated view</span>
-                        )}
-                        {cell.reasons.length > 0 && (
-                          <details>
-                            <summary>Exclusion reasons</summary>
-                            <ul>
-                              {cell.reasons.map((r) => (
-                                <li key={r}>{r}</li>
-                              ))}
-                            </ul>
-                          </details>
-                        )}
-                      </td>
-                    );
-                  })}
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+export const label = (value: string) => value.replaceAll('_', ' ').replaceAll('-', ' ');
+
 export function SourceDetail({
   data,
   observation,
@@ -151,33 +183,39 @@ export function SourceDetail({
   const stream = data.streams.find((s) => s.id === publication.streamId)!;
   const source = data.sources.find((s) => s.id === stream.sourceId)!;
   return (
-    <section className="panel">
-      <h2>Evidence & source</h2>
-      <p>{observation.evidence.citation}</p>
-      <p>
-        <strong>Locator:</strong> {observation.evidence.locator}
-      </p>
-      {publication.officialUrl ? (
-        <p>
-          <a href={publication.officialUrl} target="_blank" rel="noreferrer noopener">
-            Open official publication ↗
-          </a>
-        </p>
-      ) : (
+    <section className="doc-section" aria-labelledby="evidence-heading">
+      <p className="kicker kicker-source">From the source</p>
+      <h2 id="evidence-heading">Evidence & source</h2>
+      {!publication.officialUrl && (
         <p className="notice">
           Synthetic evidence only. No external publication or authentic institutional recommendation
           exists.
         </p>
       )}
       <dl className="facts">
+        <dt>Citation</dt>
+        <dd>{observation.evidence.citation}</dd>
+        <dt>Locator</dt>
+        <dd>{observation.evidence.locator}</dd>
+        {publication.officialUrl && (
+          <>
+            <dt>Official publication</dt>
+            <dd>
+              <a href={publication.officialUrl} target="_blank" rel="noreferrer noopener">
+                Open official publication ↗
+              </a>
+            </dd>
+          </>
+        )}
         <dt>Publication version</dt>
         <dd>{publication.version}</dd>
         <dt>Fingerprint</dt>
-        <dd>{publication.fingerprint ?? 'Not available'}</dd>
+        <dd className={publication.fingerprint ? 'mono' : undefined}>
+          {publication.fingerprint ?? 'Not available'}
+        </dd>
         <dt>Source usage assessment</dt>
         <dd>
-          {source.usage.status.replaceAll('_', ' ')} ·{' '}
-          {source.usage.scope ?? 'Pending human review'}
+          {label(source.usage.status)} · {source.usage.scope ?? 'Pending human review'}
         </dd>
         <dt>Source checked</dt>
         <dd>
@@ -191,6 +229,7 @@ export function SourceDetail({
     </section>
   );
 }
+/** Already-classified change labels; gaps are listed, never joined into a continuous line. */
 export function ChangeHistory({
   entries,
 }: {
@@ -200,8 +239,11 @@ export function ChangeHistory({
     <ol className="history">
       {entries.map((e) => (
         <li key={e.id}>
-          <DateLabel value={e.date} /> · {e.label}
-          <p>{e.change}</p>
+          <span className="history-date">
+            <DateLabel value={e.date} />
+          </span>
+          <span className="history-label">{e.label}</span>
+          <span className="history-change">{e.change}</span>
         </li>
       ))}
     </ol>

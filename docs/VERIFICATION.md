@@ -28,7 +28,7 @@ Initial browser failures exposed implicit-label lookup problems and a test that 
 ## Practical limits
 
 - These are automated desktop browser engines with configured viewports/touch capability, not a physical iPad, iPhone or Safari installation. No physical-device compatibility claim is made.
-- The basic UI is functional and accessible by tested keyboard/touch flows; it has not undergone a formal assistive-technology audit. The next visual pass can improve density, horizontal-scroll cues and filter persistence.
+- The basic UI is functional and accessible by tested keyboard/touch flows; it has not undergone a formal assistive-technology audit. The 2026-10-19 visual pass and its own validation run are recorded in `docs/DESIGN_HANDOFF.md`.
 - GitHub Actions/Pages configuration was prepared against official documentation but has not been run remotely. No repository visibility, Pages settings, branch protection or environment approval settings were changed. A public launch still needs owner authorization and repository-side setup.
 - Real sources and observations remain pending owner review. No real recommendation was extracted/published. Candidate landing-page checks do not establish the latest report or reuse rights.
 - Dependency and browser downloads require network access. This delivery requires no API keys or paid services.

@@ -30,7 +30,7 @@ Drafts and `.local/` are ignored; validation checks tracked Git paths, not just 
 
 ## Routing and state
 
-Routes use hashes: `#/latest`, `#/institutions/:id`, `#/archive?cut=...`, `#/observations/:id?...`, `#/evidence/:id?...`, `#/methodology`. Detail links carry cutoff, archive nature, knowledge time and optional pinned snapshot identity. Snapshot detail resolves only pinned entries. Archive selection persists in the URL across reloads/back links. Comparison filters are local view state and reset after leaving the page; preserving all filters across navigation is a suitable future visual refinement.
+Routes use hashes: `#/latest`, `#/institutions/:id`, `#/archive?cut=...`, `#/observations/:id?...`, `#/evidence/:id?...`, `#/methodology` and `#/methodology/:section`. Detail links carry cutoff, archive nature, knowledge time and optional pinned snapshot identity. Snapshot detail resolves only pinned entries. Archive selection persists in the URL across reloads/back links. Comparison filters are in-memory `App` state shared by Latest Views and Quarterly Archive: they survive navigation to detail, evidence and back within a session, and reset on reload. They are not URL state.
 
 `BASE_PATH` is build-time configuration, separate from hash routing. The browser suite uses a strict local file server with no SPA fallback, at `/` and `/market-view/`. There are no server rewrites to conceal broken links. Root and subdirectory artifacts are built separately.
 
