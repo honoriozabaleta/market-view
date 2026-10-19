@@ -1,0 +1,9 @@
+prompts/
+node_modules/
+dist/
+dist-demo/
+.local/
+data/drafts/
+playwright-report/
+test-results/
+package-lock.json

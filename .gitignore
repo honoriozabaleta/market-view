@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-demo/
+playwright-report/
+test-results/
+.vitest/
+coverage/
+.env
+.env.*
+!.env.example
+data/drafts/*
+!data/drafts/.gitkeep
+.local/
+*.log
+*.tsbuildinfo

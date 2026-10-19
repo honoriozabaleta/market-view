@@ -1,0 +1,61 @@
+{
+  "notice": "Research candidates only. No approved coverage, usage permission, latest-report claim or institutional views.",
+  "checkedOn": "2026-10-19",
+  "candidates": [
+    {
+      "institution": "J.P. Morgan Asset Management",
+      "kind": "asset_manager",
+      "status": "pending_review",
+      "division": "Asset Management",
+      "team": "Market Insights Strategy",
+      "series": "Guide to the Markets",
+      "verifiedUrl": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/guide-to-the-markets/",
+      "publication": null,
+      "note": "Official FAQ identifies series and team. Landing page is mutable; no versioned report verified or extracted. Usage scope requires owner review."
+    },
+    {
+      "institution": "UBS CIO",
+      "kind": "bank",
+      "status": "pending_review",
+      "division": "Global Wealth Management",
+      "team": "Chief Investment Office",
+      "series": "House View",
+      "verifiedUrl": "https://www.ubs.com/global/en/wealthmanagement/insights.html",
+      "publication": null,
+      "note": "Official CIO Insights landing page identifies team and series. Initial URL redirected. No standalone versioned publication verified; terms require particular review before reuse."
+    },
+    {
+      "institution": "BlackRock Investment Institute",
+      "kind": "asset_manager",
+      "status": "pending_review",
+      "division": null,
+      "team": null,
+      "series": null,
+      "verifiedUrl": null,
+      "publication": null,
+      "note": "Official weekly-commentary candidate was inaccessible to the browsing tool. URL, team and series remain unverified; no content extracted."
+    },
+    {
+      "institution": "Goldman Sachs",
+      "kind": "bank",
+      "status": "pending_review",
+      "division": null,
+      "team": null,
+      "series": null,
+      "verifiedUrl": null,
+      "publication": null,
+      "note": "Not inspected. Team and series must be established from official evidence."
+    },
+    {
+      "institution": "Morgan Stanley",
+      "kind": "bank",
+      "status": "pending_review",
+      "division": null,
+      "team": null,
+      "series": null,
+      "verifiedUrl": null,
+      "publication": null,
+      "note": "Not inspected. Team and series must be established from official evidence."
+    }
+  ]
+}

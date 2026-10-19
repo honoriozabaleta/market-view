@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1",
+  "methodologyVersion": "1.0.0",
+  "mode": "draft",
+  "asOf": null,
+  "institutions": [
+    {
+      "id": "owner-institution",
+      "name": "Owner must supply verified institution identity",
+      "kind": "research_firm",
+      "isFictional": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "owner-source",
+      "officialUrl": null,
+      "verifiedAt": null,
+      "usage": { "status": "pending_review", "scope": null, "reviewer": null, "reviewedAt": null }
+    }
+  ],
+  "streams": [
+    {
+      "id": "owner-stream",
+      "institutionId": "owner-institution",
+      "sourceId": "owner-source",
+      "division": "Owner must verify division",
+      "team": "Owner must verify team",
+      "series": "Owner must verify publication series",
+      "expectedCadenceDays": null,
+      "staleAfterDays": 100,
+      "stalenessBasis": "Provisional 100-day assumption; owner must assess against verified series cadence",
+      "defaultForInstitution": true
+    }
+  ],
+  "publications": [
+    {
+      "id": "owner-publication-v1",
+      "streamId": "owner-stream",
+      "title": "Owner must supply publication title",
+      "officialUrl": null,
+      "publishedDate": null,
+      "datePrecision": "unknown",
+      "firstObservedAt": "2026-10-19T00:00:00Z",
+      "version": "owner-must-identify-version",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "draft",
+      "marketViewPublishedAt": null
+    }
+  ],
+  "mappings": [],
+  "observations": [
+    {
+      "id": "owner-observation-v1",
+      "publicationId": "owner-publication-v1",
+      "assetId": "us-equities",
+      "originalAsset": "Owner must supply original asset label",
+      "originalUniverse": "Owner must supply original universe",
+      "universe": { "scope": "unknown", "geography": "unknown", "currency": null },
+      "viewType": "narrative",
+      "originalStance": null,
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": { "original": null, "months": null },
+      "benchmark": null,
+      "currency": null,
+      "forecast": null,
+      "thesis": {
+        "text": "Owner must replace this placeholder with a brief original summary supported by the cited evidence",
+        "evidence": {
+          "citation": "Owner must supply bibliographic reference",
+          "locator": "Owner must supply page, section or table"
+        }
+      },
+      "risks": [],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "Owner must supply bibliographic reference",
+        "locator": "Owner must supply page, section or table"
+      },
+      "verifiedAt": "2026-10-19T00:00:00Z",
+      "firstPublishedAt": null,
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": "owner-review-v1",
+      "observationId": "owner-observation-v1",
+      "status": "pending",
+      "reviewer": null,
+      "at": null,
+      "rationale": "Awaiting owner review; template values and dates must be replaced"
+    }
+  ],
+  "snapshots": []
+}

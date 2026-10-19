@@ -1,0 +1,2026 @@
+{
+  "schemaVersion": "1",
+  "methodologyVersion": "1.0.0",
+  "mode": "demo",
+  "asOf": "2026-05-20T23:59:59Z",
+  "institutions": [
+    {
+      "id": "paper-moon",
+      "name": "Paper Moon Fictional Asset Management",
+      "kind": "asset_manager",
+      "isFictional": true
+    },
+    {
+      "id": "imaginary-harbor",
+      "name": "Imaginary Harbor Demo Bank",
+      "kind": "bank",
+      "isFictional": true
+    },
+    {
+      "id": "fable-grove",
+      "name": "Fable Grove Fictional Research",
+      "kind": "research_firm",
+      "isFictional": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "paper-moon-source",
+      "officialUrl": null,
+      "verifiedAt": "2026-05-20T12:00:00Z",
+      "usage": {
+        "status": "demo",
+        "scope": "Synthetic fixture only",
+        "reviewer": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "imaginary-harbor-source",
+      "officialUrl": null,
+      "verifiedAt": "2026-05-20T12:00:00Z",
+      "usage": {
+        "status": "demo",
+        "scope": "Synthetic fixture only",
+        "reviewer": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "fable-grove-source",
+      "officialUrl": null,
+      "verifiedAt": "2026-05-20T12:00:00Z",
+      "usage": {
+        "status": "demo",
+        "scope": "Synthetic fixture only",
+        "reviewer": null,
+        "reviewedAt": null
+      }
+    }
+  ],
+  "streams": [
+    {
+      "id": "paper-moon-stream",
+      "institutionId": "paper-moon",
+      "sourceId": "paper-moon-source",
+      "division": "Fictional Multi-Asset Division",
+      "team": "Demo Allocation Team",
+      "series": "Synthetic Allocation Notes",
+      "expectedCadenceDays": null,
+      "staleAfterDays": 100,
+      "stalenessBasis": "Demo assumption: 100 days; cadence not verified",
+      "defaultForInstitution": true
+    },
+    {
+      "id": "imaginary-harbor-stream",
+      "institutionId": "imaginary-harbor",
+      "sourceId": "imaginary-harbor-source",
+      "division": "Fictional Multi-Asset Division",
+      "team": "Demo Allocation Team",
+      "series": "Synthetic Allocation Notes",
+      "expectedCadenceDays": null,
+      "staleAfterDays": 100,
+      "stalenessBasis": "Demo assumption: 100 days; cadence not verified",
+      "defaultForInstitution": true
+    },
+    {
+      "id": "fable-grove-stream",
+      "institutionId": "fable-grove",
+      "sourceId": "fable-grove-source",
+      "division": "Fictional Multi-Asset Division",
+      "team": "Demo Allocation Team",
+      "series": "Synthetic Allocation Notes",
+      "expectedCadenceDays": null,
+      "staleAfterDays": 100,
+      "stalenessBasis": "Demo assumption: 100 days; cadence not verified",
+      "defaultForInstitution": true
+    }
+  ],
+  "publications": [
+    {
+      "id": "demo-paper-q1",
+      "streamId": "paper-moon-stream",
+      "title": "demo-paper-q1 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-02-10",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-02-10T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "demo-paper-q2",
+      "streamId": "paper-moon-stream",
+      "title": "demo-paper-q2 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-04-15",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-04-15T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-04-15T12:00:00Z"
+    },
+    {
+      "id": "demo-harbor-q1",
+      "streamId": "imaginary-harbor-stream",
+      "title": "demo-harbor-q1 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-01-05",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-01-05T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-01-05T12:00:00Z"
+    },
+    {
+      "id": "demo-harbor-q2",
+      "streamId": "imaginary-harbor-stream",
+      "title": "demo-harbor-q2 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-05-05",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-05-05T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-05-05T12:00:00Z"
+    },
+    {
+      "id": "demo-grove-q1",
+      "streamId": "fable-grove-stream",
+      "title": "demo-grove-q1 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-03-02",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-03-02T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-03-02T12:00:00Z"
+    },
+    {
+      "id": "demo-grove-q2",
+      "streamId": "fable-grove-stream",
+      "title": "demo-grove-q2 — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-04-20",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-04-20T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-04-20T12:00:00Z"
+    },
+    {
+      "id": "demo-undated",
+      "streamId": "paper-moon-stream",
+      "title": "demo-undated — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": null,
+      "datePrecision": "unknown",
+      "firstObservedAt": "2026-05-18T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-05-18T12:00:00Z"
+    },
+    {
+      "id": "demo-late-import",
+      "streamId": "fable-grove-stream",
+      "title": "demo-late-import — synthetic research fixture",
+      "officialUrl": null,
+      "publishedDate": "2026-03-25",
+      "datePrecision": "day",
+      "firstObservedAt": "2026-05-10T09:00:00Z",
+      "version": "fixture-v1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "editorialState": "demo",
+      "marketViewPublishedAt": "2026-05-10T12:00:00Z"
+    }
+  ],
+  "mappings": [
+    {
+      "id": "demo-paper-q1-us-equities-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-paper-q2-us-equities-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-paper-q1-gold-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-paper-q2-us-treasuries-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-paper-q2-european-equities-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Underweight",
+      "normalized": "unfavorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-undated-us-equities-mapping",
+      "streamId": "paper-moon-stream",
+      "viewType": "allocation",
+      "originalLabel": "Underweight",
+      "normalized": "unfavorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q1-gold-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q1-em-equities-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Emerging markets",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q2-us-equities-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 3,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q2-ig-credit-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "investment-grade",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q2-us-treasuries-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-treasuries-correction-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-harbor-q2-european-equities-mapping",
+      "streamId": "imaginary-harbor-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q1-us-equities-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Underweight",
+      "normalized": "unfavorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q2-us-equities-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q2-european-equities-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Overweight",
+      "normalized": "favorable",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q2-us-treasuries-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Underweight",
+      "normalized": "unfavorable",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q2-ig-credit-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "investment-grade",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-grove-q1-gold-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    },
+    {
+      "id": "demo-late-import-em-equities-mapping",
+      "streamId": "fable-grove-stream",
+      "viewType": "allocation",
+      "originalLabel": "Neutral",
+      "normalized": "neutral",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Emerging markets",
+        "currency": "USD"
+      },
+      "benchmark": "Strategic allocation",
+      "horizonMonths": 12,
+      "rationale": "Fixture-specific explicit allocation labels relative to Strategic allocation. No rule for real institutions."
+    }
+  ],
+  "observations": [
+    {
+      "id": "demo-paper-q1-us-equities",
+      "publicationId": "demo-paper-q1",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-paper-q1-us-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-02-10T10:00:00Z",
+      "firstPublishedAt": "2026-02-10T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-paper-q2-us-equities",
+      "publicationId": "demo-paper-q2",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-paper-q2-us-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-04-15T10:00:00Z",
+      "firstPublishedAt": "2026-04-15T12:00:00Z",
+      "status": "active",
+      "revisionKind": "view_update",
+      "replacesObservationId": "demo-paper-q1-us-equities"
+    },
+    {
+      "id": "demo-paper-q1-gold",
+      "publicationId": "demo-paper-q1",
+      "assetId": "gold",
+      "originalAsset": "Gold",
+      "originalUniverse": "Global spot-gold",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-paper-q1-gold-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Gold row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Gold row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Gold row"
+      },
+      "verifiedAt": "2026-02-10T10:00:00Z",
+      "firstPublishedAt": "2026-02-10T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-paper-q2-us-treasuries",
+      "publicationId": "demo-paper-q2",
+      "assetId": "us-treasuries",
+      "originalAsset": "US Treasuries",
+      "originalUniverse": "US all-maturities",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-paper-q2-us-treasuries-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US Treasuries row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US Treasuries row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US Treasuries row"
+      },
+      "verifiedAt": "2026-04-15T10:00:00Z",
+      "firstPublishedAt": "2026-04-15T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-paper-q2-ig-credit",
+      "publicationId": "demo-paper-q2",
+      "assetId": "ig-credit",
+      "originalAsset": "Investment-grade credit",
+      "originalUniverse": "US investment-grade",
+      "universe": {
+        "scope": "investment-grade",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "directional",
+      "originalStance": "Bullish",
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Investment-grade credit row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Investment-grade credit row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Investment-grade credit row"
+      },
+      "verifiedAt": "2026-04-15T10:00:00Z",
+      "firstPublishedAt": "2026-04-15T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-paper-q2-european-equities",
+      "publicationId": "demo-paper-q2",
+      "assetId": "european-equities",
+      "originalAsset": "European equities",
+      "originalUniverse": "Europe broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Underweight",
+      "normalizedStance": "unfavorable",
+      "mappingRuleId": "demo-paper-q2-european-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / European equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / European equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / European equities row"
+      },
+      "verifiedAt": "2026-04-15T10:00:00Z",
+      "firstPublishedAt": "2026-04-15T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-paper-q2-hy-credit",
+      "publicationId": "demo-paper-q2",
+      "assetId": "hy-credit",
+      "originalAsset": "High-yield credit",
+      "originalUniverse": "US high-yield",
+      "universe": {
+        "scope": "high-yield",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Attractive",
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": {
+        "original": null,
+        "months": null
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / High-yield credit row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / High-yield credit row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-paper-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / High-yield credit row"
+      },
+      "verifiedAt": "2026-04-15T10:00:00Z",
+      "firstPublishedAt": "2026-04-15T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-undated-us-equities",
+      "publicationId": "demo-undated",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Underweight",
+      "normalizedStance": "unfavorable",
+      "mappingRuleId": "demo-undated-us-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-undated — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-undated — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-undated — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-05-18T10:00:00Z",
+      "firstPublishedAt": "2026-05-18T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q1-gold",
+      "publicationId": "demo-harbor-q1",
+      "assetId": "gold",
+      "originalAsset": "Gold",
+      "originalUniverse": "Global spot-gold",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-harbor-q1-gold-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Gold row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Gold row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Gold row"
+      },
+      "verifiedAt": "2026-05-12T10:00:00Z",
+      "firstPublishedAt": "2026-05-12T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q1-em-equities",
+      "publicationId": "demo-harbor-q1",
+      "assetId": "em-equities",
+      "originalAsset": "EM equities",
+      "originalUniverse": "Emerging markets broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Emerging markets",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-harbor-q1-em-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / EM equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / EM equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / EM equities row"
+      },
+      "verifiedAt": "2026-01-05T10:00:00Z",
+      "firstPublishedAt": "2026-01-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q2-us-equities",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-harbor-q2-us-equities-mapping",
+      "horizon": {
+        "original": "Next 3 months",
+        "months": 3
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-05-05T10:00:00Z",
+      "firstPublishedAt": "2026-05-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q2-ig-credit",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "ig-credit",
+      "originalAsset": "Investment-grade credit",
+      "originalUniverse": "Global investment-grade credit, USD hedged",
+      "universe": {
+        "scope": "investment-grade",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-harbor-q2-ig-credit-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Investment-grade credit row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Investment-grade credit row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Investment-grade credit row"
+      },
+      "verifiedAt": "2026-05-05T10:00:00Z",
+      "firstPublishedAt": "2026-05-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q2-us-treasuries",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "us-treasuries",
+      "originalAsset": "US Treasuries",
+      "originalUniverse": "US all-maturities",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-harbor-q2-us-treasuries-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US Treasuries row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US Treasuries row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US Treasuries row"
+      },
+      "verifiedAt": "2026-05-05T10:00:00Z",
+      "firstPublishedAt": "2026-05-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-treasuries-correction",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "us-treasuries",
+      "originalAsset": "US Treasuries",
+      "originalUniverse": "US all-maturities",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-harbor-treasuries-correction-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic extraction correction: the source row says Neutral; an earlier entry read the adjacent row.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US Treasuries row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US Treasuries row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US Treasuries row"
+      },
+      "verifiedAt": "2026-05-08T10:00:00Z",
+      "firstPublishedAt": "2026-05-08T12:00:00Z",
+      "status": "active",
+      "revisionKind": "extraction_correction",
+      "replacesObservationId": "demo-harbor-q2-us-treasuries"
+    },
+    {
+      "id": "demo-harbor-q2-european-equities",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "european-equities",
+      "originalAsset": "European equities",
+      "originalUniverse": "Europe broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-harbor-q2-european-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / European equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / European equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / European equities row"
+      },
+      "verifiedAt": "2026-05-05T10:00:00Z",
+      "firstPublishedAt": "2026-05-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-harbor-q2-us-dollar",
+      "publicationId": "demo-harbor-q2",
+      "assetId": "us-dollar",
+      "originalAsset": "US dollar",
+      "originalUniverse": "US trade-weighted",
+      "universe": {
+        "scope": "trade-weighted",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "quantitative",
+      "originalStance": null,
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": {
+        "value": 102,
+        "unit": "Synthetic trade-weighted index points"
+      },
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US dollar row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US dollar row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-harbor-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US dollar row"
+      },
+      "verifiedAt": "2026-05-05T10:00:00Z",
+      "firstPublishedAt": "2026-05-05T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q1-us-equities",
+      "publicationId": "demo-grove-q1",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Underweight",
+      "normalizedStance": "unfavorable",
+      "mappingRuleId": "demo-grove-q1-us-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-03-02T10:00:00Z",
+      "firstPublishedAt": "2026-03-02T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q2-us-equities",
+      "publicationId": "demo-grove-q2",
+      "assetId": "us-equities",
+      "originalAsset": "US equities",
+      "originalUniverse": "US broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-grove-q2-us-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US equities row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "active",
+      "revisionKind": "view_update",
+      "replacesObservationId": "demo-grove-q1-us-equities"
+    },
+    {
+      "id": "demo-grove-q2-european-equities",
+      "publicationId": "demo-grove-q2",
+      "assetId": "european-equities",
+      "originalAsset": "European equities",
+      "originalUniverse": "Europe broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Europe",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Overweight",
+      "normalizedStance": "favorable",
+      "mappingRuleId": "demo-grove-q2-european-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / European equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / European equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / European equities row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q2-us-treasuries",
+      "publicationId": "demo-grove-q2",
+      "assetId": "us-treasuries",
+      "originalAsset": "US Treasuries",
+      "originalUniverse": "US all-maturities",
+      "universe": {
+        "scope": "all-maturities",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Underweight",
+      "normalizedStance": "unfavorable",
+      "mappingRuleId": "demo-grove-q2-us-treasuries-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / US Treasuries row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / US Treasuries row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / US Treasuries row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q2-ig-credit",
+      "publicationId": "demo-grove-q2",
+      "assetId": "ig-credit",
+      "originalAsset": "Investment-grade credit",
+      "originalUniverse": "US investment-grade",
+      "universe": {
+        "scope": "investment-grade",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-grove-q2-ig-credit-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Investment-grade credit row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Investment-grade credit row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Investment-grade credit row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q2-hy-credit",
+      "publicationId": "demo-grove-q2",
+      "assetId": "hy-credit",
+      "originalAsset": "High-yield credit",
+      "originalUniverse": "US high-yield",
+      "universe": {
+        "scope": "high-yield",
+        "geography": "US",
+        "currency": "USD"
+      },
+      "viewType": "narrative",
+      "originalStance": null,
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / High-yield credit row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / High-yield credit row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / High-yield credit row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q1-gold",
+      "publicationId": "demo-grove-q1",
+      "assetId": "gold",
+      "originalAsset": "Gold",
+      "originalUniverse": "Global spot-gold",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-grove-q1-gold-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Gold row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Gold row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q1 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Gold row"
+      },
+      "verifiedAt": "2026-03-02T10:00:00Z",
+      "firstPublishedAt": "2026-03-02T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    },
+    {
+      "id": "demo-grove-q2-gold",
+      "publicationId": "demo-grove-q2",
+      "assetId": "gold",
+      "originalAsset": "Gold",
+      "originalUniverse": "Global spot-gold",
+      "universe": {
+        "scope": "spot-gold",
+        "geography": "Global",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": null,
+      "normalizedStance": null,
+      "mappingRuleId": null,
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / Gold row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / Gold row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-grove-q2 — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / Gold row"
+      },
+      "verifiedAt": "2026-04-20T10:00:00Z",
+      "firstPublishedAt": "2026-04-20T12:00:00Z",
+      "status": "withdrawn",
+      "revisionKind": "withdrawal",
+      "replacesObservationId": "demo-grove-q1-gold"
+    },
+    {
+      "id": "demo-late-import-em-equities",
+      "publicationId": "demo-late-import",
+      "assetId": "em-equities",
+      "originalAsset": "EM equities",
+      "originalUniverse": "Emerging markets broad-equities",
+      "universe": {
+        "scope": "broad-equities",
+        "geography": "Emerging markets",
+        "currency": "USD"
+      },
+      "viewType": "allocation",
+      "originalStance": "Neutral",
+      "normalizedStance": "neutral",
+      "mappingRuleId": "demo-late-import-em-equities-mapping",
+      "horizon": {
+        "original": "Next 12 months",
+        "months": 12
+      },
+      "benchmark": "Strategic allocation",
+      "currency": "USD",
+      "forecast": null,
+      "thesis": {
+        "text": "Synthetic thesis: improving earnings and a balanced risk budget support this example allocation.",
+        "evidence": {
+          "citation": "demo-late-import — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+          "locator": "Synthetic allocation table / EM equities row"
+        }
+      },
+      "risks": [
+        {
+          "text": "Synthetic risk: an adverse growth or inflation surprise could invalidate the example.",
+          "evidence": {
+            "citation": "demo-late-import — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+            "locator": "Synthetic allocation table / EM equities row"
+          }
+        }
+      ],
+      "editorialInterpretation": null,
+      "evidence": {
+        "citation": "demo-late-import — synthetic research fixture, fixture-v1. Authored test data; no external publication exists.",
+        "locator": "Synthetic allocation table / EM equities row"
+      },
+      "verifiedAt": "2026-05-10T10:00:00Z",
+      "firstPublishedAt": "2026-05-10T12:00:00Z",
+      "status": "active",
+      "revisionKind": "initial",
+      "replacesObservationId": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": "demo-paper-q1-us-equities-review",
+      "observationId": "demo-paper-q1-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-02-10T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q2-us-equities-review",
+      "observationId": "demo-paper-q2-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-15T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q1-gold-review",
+      "observationId": "demo-paper-q1-gold",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-02-10T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q2-us-treasuries-review",
+      "observationId": "demo-paper-q2-us-treasuries",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-15T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q2-ig-credit-review",
+      "observationId": "demo-paper-q2-ig-credit",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-15T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q2-european-equities-review",
+      "observationId": "demo-paper-q2-european-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-15T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-paper-q2-hy-credit-review",
+      "observationId": "demo-paper-q2-hy-credit",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-15T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-undated-us-equities-review",
+      "observationId": "demo-undated-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-18T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q1-gold-review",
+      "observationId": "demo-harbor-q1-gold",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-12T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q1-em-equities-review",
+      "observationId": "demo-harbor-q1-em-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-01-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q2-us-equities-review",
+      "observationId": "demo-harbor-q2-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q2-ig-credit-review",
+      "observationId": "demo-harbor-q2-ig-credit",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q2-us-treasuries-review",
+      "observationId": "demo-harbor-q2-us-treasuries",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-treasuries-correction-review",
+      "observationId": "demo-harbor-treasuries-correction",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-08T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q2-european-equities-review",
+      "observationId": "demo-harbor-q2-european-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-harbor-q2-us-dollar-review",
+      "observationId": "demo-harbor-q2-us-dollar",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-05T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q1-us-equities-review",
+      "observationId": "demo-grove-q1-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-03-02T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-us-equities-review",
+      "observationId": "demo-grove-q2-us-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-european-equities-review",
+      "observationId": "demo-grove-q2-european-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-us-treasuries-review",
+      "observationId": "demo-grove-q2-us-treasuries",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-ig-credit-review",
+      "observationId": "demo-grove-q2-ig-credit",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-hy-credit-review",
+      "observationId": "demo-grove-q2-hy-credit",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q1-gold-review",
+      "observationId": "demo-grove-q1-gold",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-03-02T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-grove-q2-gold-review",
+      "observationId": "demo-grove-q2-gold",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-04-20T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    },
+    {
+      "id": "demo-late-import-em-equities-review",
+      "observationId": "demo-late-import-em-equities",
+      "status": "demo",
+      "reviewer": null,
+      "at": "2026-05-10T11:00:00Z",
+      "rationale": "Simulated lifecycle for automated tests. No human review claimed."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "demo-q1-recorded-v1",
+      "cutoff": "2026-03-31T23:59:59Z",
+      "createdAt": "2026-03-31T23:59:59Z",
+      "methodologyVersion": "1.0.0",
+      "nature": "recorded",
+      "revision": 1,
+      "supersedesSnapshotId": null,
+      "entries": [
+        {
+          "observationId": "demo-paper-q1-us-equities",
+          "publicationId": "demo-paper-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-paper-q1-gold",
+          "publicationId": "demo-paper-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-harbor-q1-em-equities",
+          "publicationId": "demo-harbor-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-grove-q1-us-equities",
+          "publicationId": "demo-grove-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-grove-q1-gold",
+          "publicationId": "demo-grove-q1",
+          "publicationVersion": "fixture-v1"
+        }
+      ]
+    },
+    {
+      "id": "demo-q1-reconstructed-v1",
+      "cutoff": "2026-03-31T23:59:59Z",
+      "createdAt": "2026-05-15T12:00:00Z",
+      "methodologyVersion": "1.0.0",
+      "nature": "reconstructed",
+      "revision": 1,
+      "supersedesSnapshotId": null,
+      "entries": [
+        {
+          "observationId": "demo-paper-q1-us-equities",
+          "publicationId": "demo-paper-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-paper-q1-gold",
+          "publicationId": "demo-paper-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-harbor-q1-em-equities",
+          "publicationId": "demo-harbor-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-grove-q1-us-equities",
+          "publicationId": "demo-grove-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-grove-q1-gold",
+          "publicationId": "demo-grove-q1",
+          "publicationVersion": "fixture-v1"
+        },
+        {
+          "observationId": "demo-late-import-em-equities",
+          "publicationId": "demo-late-import",
+          "publicationVersion": "fixture-v1"
+        }
+      ]
+    }
+  ]
+}
