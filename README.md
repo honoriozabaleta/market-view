@@ -2,6 +2,12 @@
 
 A personal institutional research and asset management project for comparing **research streams** with traceable evidence. This foundation is a static React + TypeScript application, not a live market terminal. Its editorial presentation layer is documented in the [design handoff](docs/DESIGN_HANDOFF.md); the visual pass did not change financial contracts.
 
+## Current focus: study the publication landscape
+
+The owner paused further extraction and index work on 2026-10-20 to study the available material before choosing the next product. Start with the single [institutional research publication map](docs/RESEARCH_PUBLICATION_MAP.md): the five institutions, their Research/Wealth/Asset Management teams, document families, official entry points, access limits and a reading guide.
+
+The existing pilot is preserved on this branch. Private captures and seven pending extraction packets remain under ignored `.local/research-pilot/`; they are not restored by a Git clone. [Project context](docs/PROJECT_CONTEXT.md) records the change of direction and outstanding calibration questions.
+
 ## Run locally
 
 Use Node **24.x** (see `.nvmrc`) and npm. Dependency and browser installation require download access; no API keys or paid services are required.
@@ -54,7 +60,7 @@ The importer validates a single-publication dataset and writes an ignored local 
 
 ## Private research pilot
 
-Stage 2 adds assisted asset and macro extraction, private review packets and Q3/Q4 reconstruction diagnostics. It leaves the UI and methodology 1.0.0 unchanged. Read [project context](docs/PROJECT_CONTEXT.md), [pilot workflow and coverage](docs/RESEARCH_PILOT.md) and the [index research proposal](docs/INDEX_RESEARCH.md).
+Stage 2 added assisted asset and macro extraction, private review packets and Q3/Q4 reconstruction diagnostics. This work is preserved and paused; historical discovery and human calibration remain incomplete. It leaves the UI and methodology 1.0.0 unchanged. Read [project context](docs/PROJECT_CONTEXT.md), [pilot workflow and coverage](docs/RESEARCH_PILOT.md) and the [index research proposal](docs/INDEX_RESEARCH.md).
 
 ```sh
 npm run research:validate -- .local/research-pilot

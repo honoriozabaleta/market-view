@@ -1,5 +1,7 @@
 # Asset-level index research proposal
 
+Owner direction on 2026-10-20: this proposal is preserved and further index work is paused while the owner studies the [publication map](RESEARCH_PUBLICATION_MAP.md). No formula or threshold has been adopted through that change of direction.
+
 Status: **research design, not an approved methodology or implemented index**. The application remains on methodology 1.0.0. Its two-stream minimum applies to descriptive counts only. This proposal requires at least three comparable institutions, but does not claim that the pilot currently meets that condition.
 
 ## Inputs and cohort

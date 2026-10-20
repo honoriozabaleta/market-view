@@ -1,5 +1,11 @@
 # Private research pilot
 
+## Status after the owner's change of direction — 2026-10-20
+
+**Preserved and paused.** The owner will study the [publication map](RESEARCH_PUBLICATION_MAP.md) before choosing the next product. The implementation and incomplete discovery below were checkpointed in local commit `ad0f30b`. No calibration, source-usage approval or promotion was inferred from the JPM discussion.
+
+The local review entry point is `.local/research-pilot/review-ready/README.md`. An appended discussion note lives at `.local/research-pilot/notes/2026-10-20-jpm-calibration.md`. The seven JSON packets, raw captures and earlier generated reports remain in their original ignored locations; no private report or source file was moved into Git. The tools remain available, but no new extraction batch is part of the publication-map task.
+
 ## Fixed scope and storage
 
 The owner selected five candidates, the complete publicly discoverable publication sequence in the selected series from 2026-07-01 through a fixed Q4 cutoff, macro as well as asset extraction, and asset/context-specific index research. The initial cutoff is **2026-10-20T15:59:53Z**. Later retrievals increase the knowledge horizon, not the source-publication cutoff. All discovery is bounded by available official pages, archives and searches; gaps are not proof that an edition did not exist.

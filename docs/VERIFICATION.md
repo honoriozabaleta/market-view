@@ -1,5 +1,15 @@
 # Verification record
 
+## Publication-map change of direction — 2026-10-20
+
+The earlier stage-2 implementation was preserved in local commit `ad0f30b` on `codex/research-pilot`. Subsequent tracked changes for the owner's new request are Markdown documentation only: the single publication map, repository entry point, project/pilot/index status and this record. A private JPM calibration discussion note was appended outside Git; existing extraction packets and generated evidence sheets were retained.
+
+- `npm run research:validate -- .local/research-pilot` passed again: 13 references/access targets and seven pending packages.
+- Official-domain searches and public entry pages were checked for the five institutions. The map distinguishes retrieved pages, directory/summary evidence, client channels and historical samples. Failed direct retrievals and unverified full reports/archives are identified.
+- Prettier passed for the six changed Markdown files. Local structural link checks passed for 130 links, including 85 distinct official source URLs in the map, plus internal paths and table-of-contents anchors. These checks validate HTTPS and official hostnames; they do not claim that every linked report, dataset or interactive attachment was downloaded or accessible.
+- The documentation diff leaves application/domain/data/build code unchanged from the implementation checkpoint. The full check and browser suites were not repeated for this documentation-only change; their last actual successful results are the 40 tests and 42 browser tests recorded below.
+- No private report was committed, no source review or financial approval was inferred, and no push, merge or deployment was performed.
+
 ## Stage-2 private research pilot — 2026-10-20
 
 Executed locally on Windows with Node 24.15.0 and npm 11.12.1, on `codex/research-pilot`. The application UI, original financial schemas/selectors, demo dataset and published dataset are unchanged. Published coverage remains empty.

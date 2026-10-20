@@ -2,7 +2,7 @@
 
 Recorded on 2026-10-20 from three owner-supplied ChatGPT Pro conversations and the subsequent planning discussion. Those conversations are product context, not financial evidence. Their example recommendations, publication dates, links and institutional claims must be independently verified before use. No attachment or illustrative position is a research record.
 
-The first conversation explains market views and the differences between teams, allocation, direction and forecasts. The second proposes an institutional outlook tracker, historical coverage and later indicators. The third specifies one repository, a small verified foundation, a visual handoff and an engineering release review. The repository has already implemented that foundation and visual pass; the owner now prioritizes real research work.
+The first conversation explains market views and the differences between teams, allocation, direction and forecasts. The second proposes an institutional outlook tracker, historical coverage and later indicators. The third specifies one repository, a small verified foundation, a visual handoff and an engineering release review. The repository implemented that foundation and visual pass; the owner then prioritized real research work. The subsequent change of direction is recorded below.
 
 ## Purpose
 
@@ -30,3 +30,19 @@ The useful unit is a named division, team and publication series, not a group's 
 The foundation's methodology 1.0.0, fictional demo, append-only snapshots and approved-data boundary remain authoritative for the application. Stage 2 adds a private research workspace and a separate index proposal; it does not make the MVP's comparison cohort broader or its two-stream descriptive-count minimum into an index threshold.
 
 See [research workflow](RESEARCH_PILOT.md) and [index research proposal](INDEX_RESEARCH.md). Earlier prompts document the foundation delivery, not a permanent prohibition on researching later capabilities. Public deployment and data promotion still require separate owner authorization and recorded approvals.
+
+## JPM Q4 calibration discussion — 2026-10-20
+
+The owner asked to inspect the pending JPM MAS packet, its macro scenario, evidence and interpretation questions. The discussion was exploratory; it did not approve the packet, a mapping, a source-usage scope or a public release.
+
+The packet remains unchanged. Refinements proposed for later review include distinguishing an income/carry preference from an explicit allocation intensity; preserving relative FX trade legs rather than generalizing to broad USD; separating an original stance label from its causal thesis; retaining source ideas outside the initial eight-asset catalogue; separating current macro assessments, forecasts and risks; and consistently describing unread charts versus topics absent from the captured text. Qualitative forecast wording must not acquire invented numeric points or bounds.
+
+Allocation horizon, currency and reference remain unverified where missing. A price-target horizon does not fill those fields. Mutable current pages do not prove Q3 content. The detailed discussion is appended privately at `.local/research-pilot/notes/2026-10-20-jpm-calibration.md`; the earlier packet and generated review sheet are retained.
+
+## Owner change of direction — 2026-10-20
+
+The owner requested that all work to date be preserved and the repository left organized, then asked for one Markdown mapping the document types available across the same five institutions, including macro, outlooks, Wealth Management and Asset Management. The owner intends to study the source landscape before choosing a better product.
+
+Further extraction, historical completion and index implementation are paused under that instruction. The stage-2 work is checkpointed in local commit `ad0f30b` on `codex/research-pilot`; its incompleteness and pending reviews are preserved rather than represented as a finished pilot.
+
+The current deliverable is [RESEARCH_PUBLICATION_MAP.md](RESEARCH_PUBLICATION_MAP.md), a single study document with official sources, producer distinctions, access observations, historical/uncertain examples and a reading worksheet. Its broader discovery does not alter the old pilot's fixed cutoff, selected streams or coverage claims. The repository's UI, financial methodology and published data are retained.
