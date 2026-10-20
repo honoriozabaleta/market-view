@@ -31,3 +31,7 @@ Remove placeholders. Confirm that the data contains no original report text, scr
 `data/candidates/registry.json` is not approved coverage and is not bundled. At most three official source candidates were inspected for this delivery. J.P. Morgan's official FAQ established Guide to the Markets and its Market Insights Strategy team; UBS's CIO Insights page established CIO/House View metadata. These were mutable landing pages, not verified latest standalone reports. BlackRock's candidate could not be accessed. Goldman Sachs and Morgan Stanley remain uninspected. Publication fields and unverified URLs remain null; there are no real extracted views.
 
 Third-party material is not licensed by this project's code. There is no inferred open license and no third-party logo set. Source usage review and a separate owner decision on repository/code licensing remain necessary before public launch.
+
+## Stage-2 assisted research
+
+The candidate-register paragraph above records the foundation discovery. Subsequent bibliography, actual attempts and gaps are separate in `data/candidates/research-pilot.json`; original discovery history is preserved. Read [RESEARCH_PILOT.md](RESEARCH_PILOT.md) for the private macro/asset packet format and `research:import`, `research:validate` and `research:review` commands. These do not replace editorial approval or the legacy single-publication importer. Private reconstructed diagnostics are not platform snapshots and never make pending data publicly eligible.

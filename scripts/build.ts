@@ -25,6 +25,7 @@ const forbidden = [
   ...demo.institutions.flatMap((x) => [x.name, x.id]),
   'demo-paper-q1',
   'DRAFT_DO_NOT_BUNDLE',
+  'RESEARCH_PRIVATE_DO_NOT_BUNDLE',
   'data/drafts',
   'data/demo',
   'Research candidates only. No approved coverage',

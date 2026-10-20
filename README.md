@@ -42,7 +42,7 @@ Remove-Item Env:BASE_PATH
 
 ## Data and review
 
-`data/published/dataset.json` is intentionally empty. No real institutional observations, source usage approvals or human reviews have been invented. Candidate discovery is recorded separately in `data/candidates/registry.json` and excluded from app builds. J.P. Morgan and UBS landing-page metadata were inspected; BlackRock was inaccessible to the browsing tool. Goldman Sachs and Morgan Stanley were not inspected. No standalone latest report is claimed.
+`data/published/dataset.json` is intentionally empty. No source usage approvals or human reviews have been invented. The original discovery is recorded in `data/candidates/registry.json`; the separate stage-2 pilot inventory records subsequent bibliographic checks and gaps. Both are excluded from app builds. Private extraction packets are not published coverage or a claim of the latest institutional opinion.
 
 Copy `templates/publication-draft.json` to an ignored `.local/` directory, replace all placeholders and dates with verified metadata, then run:
 
@@ -51,6 +51,18 @@ npm run import:draft -- .local/my-publication.json
 ```
 
 The importer validates a single-publication dataset and writes an ignored local draft without overwriting an existing file. It never approves or publishes. Read [Data updates](docs/DATA_UPDATES.md) before promotion.
+
+## Private research pilot
+
+Stage 2 adds assisted asset and macro extraction, private review packets and Q3/Q4 reconstruction diagnostics. It leaves the UI and methodology 1.0.0 unchanged. Read [project context](docs/PROJECT_CONTEXT.md), [pilot workflow and coverage](docs/RESEARCH_PILOT.md) and the [index research proposal](docs/INDEX_RESEARCH.md).
+
+```sh
+npm run research:validate -- .local/research-pilot
+npm run research:review -- .local/research-pilot
+npm run research:import -- .local/new-package.json .local/research-pilot
+```
+
+Real packets are ignored local work and are not restored by cloning the repository. The commands require a workspace containing `inventory.json` and `packages/*.json`. The tracked bibliographic inventory contains no extracted institutional views. Review output uses a new private directory and refuses overwrites. No command approves, promotes or calculates an index.
 
 ## Read next
 

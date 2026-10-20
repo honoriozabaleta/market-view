@@ -1,0 +1,655 @@
+{
+  "schemaVersion": "research-inventory-1",
+  "id": "research-pilot-2026-q3-q4",
+  "periodStart": "2026-07-01",
+  "cutoff": "2026-10-20T15:59:53Z",
+  "startedAt": "2026-10-20T15:59:53Z",
+  "institutions": [
+    {
+      "id": "jpm-am",
+      "name": "J.P. Morgan Asset Management",
+      "kind": "asset_manager",
+      "isFictional": false
+    },
+    {
+      "id": "ubs",
+      "name": "UBS",
+      "kind": "bank",
+      "isFictional": false
+    },
+    {
+      "id": "blackrock",
+      "name": "BlackRock",
+      "kind": "asset_manager",
+      "isFictional": false
+    },
+    {
+      "id": "goldman-sachs",
+      "name": "Goldman Sachs",
+      "kind": "bank",
+      "isFictional": false
+    },
+    {
+      "id": "morgan-stanley",
+      "name": "Morgan Stanley",
+      "kind": "bank",
+      "isFictional": false
+    }
+  ],
+  "streams": [
+    {
+      "id": "jpm-mas-gaav",
+      "institutionId": "jpm-am",
+      "division": "Asset Management",
+      "team": "Multi-Asset Solutions",
+      "series": "Global Asset Allocation Views",
+      "officialUrl": "https://am.jpmorgan.com/content/jpm-am-aem/global-institutional/us/en/institutional/insights/portfolio-insights/asset-class-views/asset-allocation.html",
+      "defaultForInstitution": true,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "ubs-cio-weekly",
+      "institutionId": "ubs",
+      "division": "Global Wealth Management",
+      "team": "Chief Investment Office",
+      "series": "House View — Weekly Global",
+      "officialUrl": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view/2026/weekly-key-messages.html",
+      "defaultForInstitution": true,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "ubs-cio-monthly",
+      "institutionId": "ubs",
+      "division": "Global Wealth Management",
+      "team": "Chief Investment Office",
+      "series": "House View Monthly Letter",
+      "officialUrl": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view.html",
+      "defaultForInstitution": false,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "bii-weekly",
+      "institutionId": "blackrock",
+      "division": "BlackRock Investment Institute",
+      "team": "BlackRock Investment Institute",
+      "series": "Global Weekly Commentary",
+      "officialUrl": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/global-weekly-commentary",
+      "defaultForInstitution": true,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "bii-global-insights",
+      "institutionId": "blackrock",
+      "division": "BlackRock Investment Institute",
+      "team": "BlackRock Investment Institute",
+      "series": "Global Insights — weekly-video companion",
+      "officialUrl": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/publications/global-insights",
+      "defaultForInstitution": false,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "gs-isg-live",
+      "institutionId": "goldman-sachs",
+      "division": "Asset & Wealth Management — Wealth Management",
+      "team": "Investment Strategy Group",
+      "series": "Live Market Insights",
+      "officialUrl": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/investment-strategy/investment-strategy-live-market-insights",
+      "defaultForInstitution": true,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "gs-isg-outlook",
+      "institutionId": "goldman-sachs",
+      "division": "Asset & Wealth Management — Wealth Management",
+      "team": "Investment Strategy Group",
+      "series": "Annual Outlook",
+      "officialUrl": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/market-insights/outlook",
+      "defaultForInstitution": false,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "gs-isg-inbrief",
+      "institutionId": "goldman-sachs",
+      "division": "Asset & Wealth Management — Wealth Management",
+      "team": "Investment Strategy Group",
+      "series": "InBrief",
+      "officialUrl": "https://pwm.gs.com/docs/shared/ni/isg/isg-in-brief-us-equities.pdf",
+      "defaultForInstitution": false,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    },
+    {
+      "id": "ms-gic-markets",
+      "institutionId": "morgan-stanley",
+      "division": "Wealth Management",
+      "team": "Global Investment Committee",
+      "series": "On the Markets",
+      "officialUrl": "https://www.morganstanley.com/pub/content/dam/mscampaign/wealth-management/wmir-assets/On-The-Markets.pdf",
+      "defaultForInstitution": true,
+      "staleAfterDays": null,
+      "stalenessBasis": "No age threshold has been approved by the owner; source cadence is not a substitute for that decision.",
+      "usage": {
+        "status": "pending_review",
+        "reviewer": null,
+        "reviewedAt": null,
+        "scope": null
+      }
+    }
+  ],
+  "publications": [
+    {
+      "id": "jpm-mas-gaav-20261001-v1",
+      "streamId": "jpm-mas-gaav",
+      "title": "Global Asset Allocation Views 4Q 2026",
+      "officialUrl": "https://am.jpmorgan.com/content/jpm-am-aem/global-institutional/us/en/institutional/insights/portfolio-insights/asset-class-views/asset-allocation.html",
+      "publishedDate": "2026-10-01",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:06:58.122Z",
+      "version": "captured-2026-10-20T16:06:59.966Z",
+      "fingerprint": "sha256:87ce5022d02db7fe02d9d5e12cc0ed08192b7adfdd5ddefcc2fe93b95fb941d7",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "ubs-cio-weekly-20261019-v1",
+      "streamId": "ubs-cio-weekly",
+      "title": "What to watch in the week ahead — Weekly Global, 19 October 2026",
+      "officialUrl": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view/2026/weekly-key-messages.html",
+      "publishedDate": "2026-10-19",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:06:58.125Z",
+      "version": "captured-2026-10-20T16:06:58.766Z",
+      "fingerprint": "sha256:02dfab09d9ee78538d2af47b0d1e0ed076d062727954af5cc88dd4ec77863738",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "bii-weekly-20261019-v1",
+      "streamId": "bii-weekly",
+      "title": "France's bond turmoil",
+      "officialUrl": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/global-weekly-commentary",
+      "publishedDate": "2026-10-19",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:06:58.123Z",
+      "version": "captured-2026-10-20T16:06:58.692Z",
+      "fingerprint": "sha256:453c0c509f11d1449f63337f023c2cca01bcc48ef960a510c5e8b302e7f25e02",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "gs-isg-live-20260721-v1",
+      "streamId": "gs-isg-live",
+      "title": "Addressing Client Questions on the Mid-Year 2026 Outlook",
+      "officialUrl": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/investment-strategy/investment-strategy-live-market-insights",
+      "publishedDate": "2026-07-21",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:06:58.126Z",
+      "version": "captured-2026-10-20T16:06:58.885Z",
+      "fingerprint": "sha256:0d4aa19f6bd73be2dee4a265ad0479d4101617c5debebc96b7c33d46cfe71bf0",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "gs-isg-outlook-20260112-summary-v1",
+      "streamId": "gs-isg-outlook",
+      "title": "2026 Outlook — US Resilience Resilient (official web introduction)",
+      "officialUrl": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/market-insights/outlook",
+      "publishedDate": "2026-01-12",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:09:41.470Z",
+      "version": "captured-2026-10-20T16:09:42.534Z",
+      "fingerprint": "sha256:bf15422601ab7cf4c0877979994bb21639b84dc90d3dd8c2fdae0ed88a4d9022",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "antecedent",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "ms-gic-markets-202610-month-v1",
+      "streamId": "ms-gic-markets",
+      "title": "On the Markets — Speed and Magnitude (October 2026)",
+      "officialUrl": "https://www.morganstanley.com/pub/content/dam/mscampaign/wealth-management/wmir-assets/On-The-Markets.pdf",
+      "publishedDate": "2026-10-01",
+      "datePrecision": "month",
+      "observedAt": "2026-10-20T16:06:58.068Z",
+      "version": "captured-2026-10-20T16:07:00.889Z",
+      "fingerprint": "sha256:39591617db486034834ffcc70a086d2e67207636d63d4026cb1620cc322e219f",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "dated_document",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "bii-global-insights-20260928-v1",
+      "streamId": "bii-global-insights",
+      "title": "China: from scale to returns",
+      "officialUrl": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/publications/global-insights",
+      "publishedDate": "2026-09-28",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:09:41.475Z",
+      "version": "captured-2026-10-20T16:09:42.162Z",
+      "fingerprint": "sha256:5236d27bf1c761f02995672b9f680d0e9e55a6beee5d61c628f7cf8c300264bc",
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "mutable_page",
+      "access": "read",
+      "periodRole": "in_period",
+      "note": "Pending assisted extraction, with source usage and editorial approval absent. Readable content only; see packet scope questions."
+    },
+    {
+      "id": "jpm-mas-gaav-20260709-metadata",
+      "streamId": "jpm-mas-gaav",
+      "title": "Global Asset Allocation Views 3Q 2026",
+      "officialUrl": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/portfolio-insights/asset-class-views/asset-allocation/",
+      "publishedDate": "2026-07-09",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "metadata_only",
+      "periodRole": "in_period",
+      "note": "Search metadata identifies Q3 and July 9; direct retrieval now serves Q4. No Q3 extraction or exact old content version claimed."
+    },
+    {
+      "id": "ubs-cio-weekly-20261012-metadata",
+      "streamId": "ubs-cio-weekly",
+      "title": "What to watch in the week ahead — Weekly Global, 12 October 2026",
+      "officialUrl": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view/2026/weekly-key-messages.html",
+      "publishedDate": "2026-10-12",
+      "datePrecision": "day",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "metadata_only",
+      "periodRole": "in_period",
+      "note": "Earlier official search rendering identified this edition; direct captured URL now serves October 19. No October 12 content extracted."
+    },
+    {
+      "id": "gs-isg-inbrief-undated-metadata",
+      "streamId": "gs-isg-inbrief",
+      "title": "InBrief: The Case for Staying Invested in US Equities",
+      "officialUrl": "https://pwm.gs.com/docs/shared/ni/isg/isg-in-brief-us-equities.pdf",
+      "publishedDate": null,
+      "datePrecision": "unknown",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "blocked",
+      "periodRole": "in_period",
+      "note": "Linked from the July 21 ISG page. Direct fetch redirects to an empty script-based PDF viewer; no publication date, PDF contents or extraction asserted."
+    },
+    {
+      "id": "ms-gic-markets-202607-metadata",
+      "streamId": "ms-gic-markets",
+      "title": "On the Markets: Reflections and Projections at Midyear (July 2026)",
+      "officialUrl": "https://advisor.morganstanley.com/charlie.wixson",
+      "publishedDate": "2026-07-01",
+      "datePrecision": "month",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "metadata_only",
+      "periodRole": "in_period",
+      "note": "Official advisor page identifies the July issue, but its full-report link resolves to the current October PDF. Original July PDF not recovered."
+    },
+    {
+      "id": "bii-weekly-hk-undated-metadata",
+      "streamId": "bii-weekly",
+      "title": "Weekly market commentary — Hong Kong official page",
+      "officialUrl": "https://www.blackrock.com/hk/en/global-weekly-commentary?switchLocale=Y",
+      "publishedDate": null,
+      "datePrecision": "unknown",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "blocked",
+      "periodRole": "in_period",
+      "note": "Search results contain September content; direct page presents terms/attestation. No acceptance, historical date inference or extraction performed."
+    },
+    {
+      "id": "bii-weekly-sg-undated-metadata",
+      "streamId": "bii-weekly",
+      "title": "Weekly market commentary — Singapore official page",
+      "officialUrl": "https://www.blackrock.com/sg/en/insights/global-weekly-commentary",
+      "publishedDate": null,
+      "datePrecision": "unknown",
+      "observedAt": "2026-10-20T16:14:53.975Z",
+      "version": "discovery-metadata-1",
+      "fingerprint": null,
+      "supersedesPublicationId": null,
+      "revisionKind": "source_publication",
+      "captureKind": "search_metadata",
+      "access": "blocked",
+      "periodRole": "in_period",
+      "note": "Search results contain an October 5 video identifier; direct page includes regional terms. Video identifier is not promoted to a verified publication date; no extraction performed."
+    }
+  ],
+  "searches": [
+    {
+      "institutionId": "morgan-stanley",
+      "url": "https://www.morganstanley.com/pub/content/dam/mscampaign/wealth-management/wmir-assets/On-The-Markets.pdf",
+      "query": null,
+      "checkedAt": "2026-10-20T16:07:00.889Z",
+      "outcome": "Direct HTTPS capture: 200, application/pdf; 10025277 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "jpm-am",
+      "url": "https://am.jpmorgan.com/us/en/asset-management/adv/insights/portfolio-insights/asset-class-views/asset-allocation/",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:59.919Z",
+      "outcome": "Direct HTTPS capture: 200, text/html;charset=utf-8; 240364 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "jpm-am",
+      "url": "https://am.jpmorgan.com/content/jpm-am-aem/global-institutional/us/en/institutional/insights/portfolio-insights/asset-class-views/asset-allocation.html",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:59.966Z",
+      "outcome": "Direct HTTPS capture: 200, text/html;charset=utf-8; 191763 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/global-weekly-commentary",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:58.692Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=utf-8; 326711 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/archives",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:58.609Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=utf-8; 282757 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "ubs",
+      "url": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view/2026/weekly-key-messages.html",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:58.766Z",
+      "outcome": "Direct HTTPS capture: 200, text/html;charset=utf-8; 75959 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "goldman-sachs",
+      "url": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/investment-strategy/investment-strategy-live-market-insights",
+      "query": null,
+      "checkedAt": "2026-10-20T16:06:58.885Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=UTF-8; 627898 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "goldman-sachs",
+      "url": "https://pwm.gs.com/docs/shared/ni/isg/isg-in-brief-us-equities.pdf",
+      "query": null,
+      "checkedAt": "2026-10-20T16:09:42.685Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=UTF-8; 431 bytes. Redirect/terms limitation; no gated document extracted."
+    },
+    {
+      "institutionId": "goldman-sachs",
+      "url": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing/market-insights/outlook",
+      "query": null,
+      "checkedAt": "2026-10-20T16:09:42.534Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=UTF-8; 555269 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": "https://www.blackrock.com/hk/en/global-weekly-commentary?switchLocale=Y",
+      "query": null,
+      "checkedAt": "2026-10-20T16:09:43.382Z",
+      "outcome": "Direct HTTPS capture: 200, text/html;charset=UTF-8; 157043 bytes. Redirect/terms limitation; no gated document extracted."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": "https://www.blackrock.com/sg/en/insights/global-weekly-commentary",
+      "query": null,
+      "checkedAt": "2026-10-20T16:09:42.074Z",
+      "outcome": "Direct HTTPS capture: 200, text/html;charset=UTF-8; 131260 bytes. Redirect/terms limitation; no gated document extracted."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/publications/global-insights",
+      "query": null,
+      "checkedAt": "2026-10-20T16:09:42.162Z",
+      "outcome": "Direct HTTPS capture: 200, text/html; charset=utf-8; 297610 bytes. Read only as a current captured version; historical coverage not inferred."
+    },
+    {
+      "institutionId": "jpm-am",
+      "url": null,
+      "query": "site:am.jpmorgan.com \"3Q 2026\" \"asset allocation\" filetype:pdf",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Q3 search metadata found; mutable direct URL serves Q4; a version-specific Q3 report was not recovered."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": null,
+      "query": "site:blackrock.com \"weekly\" \"July\" \"2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Results did not expose a usable July weekly sequence; unrelated products and later regional pages were not treated as July editions."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": null,
+      "query": "site:blackrock.com \"weekly commentary\" \"August 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Results surfaced capital market assumptions, a different product; no substitute series was silently counted."
+    },
+    {
+      "institutionId": "blackrock",
+      "url": null,
+      "query": "site:blackrock.com \"weekly commentary\" \"September 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Regional results and a September 28 Global Insights companion were located. The archive rendered no dated list; regional gates were not accepted."
+    },
+    {
+      "institutionId": "ubs",
+      "url": null,
+      "query": "site:ubs.com \"weekly-key-messages\" \"2026\" \"September\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "No matching indexed result was returned."
+    },
+    {
+      "institutionId": "ubs",
+      "url": null,
+      "query": "site:ubs.com \"2026\" \"House View\" \"July\" \"Monthly\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Advisor-page monthly livestream summaries are a different regional product; no Global Monthly Letter edition recovered."
+    },
+    {
+      "institutionId": "ubs",
+      "url": null,
+      "query": "site:ubs.com \"House View Monthly\" \"August 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Event calendars did not establish a dated Global Monthly Letter."
+    },
+    {
+      "institutionId": "ubs",
+      "url": null,
+      "query": "site:ubs.com \"House View\" \"September 2026\" \"Monthly\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Event calendars did not establish a dated Global Monthly Letter."
+    },
+    {
+      "institutionId": "ubs",
+      "url": null,
+      "query": "site:ubs.com \"House View Monthly Letter\" \"October 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "No matching result returned."
+    },
+    {
+      "institutionId": "goldman-sachs",
+      "url": null,
+      "query": "site:pwm.gs.com \"ISG\" \"2026\" \"InBrief\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Live Market Insights July page links an undated InBrief; PDF route unresolved."
+    },
+    {
+      "institutionId": "goldman-sachs",
+      "url": null,
+      "query": "site:pwm.gs.com \"Investment Strategy Group\" \"October 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Search hits were inside the annual PDF, not proof of a new October ISG publication."
+    },
+    {
+      "institutionId": "morgan-stanley",
+      "url": null,
+      "query": "site:advisor.morganstanley.com \"On the Markets\" \"July 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "July issue metadata located at Charlie Wixson page; full-report link currently serves October."
+    },
+    {
+      "institutionId": "morgan-stanley",
+      "url": null,
+      "query": "site:advisor.morganstanley.com \"On the Markets\" \"August 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Advisor newsletters and generic report links did not recover the August GIC edition."
+    },
+    {
+      "institutionId": "morgan-stanley",
+      "url": null,
+      "query": "site:advisor.morganstanley.com \"On the Markets\" \"September 2026\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Advisor newsletters and generic report links did not recover the September GIC edition."
+    },
+    {
+      "institutionId": "morgan-stanley",
+      "url": null,
+      "query": "site:advisor.morganstanley.com \"Global Investment Committee\" \"October 2026\" \"On the Markets\"",
+      "checkedAt": "2026-10-20T16:14:53.975Z",
+      "outcome": "Canonical full-report link from the official advisor page provided the October PDF, with only month precision."
+    }
+  ],
+  "gaps": [
+    {
+      "streamId": "jpm-mas-gaav",
+      "period": "Q3 2026",
+      "reason": "Q3 bibliographic metadata exists but the generic URL has been overwritten by Q4; old version not recovered."
+    },
+    {
+      "streamId": "ubs-cio-weekly",
+      "period": "July–September 2026; October before 19th",
+      "reason": "No dated archive sequence recovered. October 12 search metadata is not an extracted edition."
+    },
+    {
+      "streamId": "ubs-cio-monthly",
+      "period": "July, August, September and October 2026",
+      "reason": "Monthly Letter PDFs were not located. Livestream/event summaries and older 2025 material were not substituted."
+    },
+    {
+      "streamId": "bii-weekly",
+      "period": "July–September 2026; October before 19th",
+      "reason": "Corporate archive returned no dated document list. Regional terms and PDF attestation prevented recovery. The September companion is separately identified, not a primary-series substitute."
+    },
+    {
+      "streamId": "gs-isg-live",
+      "period": "August–20 October 2026",
+      "reason": "No later episode was identified from the current page, its previous editions or targeted search. This is not proof that no later communication exists."
+    },
+    {
+      "streamId": "gs-isg-outlook",
+      "period": "July–20 October 2026",
+      "reason": "Only January annual-outlook web introduction recovered as an antecedent; full PDF contents not extracted."
+    },
+    {
+      "streamId": "gs-isg-inbrief",
+      "period": "Publication date unknown",
+      "reason": "Linked title is verifiable, but date and PDF text were not recovered from the redirect."
+    },
+    {
+      "streamId": "ms-gic-markets",
+      "period": "July–September 2026",
+      "reason": "July title located but link changed to October; August and September editions not recovered. October tables dated July are not substituted for old editions."
+    },
+    {
+      "streamId": "ms-gic-markets",
+      "period": "October 2026",
+      "reason": "Only a month label is available. Conservative month precision excludes it from selection at October 20, although the current bytes are available for review."
+    }
+  ]
+}

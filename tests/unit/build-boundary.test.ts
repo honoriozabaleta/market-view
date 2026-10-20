@@ -1,9 +1,13 @@
 import { expect, it } from 'vitest';
 import { build } from 'vite';
 import { writeFile, unlink } from 'node:fs/promises';
+import { mkdir } from 'node:fs/promises';
 it('inspects a real published build with a private draft canary present and rejects attempted imports', async () => {
   const path = 'data/drafts/test-build-canary.txt';
+  const researchPath = '.local/test-research-build-canary.txt';
+  await mkdir('.local', { recursive: true });
   await writeFile(path, 'DRAFT_DO_NOT_BUNDLE', { flag: 'wx' });
+  await writeFile(researchPath, 'RESEARCH_PRIVATE_DO_NOT_BUNDLE', { flag: 'wx' });
   try {
     const output = await build({ mode: 'production', logLevel: 'silent', build: { write: false } });
     const artifact = (Array.isArray(output) ? output : [output])
@@ -11,6 +15,7 @@ it('inspects a real published build with a private draft canary present and reje
       .map((o) => (o.type === 'chunk' ? o.code : String(o.source)))
       .join('\n');
     expect(artifact).not.toContain('DRAFT_DO_NOT_BUNDLE');
+    expect(artifact).not.toContain('RESEARCH_PRIVATE_DO_NOT_BUNDLE');
     expect(artifact).not.toContain('Paper Moon Fictional Asset Management');
     expect(artifact).not.toContain('Research candidates only. No approved coverage');
     await expect(
@@ -29,7 +34,40 @@ it('inspects a real published build with a private draft canary present and reje
         ],
       }),
     ).rejects.toThrow(/Unpublished/);
+    await expect(
+      build({
+        mode: 'demo',
+        logLevel: 'silent',
+        build: { write: false },
+        plugins: [
+          {
+            name: 'attempt-private-demo-import',
+            transform(code, id) {
+              if (id.replaceAll('\\', '/').endsWith('/src/main.tsx'))
+                return `import '../.local/test-research-build-canary.txt';\n${code}`;
+            },
+          },
+        ],
+      }),
+    ).rejects.toThrow(/Unpublished/);
+    await expect(
+      build({
+        mode: 'production',
+        logLevel: 'silent',
+        build: { write: false },
+        plugins: [
+          {
+            name: 'attempt-research-import',
+            transform(code, id) {
+              if (id.replaceAll('\\', '/').endsWith('/src/main.tsx'))
+                return `import '../.local/test-research-build-canary.txt';\n${code}`;
+            },
+          },
+        ],
+      }),
+    ).rejects.toThrow(/Unpublished/);
   } finally {
     await unlink(path);
+    await unlink(researchPath);
   }
 }, 30_000);

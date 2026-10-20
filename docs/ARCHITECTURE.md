@@ -42,6 +42,12 @@ Keep schema and methodology versions explicit. This first implementation support
 
 The dataset is small enough for pure array selectors; optimize with indexes if scale warrants it. Never move financial rules into components to optimize UI rendering. This version uses exact cohort equivalence and does not attempt probabilistic narrative interpretation or horizon-overlap heuristics.
 
+## Private research workspace
+
+The stage-2 research contracts and selectors are separate domain modules. They reuse existing publication/observation/evidence types without changing DatasetSchema or the application's selectors. Their private diagnostics distinguish source-publication cutoffs from retrieval knowledge times, preserve interval horizons, and permit a null unapproved age policy. The optional legacy bridge is absent when the existing Dataset contract cannot be populated honestly.
+
+The research CLI reads an ignored workspace and generates escaped Markdown plus JSON; it has no browser/admin surface, source-content execution, index engine, approval or promotion path. Outputs are confined to private storage and refuse overwrites. The bibliography under candidates contains metadata/access outcomes only. Both production and demo reject `.local` imports; production also rejects demo/drafts/candidates imports. Real local packages are validated when present; CI exercises synthetic fixtures without requiring uncommitted research material. See [RESEARCH_PILOT.md](RESEARCH_PILOT.md) for scope and actual coverage limitations.
+
 ## Official technical references checked
 
 - [React versions](https://react.dev/versions)

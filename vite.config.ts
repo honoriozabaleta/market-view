@@ -11,16 +11,21 @@ export default defineConfig(({ mode }) => {
         name: 'market-view-data-boundary',
         enforce: 'pre',
         resolveId(source) {
-          if (!demo && /(?:data[\\/](?:demo|drafts)|data[\\/]candidates)/.test(source)) {
+          if (
+            /(?:^|[\\/])\.local(?:[\\/]|$)/.test(source) ||
+            (!demo && /(?:data[\\/](?:demo|drafts)|data[\\/]candidates)/.test(source))
+          ) {
             throw new Error(`Unpublished data import blocked: ${source}`);
           }
         },
         generateBundle() {
-          if (!demo)
-            for (const id of this.getModuleIds()) {
-              if (/data[\\/](?:demo|drafts|candidates)[\\/]/.test(id))
-                throw new Error(`Unpublished module bundled: ${id}`);
-            }
+          for (const id of this.getModuleIds()) {
+            if (
+              /(?:^|[\\/])\.local[\\/]/.test(id) ||
+              (!demo && /data[\\/](?:demo|drafts|candidates)[\\/]/.test(id))
+            )
+              throw new Error(`Unpublished module bundled: ${id}`);
+          }
         },
       },
     ],
