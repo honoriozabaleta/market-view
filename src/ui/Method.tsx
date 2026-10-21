@@ -33,8 +33,9 @@ export function MethodSection({ model }: { model: EditionModel }) {
             <span className="step-n">2</span>
             <h3>One common scale</h3>
             <p>
-              “Attractive”, “overweight” and “equal weight” all land on the same five-step scale.
-              The original wording is always one click away.
+              We compare relative positioning: over- or underweight versus each house's own
+              benchmark or strategic allocation. “Overweight”, “equal weight” or a “+” tilt all land
+              on the same five-step scale, with the original wording one click away.
             </p>
           </Reveal>
           <Reveal className="step" delay={0.2}>
@@ -127,6 +128,17 @@ export function MethodSection({ model }: { model: EditionModel }) {
 
         <Reveal>
           <ul className="rules" aria-label="How the consensus is measured">
+            <li>
+              <strong>Relative, not absolute</strong>
+              When a house publishes both absolute views (“attractive”) and tilts versus its
+              strategic allocation, we use the tilts, so every house answers the same question.
+            </li>
+            <li>
+              <strong>Categories (≈)</strong>
+              When a house's row is broader or narrower than ours, such as “international developed
+              equities” for Europe and Japan, we use it and mark the call with ≈ and the house's own
+              row.
+            </li>
             <li>
               <strong>Counting</strong>
               Each asset shows how many houses are overweight, neutral and underweight, plus the

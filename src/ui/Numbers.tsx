@@ -159,7 +159,11 @@ export function NumbersSection({ model }: { model: EditionModel }) {
           id="numbers"
           kicker="04 · The numbers"
           title="What they expect, in numbers"
-          sub="Targets and forecasts from each group's flagship outlooks. The black bar spans the lowest to the highest call; the dashed line is today's level. n/p means not published."
+          sub={`Targets and forecasts from each group's outlooks, one horizon per card. The black bar spans the lowest to the highest call${
+            model.forecasts.some((s) => s.forecast.spot !== null)
+              ? "; the dashed line is today's level"
+              : ''
+          }. n/p means not published.`}
         />
         <div className="fc">
           {model.forecasts.map((s, i) => (

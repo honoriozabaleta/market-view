@@ -117,6 +117,15 @@ export function Drawer({
                 <dd>{row.entry.source.title}</dd>
                 <dt>Published</dt>
                 <dd>{formatDate(row.entry.source.published)}</dd>
+                {cell.call.basis && (
+                  <>
+                    <dt>Category</dt>
+                    <dd>
+                      ≈ {row.house.name}’s “{cell.call.basis}” view, applied to{' '}
+                      {ASSET_BY_ID[target.asset].name}
+                    </dd>
+                  </>
+                )}
                 {cell.call.locator && (
                   <>
                     <dt>Where</dt>

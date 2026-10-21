@@ -1,6 +1,6 @@
 /**
  * Validates every edition file. Usage:
- *   npm run validate              -> data/editions (public)
+ *   npm run validate              -> data/editions (public) and data/examples (illustrative, tests only)
  *   npm run validate -- --drafts  -> also data/drafts (private, local)
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -8,8 +8,13 @@ import { join } from 'node:path';
 import { editionSchema } from '../src/domain/schema';
 import { consensusOf } from '../src/domain/consensus';
 
-const dirs = ['data/editions', ...(process.argv.includes('--drafts') ? ['data/drafts'] : [])];
+const dirs = [
+  'data/editions',
+  'data/examples',
+  ...(process.argv.includes('--drafts') ? ['data/drafts'] : []),
+];
 let failed = false;
+const publicStatuses = new Set<string>();
 
 for (const dir of dirs) {
   if (!existsSync(dir)) continue;
@@ -31,6 +36,12 @@ for (const dir of dirs) {
       console.error(`✗ ${path}: drafts belong in data/drafts until the owner reviews them`);
       continue;
     }
+    if (dir === 'data/examples' && e.status !== 'illustrative') {
+      failed = true;
+      console.error(`✗ ${path}: data/examples only holds illustrative editions`);
+      continue;
+    }
+    if (dir === 'data/editions') publicStatuses.add(e.status);
     if (`${e.id}.json` !== file) {
       failed = true;
       console.error(`✗ ${path}: file name must match the edition id (${e.id}.json)`);
@@ -49,5 +60,11 @@ for (const dir of dirs) {
         (thin.length ? ` · too few views: ${thin.join(', ')}` : ''),
     );
   }
+}
+if (publicStatuses.has('published') && publicStatuses.has('illustrative')) {
+  failed = true;
+  console.error(
+    '✗ data/editions mixes illustrative and published editions: move examples to data/examples',
+  );
 }
 if (failed) process.exit(1);

@@ -31,6 +31,7 @@ Create `data/drafts/YYYY-qN.json` (git-ignored). It can be written by hand or wi
           "label": "Overweight",
           "thesis": "Why, in your words.",
           "locator": "Asset class views table",
+          // "basis": "International equities (developed markets)", // only when the house's row is broader or narrower than ours
         },
         {
           "asset": "japan-equities",
@@ -67,7 +68,7 @@ Create `data/drafts/YYYY-qN.json` (git-ignored). It can be written by hand or wi
 }
 ```
 
-Asset ids: `us-equities`, `europe-equities`, `japan-equities`, `em-equities`, `us-treasuries`, `ig-credit`, `hy-credit`, `em-debt`, `gold`, `commodities`, `us-dollar`, `cash`. Forecast kinds: `level`, `rate` (deltas in basis points), `growth` (no spot needed).
+Use each house's tilts versus its benchmark or strategic allocation, not absolute "attractive" views. Asset ids: `us-equities`, `europe-equities`, `japan-equities`, `em-equities`, `us-treasuries`, `ig-credit`, `hy-credit`, `em-debt`, `gold`, `commodities`, `us-dollar`, `cash`. Forecast kinds: `level`, `rate` (deltas in basis points), `growth` (no spot needed).
 
 ## 2. Check and preview privately
 
@@ -84,6 +85,6 @@ Open each source and confirm, call by call: the original label, the score mappin
 
 ## 4. Publish
 
-When you are satisfied, change `"status": "draft"` to `"published"`, move the file to `data/editions/`, and run `npm run check`. Illustrative editions can be removed from `data/editions/` once real ones exist; changes are only computed between editions of the same nature.
+When you are satisfied, change `"status": "draft"` to `"published"`, move the file to `data/editions/`, and run `npm run check`. Illustrative sample editions live in `data/examples/` and never mix with published ones (the validator enforces it); changes are only computed between editions of the same nature.
 
 Deployment (GitHub Pages, manual workflow on `main`) is a separate step that only the owner triggers.

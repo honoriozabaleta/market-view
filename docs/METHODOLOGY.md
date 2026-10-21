@@ -26,7 +26,11 @@ For **positioning** we use exactly one voice per house: the team that publishes 
 
 ## 2. One common scale
 
-Every original label maps to five steps: −2 strong underweight, −1 underweight, 0 neutral, +1 overweight, +2 strong overweight. A house that only uses three steps maps to −1/0/+1. The original wording ("Attractive", "Equal weight", "Tactical overweight") is stored with every call and shown in the detail panel; the mapping per house is printed in the Method section.
+Every original label maps to five steps: −2 strong underweight, −1 underweight, 0 neutral, +1 overweight, +2 strong overweight. A house that only uses three steps maps to −1/0/+1. The original wording ("Overweight", "Equal weight", "Tactical overweight", a "+" tilt) is stored with every call and shown in the detail panel; the mapping per house is printed in the Method section.
+
+**Relative, not absolute.** We compare relative positioning: over- or underweight versus the house's own benchmark or strategic allocation. When a house publishes both absolute views (for example UBS's "Attractive / Neutral / Unattractive" asset class preferences) and tilts versus its strategic allocation, we use the tilts, so every house answers the same question.
+
+**Categories (≈).** A house's row can be broader than ours (Morgan Stanley's "International equities, developed markets" covers Europe and Japan) or narrower (BlackRock's "short-term U.S. Treasuries"). We use the house's row for the closest asset, record it in the call's `basis`, and mark the call with ≈ on the page. When a house splits our category into rows with different stances, we use its stated preference within that category and name the row.
 
 Only explicit allocation labels are mapped. Narrative optimism ("attractive valuations", "bullish") is not an overweight unless that word _is_ the house's allocation scale. A macro forecast is never turned into an allocation.
 
@@ -51,6 +55,8 @@ The verdict follows in this order (`src/domain/consensus.ts`):
 5. Otherwise → **Split**.
 
 "Strongest consensus" is the asset with the highest agreement on a non-neutral side (ties: fewer opposing votes, then larger average). "Biggest split" is the lowest agreement (ties: larger dispersion). The measure describes published labels from our five houses. It is not a market-wide consensus, a portfolio or a recommendation.
+
+**Forecasts: one horizon per card.** A forecast card only compares values for the same target period (for example end-2026, or mid-2027). Values for other horizons are left out, or get their own card; a card with a single value is dropped.
 
 ## 5. Editions and freshness
 

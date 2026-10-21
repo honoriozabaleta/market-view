@@ -68,6 +68,12 @@ export function GridSection({ model, onOpen }: { model: EditionModel; onOpen: Op
               <i className="hatch" />
               No view published
             </span>
+            <span>
+              <b className="basis-key" aria-hidden="true">
+                ≈
+              </b>
+              From the house's broader or narrower category
+            </span>
           </div>
         </Reveal>
         <p className="heat-hint" aria-hidden="true">
@@ -140,10 +146,15 @@ export function GridSection({ model, onOpen }: { model: EditionModel; onOpen: Op
                                   className={`cell ${stanceClass(c.call.score)}`}
                                   style={{ ['--i' as string]: rowIndex + ci }}
                                   data-chg={dir ?? undefined}
-                                  aria-label={`${c.house.name}, ${a.asset.name}: ${label}${changeText}. Open details`}
+                                  aria-label={`${c.house.name}, ${a.asset.name}: ${label}${c.call.basis ? `, based on its “${c.call.basis}” category` : ''}${changeText}. Open details`}
                                   onClick={(e) => onOpen(a.asset.id, c.house.id, e.currentTarget)}
                                 >
                                   {shortLabel(c.call.score)}
+                                  {c.call.basis && (
+                                    <span className="c-basis" aria-hidden="true">
+                                      ≈
+                                    </span>
+                                  )}
                                   {dir && (
                                     <>
                                       <span className={`c-chg ${dir}`} aria-hidden="true">

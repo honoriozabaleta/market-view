@@ -24,6 +24,8 @@ export const callSchema = z
     thesis: z.string().min(1),
     /** Where in the publication the view is stated. */
     locator: z.string().optional(),
+    /** The house's own category when it is broader or narrower than ours, e.g. "International equities (developed markets)". */
+    basis: z.string().min(1).optional(),
     confidence: z.enum(['high', 'medium', 'low']).optional(),
   })
   .refine((c) => (c.score === null) === (c.label === null), {

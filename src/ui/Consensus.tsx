@@ -224,6 +224,11 @@ export function ConsensusSection({ model, onOpen }: { model: EditionModel; onOpe
                                       <ChangeBadge change={c.change} />
                                     </div>
                                     <p>{c.call.thesis}</p>
+                                    {c.call.basis && (
+                                      <p className="call-basis">
+                                        ≈ From its “{c.call.basis}” category
+                                      </p>
+                                    )}
                                     <button
                                       type="button"
                                       className="linkbtn"

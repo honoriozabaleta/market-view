@@ -2393,3 +2393,25 @@ dialog.drawer::backdrop {
   white-space: normal;
   text-align: left;
 }
+
+/* ≈ marks a call taken from the house's own broader or narrower category. */
+.c-basis {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+.basis-key {
+  display: inline-block;
+  width: 14px;
+  margin-right: 6px;
+  text-align: center;
+  font-weight: 700;
+}
+.call-basis {
+  margin-top: 6px;
+  font-size: 12px !important;
+  color: var(--muted) !important;
+}

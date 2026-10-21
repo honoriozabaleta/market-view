@@ -21,8 +21,9 @@ It is an independent personal research project. It is not investment advice and 
 
 ## Status
 
-- The page currently runs on **illustrative data** (`data/editions/2026-q3.json`, `2026-q4.json`) with a permanent banner. Nothing in it is a real institutional view.
-- The first real edition is drafted privately under `data/drafts/` (git-ignored) and needs the owner's review before it moves to `data/editions/`. See [docs/EDITIONS.md](docs/EDITIONS.md).
+- **Q4 2026 is the first published edition** (`data/editions/2026-q4.json`, cut-off 20 October 2026): five houses, 44 explicit calls and seven forecast cards, each checked against the houses' official publications and reviewed by the owner on 21 October 2026.
+- The illustrative Q3/Q4 2026 sample editions now live in `data/examples/`. They are used by the unit tests and are never loaded by the site.
+- New editions are drafted privately under `data/drafts/` (git-ignored) and move to `data/editions/` after the owner's review. See [docs/EDITIONS.md](docs/EDITIONS.md).
 - The earlier Codex foundation (provenance engine, fictional demo, research pilot) is kept in `archive/codex-foundation/` and on the branch `codex/research-pilot`. It is not part of the build.
 
 ## Run locally
@@ -51,7 +52,7 @@ Playwright needs a browser. Either `npx playwright install chromium`, or reuse a
 - **React + TypeScript + Vite**, a single static page. Animations with [Motion](https://motion.dev); fonts (Inter, Bricolage Grotesque) are self-hosted from npm packages under the SIL Open Font License, so the page makes no third-party requests.
 - `src/domain/` holds the rules: the catalogue of houses and assets, the data schema (zod) and the consensus maths. The UI only consumes them.
 - `src/ui/` holds the presentation. `Globe.tsx` draws the animated globe on a canvas from `src/assets/land-points.json` (Natural Earth 1:110m land, public domain).
-- `data/editions/*.json` are the published editions. `data/drafts/` is private work and is blocked from public builds by `vite.config.ts`.
+- `data/editions/*.json` are the published editions. `data/examples/` holds illustrative fixtures for tests. `data/drafts/` is private work and is blocked from public builds by `vite.config.ts`.
 
 Read next: [Methodology](docs/METHODOLOGY.md) · [Adding an edition](docs/EDITIONS.md) · [Design system](docs/DESIGN.md) · [Publication map of the five institutions](docs/RESEARCH_PUBLICATION_MAP.md).
 

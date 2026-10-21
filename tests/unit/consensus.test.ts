@@ -8,8 +8,8 @@ import {
 import { buildModel } from '../../src/domain/model';
 import { parseEditions } from '../../src/data/editions';
 import { editionSchema, type Edition } from '../../src/domain/schema';
-import q3 from '../../data/editions/2026-q3.json';
-import q4 from '../../data/editions/2026-q4.json';
+import q3 from '../../data/examples/2026-q3.json';
+import q4 from '../../data/examples/2026-q4.json';
 
 const E3 = editionSchema.parse(q3);
 const E4 = editionSchema.parse(q4);
@@ -111,6 +111,15 @@ describe('edition validation', () => {
     expect(editionSchema.safeParse(mislabeled).success).toBe(false);
   });
 
+  it('accepts a call taken from a broader house category and keeps it', () => {
+    const withBasis = structuredClone(q4) as unknown as {
+      houses: { calls: { basis?: string }[] }[];
+    };
+    withBasis.houses[4].calls[1].basis = 'International Equities (Developed Markets)';
+    const parsed = editionSchema.parse(withBasis);
+    expect(parsed.houses[4].calls[1].basis).toBe('International Equities (Developed Markets)');
+  });
+
   it('rejects non-HTTPS sources and sources dated after the cut-off', () => {
     const http = structuredClone(q4) as unknown as {
       houses: { source: { url: string; published: string } }[];
@@ -120,5 +129,18 @@ describe('edition validation', () => {
     const late = structuredClone(q4) as unknown as { houses: { source: { published: string } }[] };
     late.houses[0].source.published = '2026-12-31';
     expect(editionSchema.safeParse(late).success).toBe(false);
+  });
+});
+
+describe('published editions', () => {
+  it('only contain real, reviewed data', async () => {
+    const files = import.meta.glob('../../data/editions/*.json', {
+      eager: true,
+      import: 'default',
+    });
+    const { editions, errors } = parseEditions(files);
+    expect(errors).toEqual([]);
+    expect(editions.length).toBeGreaterThan(0);
+    for (const e of editions) expect(e.status).toBe('published');
   });
 });
