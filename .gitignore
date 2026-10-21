@@ -1,6 +1,6 @@
 node_modules/
 dist/
-dist-demo/
+dist-drafts/
 playwright-report/
 test-results/
 .vitest/

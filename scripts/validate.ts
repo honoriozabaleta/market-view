@@ -1,80 +1,53 @@
-import { readFile, readdir } from 'node:fs/promises';
-import { DatasetSchema, OfficialUrlSchema } from '../src/domain/schema';
-import { execFileSync } from 'node:child_process';
-import { assertArchiveIntegrity } from './archive-integrity';
-import { ResearchInventorySchema } from '../src/domain/research';
-import { loadResearchWorkspace, readResearchJson } from './research-workspace';
+/**
+ * Validates every edition file. Usage:
+ *   npm run validate              -> data/editions (public)
+ *   npm run validate -- --drafts  -> also data/drafts (private, local)
+ */
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { editionSchema } from '../src/domain/schema';
+import { consensusOf } from '../src/domain/consensus';
 
-export async function readDataset(path: string) {
-  const result = DatasetSchema.safeParse(JSON.parse(await readFile(path, 'utf8')));
-  if (!result.success)
-    throw new Error(
-      `${path}\n${result.error.issues.map((i) => `  ${i.path.join('.')}: ${i.message}`).join('\n')}`,
-    );
-  return result.data;
-}
-export async function validateAll() {
-  for (const path of [
-    'data/published/dataset.json',
-    'data/demo/dataset.json',
-    ...(await readdir('data/drafts'))
-      .filter((p) => p.endsWith('.json'))
-      .map((p) => `data/drafts/${p}`),
-  ]) {
-    const data = await readDataset(path);
-    const expected = path.includes('/demo/')
-      ? 'demo'
-      : path.includes('/drafts/')
-        ? 'draft'
-        : 'published';
-    if (data.mode !== expected) throw new Error(`${path}: expected ${expected} mode`);
-    if (expected !== 'draft') {
-      const requestedRef = process.env.ARCHIVE_BASE_REF || 'HEAD';
-      const ref = /^0+$/.test(requestedRef) ? 'HEAD' : requestedRef;
-      if (!/^[a-zA-Z0-9/_.-]+$/.test(ref)) throw new Error('Invalid archive baseline ref');
-      const exists = execFileSync('git', ['ls-tree', ref, '--', path], { encoding: 'utf8' }).trim();
-      if (exists) {
-        const previous = DatasetSchema.parse(
-          JSON.parse(execFileSync('git', ['show', `${ref}:${path}`], { encoding: 'utf8' })),
-        );
-        assertArchiveIntegrity(previous, data);
-      }
+const dirs = ['data/editions', ...(process.argv.includes('--drafts') ? ['data/drafts'] : [])];
+let failed = false;
+
+for (const dir of dirs) {
+  if (!existsSync(dir)) continue;
+  for (const file of readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .sort()) {
+    const path = join(dir, file);
+    const parsed = editionSchema.safeParse(JSON.parse(readFileSync(path, 'utf8')));
+    if (!parsed.success) {
+      failed = true;
+      console.error(`✗ ${path}`);
+      for (const issue of parsed.error.issues)
+        console.error(`   ${issue.path.join('.')}: ${issue.message}`);
+      continue;
     }
-    console.log(`Valid: ${path} (${data.observations.length} observations)`);
-  }
-  const registry = JSON.parse(await readFile('data/candidates/registry.json', 'utf8')) as {
-    candidates: { status: string; verifiedUrl: string | null }[];
-  };
-  for (const candidate of registry.candidates) {
-    if (candidate.status !== 'pending_review')
-      throw new Error('Candidate registry cannot claim approval');
-    if (candidate.verifiedUrl) OfficialUrlSchema.parse(candidate.verifiedUrl);
-  }
-  console.log('Valid: candidate registry (not bundled)');
-  await readResearchJson('data/candidates/research-pilot.json', ResearchInventorySchema);
-  console.log('Valid: research pilot bibliography (not approved coverage; not bundled)');
-  let privateWorkspaceExists = true;
-  try {
-    await readFile('.local/research-pilot/inventory.json', 'utf8');
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-    privateWorkspaceExists = false;
-  }
-  if (privateWorkspaceExists) {
-    const { packets } = await loadResearchWorkspace('.local/research-pilot');
+    const e = parsed.data;
+    if (dir === 'data/editions' && e.status === 'draft') {
+      failed = true;
+      console.error(`✗ ${path}: drafts belong in data/drafts until the owner reviews them`);
+      continue;
+    }
+    if (`${e.id}.json` !== file) {
+      failed = true;
+      console.error(`✗ ${path}: file name must match the edition id (${e.id}.json)`);
+      continue;
+    }
+    const explicit = e.houses.flatMap((h) => h.calls).filter((c) => c.score !== null).length;
+    const thin = e.houses.length
+      ? [...new Set(e.houses.flatMap((h) => h.calls.map((c) => c.asset)))].filter(
+          (a) =>
+            consensusOf(e.houses.map((h) => h.calls.find((c) => c.asset === a)!.score)).verdict
+              .id === 'insufficient',
+        )
+      : [];
     console.log(
-      `Valid: private research workspace (${packets.length} pending packages; local only)`,
+      `✓ ${path}  ${e.label} · ${e.status} · ${e.houses.length} houses · ${explicit} explicit calls · ${e.forecasts.length} forecasts` +
+        (thin.length ? ` · too few views: ${thin.join(', ')}` : ''),
     );
-  } else {
-    console.log('Private research workspace absent; real drafts are intentionally not in Git.');
   }
-  const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' }).split('\n');
-  if (
-    tracked.some(
-      (p) =>
-        /^(?:data\/drafts\/(?!\.gitkeep)|\.local\/|\.env(?:\.|$))/.test(p) && p !== '.env.example',
-    )
-  )
-    throw new Error('Private working files are tracked by Git');
 }
-if (process.argv[1]?.replaceAll('\\', '/').endsWith('/validate.ts')) await validateAll();
+if (failed) process.exit(1);

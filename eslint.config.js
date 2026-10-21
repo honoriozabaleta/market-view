@@ -5,8 +5,10 @@ export default tseslint.config(
   {
     ignores: [
       '.local/**',
+      'archive/**',
+      'concept/**',
       'dist/**',
-      'dist-demo/**',
+      'dist-drafts/**',
       'node_modules/**',
       'playwright-report/**',
       'test-results/**',
@@ -14,5 +16,5 @@ export default tseslint.config(
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  { languageOptions: { globals: { ...globals.browser, ...globals.node, __DEMO__: 'readonly' } } },
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
 );

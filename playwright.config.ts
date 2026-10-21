@@ -1,42 +1,36 @@
 import { defineConfig } from '@playwright/test';
+
+/**
+ * Serves the production build and runs the main stories at phone, tablet and desktop widths.
+ * Phone and tablet run with reduced motion (also covering that accessibility path); desktop runs
+ * every animation. Locally you can reuse an installed browser: PW_CHANNEL=msedge npm run test:browser
+ */
+const channel = process.env.PW_CHANNEL;
 export default defineConfig({
   testDir: './tests/browser',
   fullyParallel: true,
-  workers: process.env.CI ? 2 : 3,
+  workers: 2,
+  timeout: 60_000,
   retries: process.env.CI ? 1 : 0,
-  reporter: [['list'], ['html', { open: 'never' }]],
-  use: { trace: 'retain-on-failure', screenshot: 'only-on-failure' },
-  projects: ['chromium', 'webkit'].flatMap((browserName) =>
-    [390, 820, 1440].map((width) => ({
-      name: `${browserName}-${width}`,
-      use: {
-        browserName: browserName as 'chromium' | 'webkit',
-        viewport: { width, height: 1000 },
-        hasTouch: width === 390,
-      },
-    })),
-  ),
-  webServer: [
-    {
-      command:
-        'npx tsx scripts/serve-static.ts .local/browser/published-subdirectory /market-view/ 4176',
-      url: 'http://127.0.0.1:4176/market-view/',
-      reuseExistingServer: false,
+  reporter: [['list']],
+  use: {
+    baseURL: 'http://127.0.0.1:4175',
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+  },
+  projects: [390, 820, 1440].map((width) => ({
+    name: `chromium-${width}`,
+    use: {
+      browserName: 'chromium',
+      channel,
+      viewport: { width, height: 900 },
+      hasTouch: width === 390,
+      reducedMotion: width === 1440 ? 'no-preference' : 'reduce',
     },
-    {
-      command: 'npx tsx scripts/serve-static.ts .local/browser/root / 4173',
-      url: 'http://127.0.0.1:4173',
-      reuseExistingServer: false,
-    },
-    {
-      command: 'npx tsx scripts/serve-static.ts .local/browser/subdirectory /market-view/ 4174',
-      url: 'http://127.0.0.1:4174/market-view/',
-      reuseExistingServer: false,
-    },
-    {
-      command: 'npx tsx scripts/serve-static.ts dist / 4175',
-      url: 'http://127.0.0.1:4175',
-      reuseExistingServer: false,
-    },
-  ],
+  })),
+  webServer: {
+    command: 'npx vite preview --host 127.0.0.1 --port 4175 --strictPort',
+    url: 'http://127.0.0.1:4175',
+    reuseExistingServer: false,
+  },
 });

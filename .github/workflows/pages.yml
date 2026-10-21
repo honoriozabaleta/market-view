@@ -1,4 +1,4 @@
-name: Publish approved data to Pages (manual)
+name: Publish to GitHub Pages (manual)
 on:
   workflow_dispatch:
 permissions:
@@ -26,7 +26,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Build only approved published data for project Pages
+      - name: Build the public editions for project Pages
         run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/

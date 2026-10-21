@@ -1,31 +1,29 @@
 {
   "name": "market-view",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "engines": {
     "node": ">=24 <25"
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "dev:demo": "vite --mode demo --host 127.0.0.1",
-    "build": "tsx scripts/build.ts",
-    "build:demo": "vite build --mode demo --outDir dist-demo",
+    "dev:drafts": "vite --mode drafts --host 127.0.0.1",
+    "build": "tsx scripts/validate.ts && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "validate:data": "tsx scripts/validate.ts",
-    "import:draft": "tsx scripts/import-draft.ts",
-    "research:import": "tsx scripts/research.ts import",
-    "research:validate": "tsx scripts/research.ts validate",
-    "research:review": "tsx scripts/research.ts review",
+    "validate": "tsx scripts/validate.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
-    "test:browser": "tsx scripts/prepare-browser.ts && playwright test",
-    "check": "npm run validate:data && npm run typecheck && npm run lint && npm test && npm run build",
+    "test:browser": "npm run build && playwright test",
+    "check": "npm run validate && npm run typecheck && npm run lint && npm test && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "5.3.0",
+    "@fontsource-variable/inter": "5.3.0",
+    "motion": "14.4.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "zod": "4.6.7"

@@ -1,0 +1,694 @@
+{
+  "id": "2026-q4",
+  "label": "Q4 2026",
+  "cutoff": "2026-10-15",
+  "status": "illustrative",
+  "note": {
+    "title": "Editor's note (illustrative)",
+    "body": "In the live product each edition opens with a short note from the editor: what moved in the consensus, where the houses disagree and what to watch next quarter."
+  },
+  "houses": [
+    {
+      "house": "jpm",
+      "source": {
+        "title": "Global Asset Allocation Views (illustrative)",
+        "url": "https://am.jpmorgan.com/content/jpm-am-aem/global-institutional/us/en/institutional/insights/portfolio-insights/asset-class-views/asset-allocation.html",
+        "published": "2026-10-01"
+      },
+      "worldview": "Above-trend US growth with AI doing the heavy lifting: stay pro-risk, but diversify.",
+      "keyRisk": "An aggressive Fed or an equity-led slowdown.",
+      "calls": [
+        {
+          "asset": "us-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "AI-driven earnings growth keeps US leadership intact."
+        },
+        {
+          "asset": "europe-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Cheap valuations offset by soft growth."
+        },
+        {
+          "asset": "japan-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Corporate reform and buybacks support returns."
+        },
+        {
+          "asset": "em-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Oil, dollar and positioning temper earnings upside."
+        },
+        {
+          "asset": "us-treasuries",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Yields fairly priced; duration as a hedge only."
+        },
+        {
+          "asset": "ig-credit",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Tight spreads leave little room for error."
+        },
+        {
+          "asset": "hy-credit",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Carry still pays despite tight spreads."
+        },
+        {
+          "asset": "em-debt",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "High real yields and easing cycles support local debt."
+        },
+        {
+          "asset": "gold",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "A diversifier against geopolitical and fiscal risk."
+        },
+        {
+          "asset": "commodities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "A supply surplus caps oil upside."
+        },
+        {
+          "asset": "us-dollar",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Narrowing rate differentials weigh on the dollar."
+        },
+        {
+          "asset": "cash",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Falling rates erode cash returns."
+        }
+      ]
+    },
+    {
+      "house": "ubs",
+      "source": {
+        "title": "House View (illustrative)",
+        "url": "https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view.html",
+        "published": "2026-10-09"
+      },
+      "worldview": "Rate cuts and AI keep the bull market alive; add quality bonds and gold as ballast.",
+      "keyRisk": "A renewed inflation scare that stops Fed easing.",
+      "calls": [
+        {
+          "asset": "us-equities",
+          "score": 1,
+          "label": "Attractive",
+          "thesis": "Rate cuts and tech earnings extend the bull market."
+        },
+        {
+          "asset": "europe-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Fiscal support helps, but earnings momentum lags."
+        },
+        {
+          "asset": "japan-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Governance gains, but yen strength is a headwind."
+        },
+        {
+          "asset": "em-equities",
+          "score": 1,
+          "label": "Attractive",
+          "thesis": "A weaker dollar and Asian tech demand help."
+        },
+        {
+          "asset": "us-treasuries",
+          "score": 1,
+          "label": "Attractive",
+          "thesis": "Quality bonds offer attractive yields as the Fed cuts."
+        },
+        {
+          "asset": "ig-credit",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Solid fundamentals, but spreads near historic tights."
+        },
+        {
+          "asset": "hy-credit",
+          "score": -1,
+          "label": "Unattractive",
+          "thesis": "Spreads do not compensate for default risk."
+        },
+        {
+          "asset": "em-debt",
+          "score": 1,
+          "label": "Attractive",
+          "thesis": "Attractive carry with a softer dollar."
+        },
+        {
+          "asset": "gold",
+          "score": 2,
+          "label": "Most attractive",
+          "thesis": "Central-bank buying and lower rates strengthen the case."
+        },
+        {
+          "asset": "commodities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Balanced outlook; prefers gold within commodities."
+        },
+        {
+          "asset": "us-dollar",
+          "score": -1,
+          "label": "Unattractive",
+          "thesis": "Expects gradual depreciation as the Fed eases."
+        },
+        {
+          "asset": "cash",
+          "score": -1,
+          "label": "Unattractive",
+          "thesis": "Lock in yields before further rate cuts."
+        }
+      ]
+    },
+    {
+      "house": "blk",
+      "source": {
+        "title": "Weekly commentary (illustrative)",
+        "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/global-weekly-commentary",
+        "published": "2026-10-13"
+      },
+      "worldview": "Mega forces reshape the economy; keep overall risk neutral and pick AI winners selectively.",
+      "keyRisk": "Bond-market stress from fiscal deficits.",
+      "calls": [
+        {
+          "asset": "us-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Neutral overall, but AI beneficiaries are still preferred."
+        },
+        {
+          "asset": "europe-equities",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Political and fiscal noise weigh on the region."
+        },
+        {
+          "asset": "japan-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Shareholder-friendly reform remains a multi-year story."
+        },
+        {
+          "asset": "em-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Selective: India and tech supply chains over broad EM."
+        },
+        {
+          "asset": "us-treasuries",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Higher starting yields now offer a bigger buffer."
+        },
+        {
+          "asset": "ig-credit",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Heavy AI-related issuance pressures spreads."
+        },
+        {
+          "asset": "hy-credit",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Only higher-rated high yield looks attractive."
+        },
+        {
+          "asset": "em-debt",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Prefers hard-currency debt, selectively."
+        },
+        {
+          "asset": "gold",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "A hedge against fiscal and geopolitical shocks."
+        },
+        {
+          "asset": "commodities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "No strong tactical view."
+        },
+        {
+          "asset": "us-dollar",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "The dollar is no longer a reliable portfolio hedge."
+        },
+        {
+          "asset": "cash",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Keeps dry powder for opportunities."
+        }
+      ]
+    },
+    {
+      "house": "gs",
+      "source": {
+        "title": "ISG Outlook and tactical tilts (illustrative)",
+        "url": "https://pwm.gs.com/nam/en-us/insights/markets-and-investing",
+        "published": "2026-07-21"
+      },
+      "worldview": "US exceptionalism persists: stay invested and resist the urge to time the cycle.",
+      "keyRisk": "Tariff escalation that hits margins.",
+      "calls": [
+        {
+          "asset": "us-equities",
+          "score": 1,
+          "label": "Tactical overweight",
+          "thesis": "US exceptionalism in growth and profits persists."
+        },
+        {
+          "asset": "europe-equities",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "The valuation discount is justified by weaker earnings."
+        },
+        {
+          "asset": "japan-equities",
+          "score": null,
+          "label": null,
+          "thesis": "No explicit view on Japan in this publication."
+        },
+        {
+          "asset": "em-equities",
+          "score": -1,
+          "label": "Tactical underweight",
+          "thesis": "Tariff risk and China uncertainty outweigh cheap valuations."
+        },
+        {
+          "asset": "us-treasuries",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Term premium keeps long-end risk elevated."
+        },
+        {
+          "asset": "ig-credit",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Income appeal balanced by tight valuations."
+        },
+        {
+          "asset": "hy-credit",
+          "score": -1,
+          "label": "Tactical underweight",
+          "thesis": "Late-cycle risks argue for caution."
+        },
+        {
+          "asset": "em-debt",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Carry is appealing but vulnerable to risk-off."
+        },
+        {
+          "asset": "gold",
+          "score": -1,
+          "label": "Tactical underweight",
+          "thesis": "Not recommended as a long-term portfolio hedge."
+        },
+        {
+          "asset": "commodities",
+          "score": 1,
+          "label": "Tactical overweight",
+          "thesis": "Tight supply in industrial metals supports prices."
+        },
+        {
+          "asset": "us-dollar",
+          "score": 1,
+          "label": "Tactical overweight",
+          "thesis": "US growth outperformance keeps the dollar supported."
+        },
+        {
+          "asset": "cash",
+          "score": 0,
+          "label": "Neutral",
+          "thesis": "Neutral; cash as a source of funds."
+        }
+      ]
+    },
+    {
+      "house": "ms",
+      "source": {
+        "title": "On the Markets (illustrative)",
+        "url": "https://graystone.morganstanley.com/graystone-consulting-new-york-ny-penn-plaza/thought_leadership",
+        "published": "2026-10-01"
+      },
+      "worldview": "A strong but narrow rally: broaden out into Japan and emerging markets.",
+      "keyRisk": "Concentration in a handful of mega-cap stocks.",
+      "calls": [
+        {
+          "asset": "us-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Strong but concentrated; prefers broadening beyond mega-caps."
+        },
+        {
+          "asset": "europe-equities",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Earnings revisions are turning negative."
+        },
+        {
+          "asset": "japan-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Reform and reflation favour domestic cyclicals."
+        },
+        {
+          "asset": "em-equities",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Cheaper valuations and broadening growth."
+        },
+        {
+          "asset": "us-treasuries",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Intermediate maturities look tactically attractive."
+        },
+        {
+          "asset": "ig-credit",
+          "score": 0,
+          "label": "Equal weight",
+          "thesis": "Stay up in quality; spreads offer limited cushion."
+        },
+        {
+          "asset": "hy-credit",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Private-credit spillovers are a growing concern."
+        },
+        {
+          "asset": "em-debt",
+          "score": 0,
+          "label": "Equal weight",
+          "thesis": "Selective opportunities in Latin America."
+        },
+        {
+          "asset": "gold",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Real assets help diversify equity-bond risk."
+        },
+        {
+          "asset": "commodities",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Oversupply and slowing demand weigh on crude."
+        },
+        {
+          "asset": "us-dollar",
+          "score": 1,
+          "label": "Overweight",
+          "thesis": "Rate differentials still favour the dollar near term."
+        },
+        {
+          "asset": "cash",
+          "score": -1,
+          "label": "Underweight",
+          "thesis": "Excess cash should be put to work."
+        }
+      ]
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "spx",
+      "name": "S&P 500",
+      "sub": "Year-end 2026 target",
+      "kind": "level",
+      "decimals": 0,
+      "unit": null,
+      "spot": 7050,
+      "values": {
+        "jpm": {
+          "value": 7800
+        },
+        "ubs": {
+          "value": 7600
+        },
+        "blk": null,
+        "gs": {
+          "value": 8000
+        },
+        "ms": {
+          "value": 7700
+        }
+      }
+    },
+    {
+      "id": "ust10",
+      "name": "US 10-year yield",
+      "sub": "End-2026 forecast",
+      "kind": "rate",
+      "decimals": 2,
+      "unit": "%",
+      "spot": 4.1,
+      "values": {
+        "jpm": {
+          "value": 3.9
+        },
+        "ubs": {
+          "value": 3.75
+        },
+        "blk": {
+          "value": 4.25
+        },
+        "gs": {
+          "value": 4.0
+        },
+        "ms": {
+          "value": 3.85
+        }
+      }
+    },
+    {
+      "id": "ff",
+      "name": "Fed funds rate",
+      "sub": "Upper bound, end-2026",
+      "kind": "rate",
+      "decimals": 2,
+      "unit": "%",
+      "spot": 3.75,
+      "values": {
+        "jpm": {
+          "value": 3.25
+        },
+        "ubs": {
+          "value": 3.0
+        },
+        "blk": {
+          "value": 3.5
+        },
+        "gs": {
+          "value": 3.25
+        },
+        "ms": {
+          "value": 3.0
+        }
+      }
+    },
+    {
+      "id": "eurusd",
+      "name": "EUR/USD",
+      "sub": "End-2026 forecast",
+      "kind": "level",
+      "decimals": 2,
+      "unit": null,
+      "spot": 1.17,
+      "values": {
+        "jpm": {
+          "value": 1.2
+        },
+        "ubs": {
+          "value": 1.22
+        },
+        "blk": null,
+        "gs": {
+          "value": 1.14
+        },
+        "ms": {
+          "value": 1.19
+        }
+      }
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "sub": "US$ per ounce, end-2026",
+      "kind": "level",
+      "decimals": 0,
+      "unit": null,
+      "spot": 4200,
+      "values": {
+        "jpm": {
+          "value": 4500
+        },
+        "ubs": {
+          "value": 4800
+        },
+        "blk": null,
+        "gs": {
+          "value": 4300
+        },
+        "ms": {
+          "value": 4600
+        }
+      }
+    },
+    {
+      "id": "brent",
+      "name": "Brent crude",
+      "sub": "US$ per barrel, end-2026",
+      "kind": "level",
+      "decimals": 0,
+      "unit": null,
+      "spot": 64,
+      "values": {
+        "jpm": {
+          "value": 60
+        },
+        "ubs": {
+          "value": 65
+        },
+        "blk": null,
+        "gs": {
+          "value": 62
+        },
+        "ms": {
+          "value": 58
+        }
+      }
+    },
+    {
+      "id": "gdp",
+      "name": "US real GDP",
+      "sub": "2027 growth, % y/y",
+      "kind": "growth",
+      "decimals": 1,
+      "unit": "%",
+      "spot": null,
+      "values": {
+        "jpm": {
+          "value": 1.8
+        },
+        "ubs": {
+          "value": 1.6
+        },
+        "blk": {
+          "value": 1.9
+        },
+        "gs": {
+          "value": 2.1
+        },
+        "ms": {
+          "value": 1.7
+        }
+      }
+    },
+    {
+      "id": "cpi",
+      "name": "US core inflation",
+      "sub": "2027, % y/y",
+      "kind": "growth",
+      "decimals": 1,
+      "unit": "%",
+      "spot": null,
+      "values": {
+        "jpm": {
+          "value": 2.7
+        },
+        "ubs": {
+          "value": 2.5
+        },
+        "blk": {
+          "value": 2.9
+        },
+        "gs": {
+          "value": 2.6
+        },
+        "ms": {
+          "value": 2.8
+        }
+      }
+    }
+  ],
+  "themes": [
+    {
+      "name": "AI investment and earnings",
+      "houses": [
+        "jpm",
+        "ubs",
+        "blk",
+        "gs",
+        "ms"
+      ]
+    },
+    {
+      "name": "Fed easing cycle",
+      "houses": [
+        "jpm",
+        "ubs",
+        "gs",
+        "ms"
+      ]
+    },
+    {
+      "name": "Fiscal deficits and term premium",
+      "houses": [
+        "ubs",
+        "blk",
+        "gs",
+        "ms"
+      ]
+    },
+    {
+      "name": "Tariffs and trade policy",
+      "houses": [
+        "jpm",
+        "gs",
+        "ms"
+      ]
+    },
+    {
+      "name": "Geopolitical fragmentation",
+      "houses": [
+        "jpm",
+        "ubs",
+        "blk"
+      ]
+    },
+    {
+      "name": "Private-credit risks",
+      "houses": [
+        "blk",
+        "ms"
+      ]
+    },
+    {
+      "name": "China policy support",
+      "houses": [
+        "jpm",
+        "blk"
+      ]
+    }
+  ]
+}

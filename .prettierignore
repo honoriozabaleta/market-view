@@ -1,9 +1,11 @@
-prompts/
+archive/
+docs/concept-v0.1.html
 node_modules/
 dist/
-dist-demo/
+dist-drafts/
 .local/
 data/drafts/
 playwright-report/
 test-results/
 package-lock.json
+src/assets/land-points.json

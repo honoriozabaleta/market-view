@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market View — Concept</title>
+<meta name="theme-color" content="#0A0F1C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F4EF; --surface:#FFFFFF; --surface-2:#FBFAF7;
+  --ink:#0D1424; --ink-2:#38415A; --muted:#667085; --rule:#E6E2D9; --rule-strong:#D2CDC1;
+  --night:#0A0F1C; --night-2:#111A2E; --night-3:#1A2540; --night-ink:#EEF1F7; --night-muted:#A3ADC2;
+  --accent:#3355FF; --accent-soft:#E9EDFF; --accent-ink:#1F3BD1;
+  --ow2:#0B7A5A; --ow1:#47B38E; --n:#D9D3C5; --uw1:#EE8B78; --uw2:#C23E2B;
+  --ow-soft:#E2F3EB; --n-soft:#EFECE5; --uw-soft:#FBE7E2;
+  --amber:#B76E00; --amber-soft:#FFF1D6;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 1px 2px rgba(13,20,36,.05),0 10px 30px rgba(13,20,36,.06);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:110px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.025em;line-height:1.05;margin:0;font-weight:700}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.num{font-variant-numeric:tabular-nums}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.top{position:sticky;top:0;z-index:50}
+.proto{background:#FFE7A8;color:#4A3600;font-size:13px;text-align:center;padding:6px 16px;line-height:1.4}
+.proto strong{font-weight:700}
+.nav{background:rgba(10,15,28,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);color:var(--night-ink);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-in{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.brand svg{flex:none}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{text-decoration:none;font-size:14px;color:var(--night-muted);padding:8px 12px;border-radius:999px;transition:color .2s,background .2s;white-space:nowrap}
+.links a:hover,.links a.active{color:#fff;background:rgba(255,255,255,.08)}
+.edition{font-size:12px;font-weight:600;letter-spacing:.02em;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);white-space:nowrap}
+@media (max-width:860px){
+  .nav-in{flex-wrap:wrap;height:auto;padding-top:10px;gap:10px 16px}
+  .edition{margin-left:auto}
+  .links{order:3;width:calc(100% + 32px);margin:0 -16px;padding:0 12px 8px;overflow-x:auto;scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:radial-gradient(1200px 500px at 85% -10%,#1C2B57 0%,transparent 60%),var(--night);color:var(--night-ink);overflow:hidden;padding:72px 0 40px}
+.hero-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.4}
+.hero-lines path{fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--night-muted)}
+.pulse{width:8px;height:8px;border-radius:50%;background:#5BE3A8;box-shadow:0 0 0 0 rgba(91,227,168,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(91,227,168,0)}100%{box-shadow:0 0 0 0 rgba(91,227,168,0)}}
+.hero h1{font-size:clamp(40px,5.6vw,72px);margin:18px 0 22px;font-weight:700}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7FA2FF,#5BE3A8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,1.6vw,19px);color:#C9D0DE;max-width:580px;line-height:1.6}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s var(--ease),background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:#fff;color:var(--night)}
+.btn.primary:hover{box-shadow:0 10px 30px rgba(127,162,255,.35)}
+.btn.ghost{border:1px solid rgba(255,255,255,.22);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.glance{position:relative;background:linear-gradient(180deg,rgba(26,37,64,.92),rgba(17,26,46,.92));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px}
+.glance-k{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted);margin-bottom:6px}
+.gl-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.08)}
+.gl-item:first-of-type{border-top:0}
+.gl-ico{grid-row:span 2;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:18px;font-weight:700}
+.gl-ico.ow{background:rgba(71,179,142,.18);color:#6FE0B5}
+.gl-ico.split{background:rgba(255,196,87,.16);color:#FFC457}
+.gl-ico.move{background:rgba(127,162,255,.18);color:#9DB6FF}
+.gl-lab{font-size:12px;color:var(--night-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.gl-val{font-family:"Bricolage Grotesque";font-size:21px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.gl-meta{grid-column:2;font-size:13px;color:#C9D0DE}
+.kpis{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+.kpi-n{display:block;font-family:"Bricolage Grotesque";font-size:clamp(34px,4vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.kpi span:last-child{font-size:14px;color:var(--night-muted)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}.kpis{grid-template-columns:repeat(2,1fr);row-gap:24px}}
+@media (max-width:600px){.hero{padding:44px 0 32px}}
+
+/* ---------- Sections ---------- */
+.section{padding:96px 0}
+.section.alt{background:var(--surface-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.s-head{display:grid;grid-template-columns:1fr auto;gap:20px 40px;align-items:end;margin-bottom:36px}
+.s-kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
+.s-head h2{font-size:clamp(32px,4vw,48px)}
+.s-sub{color:var(--muted);font-size:17px;max-width:620px;margin-top:14px}
+@media (max-width:760px){.section{padding:64px 0}.s-head{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+.reveal.in{opacity:1;transform:none}
+
+/* toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{border:0;background:transparent;min-height:38px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.seg button:hover:not([aria-pressed="true"]){background:var(--n-soft)}
+
+/* house legend */
+.hlegend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;align-items:center}
+.hlegend-k{font-size:13px;color:var(--muted);margin-right:4px}
+.avg-key{margin-left:auto}
+@media (max-width:860px){.avg-key{margin-left:0}}
+.hchip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--rule);background:var(--surface);border-radius:999px;padding:4px 12px 4px 4px;min-height:36px;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s,box-shadow .2s,opacity .2s}
+.hchip[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.mono{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--hc,#333);color:#fff;font:700 10px/1 Inter;letter-spacing:.02em;flex:none}
+.mono.lg{width:46px;height:46px;font-size:14px}
+.mono.sm{width:24px;height:24px;font-size:9px}
+
+/* ---------- Consensus meter ---------- */
+.meter-wrap{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.m-grid{display:grid;grid-template-columns:210px minmax(0,1fr) 220px 28px;gap:24px;align-items:center}
+.scale-head{padding:14px 24px;border-bottom:1px solid var(--rule);font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;background:var(--surface-2)}
+.scale-labels{position:relative;height:16px}
+.scale-labels span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.scale-labels span:first-child{transform:none}
+.scale-labels span:last-child{transform:translateX(-100%)}
+.meter{list-style:none;margin:0;padding:0}
+.m-row{border-bottom:1px solid var(--rule);position:relative;background:var(--surface)}
+.m-row:last-child{border-bottom:0}
+.m-btn{width:100%;border:0;background:transparent;text-align:left;padding:18px 24px;cursor:pointer;transition:background .2s}
+.m-btn:hover{background:#FCFBF8}
+.m-name strong{display:block;font-size:16px;font-weight:600}
+.m-name small{font-size:13px;color:var(--muted)}
+.m-track{position:relative;height:46px;border-radius:999px;background:linear-gradient(90deg,var(--uw-soft),var(--n-soft) 50%,var(--ow-soft))}
+.m-tick{position:absolute;top:9px;bottom:9px;width:1px;background:rgba(13,20,36,.12);left:calc(var(--p)*1%)}
+.m-tick.c{background:rgba(13,20,36,.28);top:4px;bottom:4px}
+.m-dot{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--hc);color:#fff;font:700 10px/28px Inter;text-align:center;box-shadow:0 0 0 2.5px #fff,0 2px 6px rgba(13,20,36,.25);transition:left 1s var(--ease) var(--delay,0ms),opacity .25s,transform .25s;z-index:1}
+.in .m-dot{left:calc(var(--p)*1% + var(--o)*1px)}
+@media (max-width:600px){
+  .m-track{height:54px}
+  .m-dot{width:24px;height:24px;margin:-12px 0 0 -12px;font-size:9px;line-height:24px;box-shadow:0 0 0 2px #fff,0 2px 5px rgba(13,20,36,.25);transform:translateY(calc(var(--oy)*1px))}
+  .in .m-dot{left:calc(var(--p)*1% + var(--ox)*1px)}
+  .m-dot.hl{transform:translateY(calc(var(--oy)*1px)) scale(1.15)}
+  .mini{height:46px}
+  .hlegend{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 22px;padding:0 16px 4px}
+  .hlegend::-webkit-scrollbar{display:none}
+  .hchip,.hlegend-k{flex:none}
+}
+.m-dot.dim{opacity:.15}
+.m-dot.hl{transform:scale(1.15);z-index:2}
+.m-avg{position:absolute;bottom:-7px;width:11px;height:11px;margin-left:-5.5px;left:50%;background:var(--ink);transform:rotate(45deg);border-radius:2px;opacity:0;z-index:3;box-shadow:0 0 0 2px #fff;transition:left 1s var(--ease) .3s,opacity .4s .3s}
+.in .m-avg{left:calc(var(--p)*1%);opacity:1}
+.m-verdict{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.vpill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.vpill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.vpill.ow{background:var(--ow-soft);color:#08664B}
+.vpill.lo{background:var(--ow-soft);color:#2F7D62}
+.vpill.n{background:var(--n-soft);color:#5B5446}
+.vpill.lu{background:var(--uw-soft);color:#A3412F}
+.vpill.uw{background:var(--uw-soft);color:#9A2E1E}
+.vpill.split{background:var(--amber-soft);color:#8A5300}
+.m-verdict small{font-size:13px;color:var(--muted)}
+.chev{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--rule);transition:transform .35s var(--ease),background .2s}
+.m-row.open .chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.m-exp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease),visibility .45s;visibility:hidden}
+.m-row.open .m-exp{grid-template-rows:1fr;visibility:visible}
+.m-exp-in{overflow:hidden}
+.calls{list-style:none;margin:0;padding:4px 24px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.call{display:flex;gap:12px;padding:14px;border:1px solid var(--rule);border-radius:var(--radius-sm);background:var(--surface-2)}
+.call-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-bottom:6px}
+.call-top strong{font-size:14px}
+.call p{font-size:14px;color:var(--ink-2);line-height:1.45}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.chip.ow2{background:var(--ow2);color:#fff}.chip.ow1{background:var(--ow1);color:var(--ink)}.chip.n{background:var(--n);color:var(--ink)}.chip.uw1{background:var(--uw1);color:var(--ink)}.chip.uw2{background:var(--uw2);color:#fff}
+.chip.none{background:transparent;border:1px dashed var(--rule-strong);color:var(--muted)}
+.chg{font-size:12px;font-weight:600}
+.chg.up{color:#08664B}.chg.down{color:#A3412F}
+.linkbtn{margin-top:8px;border:0;background:none;padding:0;font-size:13px;font-weight:600;color:var(--accent-ink);cursor:pointer;min-height:32px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(31,59,209,.35)}
+@media (max-width:860px){
+  .m-grid{grid-template-columns:1fr auto;gap:12px 16px}
+  .scale-head .m-grid>span:first-child,.scale-head .m-grid>span:nth-child(3),.scale-head .m-grid>span:nth-child(4){display:none}
+  .scale-head .m-grid{grid-template-columns:1fr}
+  .m-name{grid-column:1}
+  .m-verdict{grid-column:1;grid-row:2;flex-direction:row;align-items:center;flex-wrap:wrap}
+  .chev{grid-column:2;grid-row:1}
+  .m-track{grid-column:1/-1;grid-row:3}
+  .m-btn{padding:16px}
+  .scale-head{padding:12px 16px}
+  .calls{padding:4px 16px 18px}
+}
+
+/* ---------- Heatmap ---------- */
+.heat-tools{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.toggle{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--rule);background:var(--surface);border-radius:999px;padding:6px 16px 6px 6px;min-height:44px;cursor:pointer;font-size:14px;font-weight:500}
+.toggle .sw{width:40px;height:24px;border-radius:999px;background:var(--rule-strong);position:relative;transition:background .25s}
+.toggle .sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .25s var(--ease)}
+.toggle[aria-pressed="true"] .sw{background:var(--ink)}
+.toggle[aria-pressed="true"] .sw::after{transform:translateX(16px)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--ink-2);align-items:center}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+.heat-hint{display:none;font-size:13px;color:var(--muted);margin:-6px 0 10px}
+.heat-scroll{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto}
+.heat{border-collapse:separate;border-spacing:6px;width:100%;min-width:780px;padding:8px}
+.heat th{font-weight:600;text-align:left}
+.heat thead th{vertical-align:bottom;padding:8px 6px 10px;font-size:13px}
+.heat thead th .mono{margin-bottom:8px}
+.h-name{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.h-sub{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
+.heat tbody th[scope="row"]{font-size:14px;padding:0 10px 0 6px;white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1}
+.heat thead th:first-child{position:sticky;left:0;background:var(--surface);z-index:1}
+.grp th{font-size:11px!important;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:14px 6px 2px!important;font-weight:700!important}
+.cell{position:relative;width:100%;min-width:84px;height:48px;border:0;border-radius:10px;font-weight:700;font-size:14px;letter-spacing:.02em;cursor:pointer;opacity:0;transform:scale(.7);transition:opacity .5s var(--ease),transform .5s var(--ease),filter .3s,box-shadow .2s;transition-delay:calc(var(--i)*28ms)}
+.in .cell{opacity:1;transform:none}
+.cell:hover{box-shadow:0 0 0 2px var(--ink) inset}
+.cell.ow2{background:var(--ow2);color:#fff}.cell.ow1{background:var(--ow1);color:var(--ink)}.cell.n{background:var(--n);color:var(--ink)}.cell.uw1{background:var(--uw1);color:var(--ink)}.cell.uw2{background:var(--uw2);color:#fff}
+.cell.none{background:repeating-linear-gradient(135deg,#F1EEE7 0 6px,#E7E3DA 6px 12px);color:var(--muted);font-weight:500}
+.c-chg{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--surface);color:var(--ink);font-size:9px;line-height:20px;box-shadow:0 1px 4px rgba(13,20,36,.25)}
+.c-chg.up{color:#08664B}.c-chg.down{color:#A3412F}
+.c-from{display:none;font-size:11px;font-weight:500;opacity:.85}
+.heat.changes .cell:not([data-chg]){filter:grayscale(1) opacity(.28)}
+.heat.changes .cell[data-chg]{box-shadow:0 0 0 2px var(--ink);}
+.heat.changes .c-from{display:block}
+@media (max-width:600px){
+  .heat-hint{display:block}
+  .heat{min-width:0;border-spacing:4px}
+  .heat tbody th[scope="row"]{white-space:normal;min-width:96px;max-width:104px;font-size:13px;line-height:1.25;padding-right:6px}
+  .heat thead th{font-size:12px;padding:6px 4px 8px}
+  .h-name{font-size:12px}
+  .h-sub{display:none}
+  .cell{min-width:58px;height:44px;font-size:13px}
+  .cons{min-width:120px}
+}
+.cons{min-width:150px}
+.cbar{position:relative;display:block;width:100%;height:8px;border-radius:99px;background:var(--n-soft);margin-bottom:6px}
+.cbar::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1.5px;background:rgba(13,20,36,.3)}
+.cbar span{position:absolute;top:0;bottom:0;border-radius:99px;left:50%;width:0;transition:all 1s var(--ease) .5s}
+.in .cbar span{left:var(--l);width:var(--w)}
+.cv{font-size:12px;font-weight:600;color:var(--ink-2)}
+
+/* ---------- Agree / disagree ---------- */
+.ad{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ad-card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.ad-card h3{font-size:24px;margin-bottom:6px}
+.ad-card>p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.ad-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ad-item{padding:16px;border-radius:var(--radius-sm);background:var(--surface-2);border:1px solid var(--rule)}
+.ad-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:10px}
+.ad-top strong{font-size:16px}
+.ad-top .num{font-size:13px;color:var(--muted)}
+.mini{position:relative;height:32px;border-radius:999px;background:linear-gradient(90deg,var(--uw-soft),var(--n-soft) 50%,var(--ow-soft));margin-bottom:10px}
+.mini .m-dot{width:24px;height:24px;margin:-12px 0 0 -12px;font-size:9px;line-height:24px;box-shadow:0 0 0 2px #fff}
+.ad-item p{font-size:14px;color:var(--ink-2)}
+@media (max-width:860px){.ad{grid-template-columns:1fr}.ad-card{padding:20px}}
+
+/* ---------- Forecasts ---------- */
+.fc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.f-card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.f-name{font-family:"Bricolage Grotesque";font-size:20px;font-weight:700;letter-spacing:-.01em}
+.f-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+.f-big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.f-big b{font-family:"Bricolage Grotesque";font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.f-big span{font-size:13px;font-weight:600;padding:3px 8px;border-radius:999px}
+.f-big span.up{background:var(--ow-soft);color:#08664B}.f-big span.down{background:var(--uw-soft);color:#9A2E1E}.f-big span.flat{background:var(--n-soft);color:#5B5446}
+.f-medlab{font-size:12px;color:var(--muted);margin-top:4px}
+.f-strip{position:relative;height:96px;margin:14px 4px 6px}
+.f-axis{position:absolute;left:0;right:0;top:52px;height:2px;background:var(--rule);border-radius:2px}
+.f-range{position:absolute;top:51px;height:4px;background:var(--ink);border-radius:4px;left:calc(var(--a)*1%);width:0;transition:width 1s var(--ease) .2s}
+.in .f-range{width:calc((var(--b) - var(--a))*1%)}
+.f-spot{position:absolute;top:16px;bottom:4px;left:calc(var(--x)*1%);border-left:1.5px dashed var(--muted)}
+.f-spot em{position:absolute;top:-14px;left:0;transform:translateX(-50%);font-style:normal;font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;background:var(--surface);padding:0 4px}
+.f-dot{position:absolute;top:53px;left:calc(var(--x0)*1%);margin:-12px 0 0 -12px;transition:left 1.1s var(--ease) var(--delay,0ms)}
+.f-dot .mono{width:24px;height:24px;font-size:9px;box-shadow:0 0 0 2px #fff,0 2px 5px rgba(13,20,36,.25);transform:translateY(calc(var(--y)*1px))}
+.in .f-dot{left:calc(var(--x)*1%)}
+.f-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.f-vals{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:auto}
+.f-vals li{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;font-weight:600}
+.f-vals li.np{color:var(--muted);font-weight:400}
+.f-vals li.np .mono{opacity:.35}
+@media (max-width:1100px){.fc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.fc{grid-template-columns:1fr}}
+
+/* ---------- Houses ---------- */
+.houses{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.house{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;transition:transform .3s var(--ease),box-shadow .3s}
+.house:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(13,20,36,.05),0 18px 40px rgba(13,20,36,.1)}
+.h-head{display:flex;gap:14px;align-items:center}
+.h-head h3{font-size:22px}
+.h-head p{font-size:13px;color:var(--muted);line-height:1.35;margin-top:3px}
+.h-pub{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;font-weight:500}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink)}
+.fresh{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--ow-soft);color:#08664B}
+.fresh.old{background:var(--amber-soft);color:#8A5300}
+.h-date{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.worldview{margin:0;font-family:"Bricolage Grotesque";font-size:19px;font-weight:600;line-height:1.3;letter-spacing:-.01em;padding-left:14px;border-left:3px solid var(--hc)}
+.dna{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+.dna span{height:26px;border-radius:4px}
+.dna span.ow2{background:var(--ow2)}.dna span.ow1{background:var(--ow1)}.dna span.n{background:var(--n)}.dna span.uw1{background:var(--uw1)}.dna span.uw2{background:var(--uw2)}.dna span.none{background:repeating-linear-gradient(135deg,#F1EEE7 0 4px,#E2DED4 4px 8px)}
+.dna-lab{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}
+.h-dl{display:grid;grid-template-columns:110px 1fr;gap:10px 12px;margin:0;font-size:14px}
+.h-dl dt{color:var(--muted);font-size:13px;padding-top:3px}
+.h-dl dd{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.h-link{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent-ink);text-decoration:none;min-height:40px}
+.h-link:hover{text-decoration:underline}
+@media (max-width:420px){.houses{grid-template-columns:1fr}.h-dl{grid-template-columns:1fr;gap:4px}.h-dl dd{margin-bottom:8px}}
+
+/* ---------- Themes & changes ---------- */
+.tc{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.panel h3{font-size:24px;margin-bottom:6px}
+.panel>p{color:var(--muted);font-size:15px;margin-bottom:22px}
+.themes{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.t-top{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600;margin-bottom:8px}
+.t-top .num{color:var(--muted);font-weight:500}
+.t-bar{height:10px;border-radius:99px;background:var(--n-soft);overflow:hidden}
+.t-bar span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),#7FA2FF);transition:width 1.1s var(--ease) var(--d,0ms)}
+.in .t-bar span{width:var(--w)}
+.t-houses{display:flex;gap:4px;margin-top:8px}
+.changes{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.change{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:12px;border-radius:var(--radius-sm);border:1px solid var(--rule);background:var(--surface-2)}
+.change .arr{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:14px;font-weight:700}
+.change .arr.up{background:var(--ow-soft);color:#08664B}.change .arr.down{background:var(--uw-soft);color:#9A2E1E}
+.change strong{font-size:14px;display:block}
+.change span{font-size:13px;color:var(--muted)}
+@media (max-width:860px){.tc{grid-template-columns:1fr}.panel{padding:20px}}
+
+/* ---------- Method ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.step-n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;font-family:"Bricolage Grotesque";font-weight:700;margin-bottom:16px}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{color:var(--ink-2);font-size:15px}
+.tbl-wrap{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto;margin-bottom:28px}
+.tbl{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
+.tbl caption{text-align:left;padding:22px 22px 6px;font-family:"Bricolage Grotesque";font-size:22px;font-weight:700;letter-spacing:-.01em}
+.tbl caption small{display:block;font-family:Inter;font-size:14px;font-weight:400;color:var(--muted);margin-top:4px;letter-spacing:0}
+.tbl th,.tbl td{padding:14px 22px;border-top:1px solid var(--rule);text-align:left;vertical-align:top}
+.tbl thead th{font-size:13px;color:var(--ink);background:var(--surface-2)}
+.tbl thead th small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
+.tbl tbody th{font-weight:600;white-space:nowrap}
+.tbl td.use{background:#F2F5FF}
+.tbl td.use b{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:4px}
+.tbl td.dim{color:var(--muted)}
+.disclaimer{display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius);background:var(--amber-soft);color:#5A3E00;font-size:14px;line-height:1.55}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+footer{background:var(--night);color:var(--night-muted);padding:40px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+
+/* ---------- Drawer ---------- */
+dialog#drawer{margin:0 0 0 auto;height:100dvh;max-height:100dvh;width:min(460px,100vw);max-width:100vw;border:0;padding:0;background:var(--surface);color:var(--ink);box-shadow:-20px 0 60px rgba(10,15,28,.25)}
+dialog#drawer[open]{animation:slide .4s var(--ease)}
+dialog#drawer::backdrop{background:rgba(10,15,28,.45);backdrop-filter:blur(2px)}
+@keyframes slide{from{transform:translateX(100%)}to{transform:none}}
+.dr{display:flex;flex-direction:column;height:100%;overflow-y:auto}
+.dr-head{display:flex;align-items:center;gap:12px;padding:20px 22px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:var(--surface);z-index:1}
+.dr-head div{flex:1;min-width:0}
+.dr-head small{display:block;font-size:12px;color:var(--muted)}
+.dr-head strong{font-size:16px}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);cursor:pointer;font-size:20px;line-height:1}
+.x:hover{background:var(--n-soft)}
+.dr-body{padding:24px 22px;display:grid;gap:22px}
+.dr-body h2{font-size:30px}
+.dr-stance{display:flex;align-items:center;gap:14px;padding:18px;border-radius:14px;background:var(--surface-2);border:1px solid var(--rule)}
+.dr-stance .big{font-family:"Bricolage Grotesque";font-size:24px;font-weight:700;line-height:1.1}
+.dr-stance small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.scale5{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:10px}
+.scale5 span{height:8px;border-radius:4px;background:var(--n-soft)}
+.scale5 span.on.ow2{background:var(--ow2)}.scale5 span.on.ow1{background:var(--ow1)}.scale5 span.on.n{background:#B4AC9B}.scale5 span.on.uw1{background:var(--uw1)}.scale5 span.on.uw2{background:var(--uw2)}
+.dr-sec h3{font-family:Inter;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.dr-sec p{font-size:16px;line-height:1.55}
+.dr-meta{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;margin:0}
+.dr-meta dt{color:var(--muted)}
+.dr-meta dd{margin:0}
+.dr-note{font-size:13px;color:var(--muted);padding:12px 14px;border-radius:10px;background:var(--surface-2);border:1px solid var(--rule)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:0s!important;transition-delay:0s!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="proto" role="note">Design prototype · <strong>Illustrative data — not actual institutional views</strong></div>
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top">
+        <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#fff"/><rect x="6" y="15" width="4" height="7" rx="1.5" fill="#C23E2B"/><rect x="12" y="11" width="4" height="11" rx="1.5" fill="#B4AC9B"/><rect x="18" y="6" width="4" height="16" rx="1.5" fill="#0B7A5A"/></svg>
+        Market View
+      </a>
+      <div class="links" id="links">
+        <a href="#consensus">Consensus</a>
+        <a href="#grid">Full grid</a>
+        <a href="#numbers">The numbers</a>
+        <a href="#houses">Houses</a>
+        <a href="#themes">Themes</a>
+        <a href="#method">Method</a>
+      </div>
+      <span class="edition">Q4 2026 Edition</span>
+    </div>
+  </nav>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <svg class="hero-lines" id="heroLines" aria-hidden="true" viewBox="0 0 1200 520" preserveAspectRatio="none"></svg>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Q4 2026 Edition · Cut-off 15 Oct 2026</p>
+        <h1>How the world's biggest banks see the markets, <em>reconciled.</em></h1>
+        <p class="lead">Global banks publish hundreds of pages of outlooks every quarter. We read them, put every call on one common scale, and show you where Wall Street agrees, where it is split — and what just changed.</p>
+        <div class="cta">
+          <a class="btn primary" href="#consensus">See the consensus <span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="#houses">Meet the houses</a>
+        </div>
+      </div>
+      <aside class="glance" aria-labelledby="glanceK">
+        <p class="glance-k" id="glanceK">This quarter at a glance</p>
+        <div id="glance"></div>
+      </aside>
+    </div>
+    <div class="wrap kpis" id="kpis"></div>
+  </section>
+
+  <!-- CONSENSUS -->
+  <section class="section" id="consensus">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">01 · Consensus</p>
+          <h2>Where the consensus sits</h2>
+          <p class="s-sub">Each dot is one house's current call on a common five-step scale, from strong underweight to strong overweight. Open any asset to read the reasoning behind every call.</p>
+        </div>
+      </div>
+      <div class="toolbar reveal">
+        <div class="seg" role="group" aria-label="Filter by asset class" id="catSeg"></div>
+        <div class="seg" role="group" aria-label="Sort assets" id="sortSeg">
+          <button type="button" data-sort="bull" aria-pressed="true">Most bullish first</button>
+          <button type="button" data-sort="split" aria-pressed="false">Most divided first</button>
+        </div>
+      </div>
+      <div class="hlegend reveal" id="hlegend"><span class="hlegend-k">Highlight a house:</span></div>
+      <div class="meter-wrap reveal">
+        <div class="scale-head" aria-hidden="true">
+          <div class="m-grid">
+            <span>Asset</span>
+            <div class="scale-labels"><span style="left:0">Underweight</span><span style="left:50%">Neutral</span><span style="left:100%">Overweight</span></div>
+            <span>Verdict</span><span></span>
+          </div>
+        </div>
+        <ol class="meter" id="meter"></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="section alt" id="grid">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">02 · Full grid</p>
+          <h2>Every call, every house</h2>
+          <p class="s-sub">Twelve asset classes across five houses. Select any cell for the original wording, the reasoning and the source.</p>
+        </div>
+      </div>
+      <div class="heat-tools reveal">
+        <button type="button" class="toggle" id="chgToggle" aria-pressed="false"><span class="sw" aria-hidden="true"></span>Highlight changes since Q3</button>
+        <div class="legend" aria-label="Colour key">
+          <span><i style="background:var(--uw2)"></i>Strong UW</span>
+          <span><i style="background:var(--uw1)"></i>Underweight</span>
+          <span><i style="background:var(--n)"></i>Neutral</span>
+          <span><i style="background:var(--ow1)"></i>Overweight</span>
+          <span><i style="background:var(--ow2)"></i>Strong OW</span>
+          <span><i style="background:repeating-linear-gradient(135deg,#F1EEE7 0 3px,#DCD7CC 3px 6px)"></i>No view published</span>
+        </div>
+      </div>
+      <p class="heat-hint" aria-hidden="true">Swipe sideways to see every house →</p>
+      <div class="heat-scroll reveal" tabindex="0" role="region" aria-label="Grid of all calls, scrollable">
+        <table class="heat" id="heat"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGREE / DISAGREE -->
+  <section class="section" id="agree">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">03 · Signal</p>
+          <h2>Agreement and dissent</h2>
+          <p class="s-sub">Consensus is useful. Dissent is often more interesting. These are the calls with the most and the least agreement this quarter.</p>
+        </div>
+      </div>
+      <div class="ad">
+        <div class="ad-card reveal"><h3>Where they agree</h3><p>Highest share of houses on the same side.</p><ul class="ad-list" id="agreeList"></ul></div>
+        <div class="ad-card reveal" style="--d:120ms"><h3>Where they disagree</h3><p>Houses spread across both sides of neutral.</p><ul class="ad-list" id="splitList"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="section alt" id="numbers">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">04 · The numbers</p>
+          <h2>What they expect, in numbers</h2>
+          <p class="s-sub">Year-end targets and forecasts from each group's flagship outlook. The black bar is the range between the lowest and highest call; the dashed line is today's level.</p>
+        </div>
+      </div>
+      <div class="fc" id="fc"></div>
+    </div>
+  </section>
+
+  <!-- HOUSES -->
+  <section class="section" id="houses">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">05 · Houses</p>
+          <h2>Five houses, five worldviews</h2>
+          <p class="s-sub">One voice per institution: the team that publishes an explicit asset allocation. Each card shows which publication we read and how fresh it is.</p>
+        </div>
+      </div>
+      <div class="houses" id="houseCards"></div>
+    </div>
+  </section>
+
+  <!-- THEMES & CHANGES -->
+  <section class="section alt" id="themes">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">06 · Narrative</p>
+          <h2>What everyone is talking about</h2>
+          <p class="s-sub">The themes that appear across outlooks, and the calls that moved since last quarter.</p>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="panel reveal"><h3>Recurring themes</h3><p>Number of houses that make each theme central to their outlook.</p><ul class="themes" id="themeList"></ul></div>
+        <div class="panel reveal" style="--d:120ms"><h3>What changed since Q3</h3><p id="chgSummary"></p><ul class="changes" id="changeList"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="section" id="method">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <div>
+          <p class="s-kick">07 · Method</p>
+          <h2>How we reconcile</h2>
+          <p class="s-sub">Banks speak with several voices and different vocabularies. Three rules keep the comparison honest.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="step-n">1</span><h3>One voice per house</h3><p>Each group has research, wealth and asset management teams. For positioning we read the team that publishes an explicit allocation, so every house gets exactly one vote.</p></div>
+        <div class="step reveal" style="--d:100ms"><span class="step-n">2</span><h3>One common scale</h3><p>"Attractive", "core overweight" and "equal weight" all land on the same five-step scale. The original wording is always one click away.</p></div>
+        <div class="step reveal" style="--d:200ms"><span class="step-n">3</span><h3>Every call has a source</h3><p>Each call carries its publication, date and link. Missing views stay missing: no view is never shown as neutral.</p></div>
+      </div>
+      <div class="tbl-wrap reveal">
+        <table class="tbl">
+          <caption>Which report we read for each house<small>The highlighted column feeds positioning. Research outlooks feed "The numbers".</small></caption>
+          <thead><tr><th scope="col">House</th><th scope="col">Research<small>Forecasts for institutional clients</small></th><th scope="col">Wealth management<small>Advice for private clients</small></th><th scope="col">Asset management<small>Fund managers' allocation views</small></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">J.P. Morgan</th><td>Global Research — annual &amp; mid-year outlook</td><td class="dim">Private Bank — Annual Outlook</td><td class="use"><b>Positioning</b><br>Multi-Asset Solutions — Global Asset Allocation Views (quarterly)</td></tr>
+            <tr><th scope="row">UBS</th><td>Investment Bank Research (mostly client-only)</td><td class="use"><b>Positioning</b><br>CIO — House View (monthly)</td><td class="dim">Asset Management — Macro Quarterly</td></tr>
+            <tr><th scope="row">BlackRock</th><td class="dim">— asset manager, no sell-side</td><td class="dim">— distribution only</td><td class="use"><b>Positioning</b><br>BlackRock Investment Institute — weekly tactical views</td></tr>
+            <tr><th scope="row">Goldman Sachs</th><td>Global Investment Research — Macro &amp; Markets Outlook</td><td class="use"><b>Positioning</b><br>Investment Strategy Group — Outlook &amp; tactical tilts</td><td class="dim">Asset Management — Market Pulse (monthly)</td></tr>
+            <tr><th scope="row">Morgan Stanley</th><td>Research — annual &amp; mid-year outlook</td><td class="use"><b>Positioning</b><br>Global Investment Committee — On the Markets (monthly)</td><td class="dim">Investment Management — The BEAT</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-wrap reveal">
+        <table class="tbl" id="scaleTbl"></table>
+      </div>
+      <div class="disclaimer reveal" role="note"><span aria-hidden="true">⚠</span><p><strong>Not investment advice.</strong> Market View is an independent research project with no affiliation to the institutions shown. Calls are our own summary of public publications, each with its source and date. In this prototype every view, number and quote is illustrative.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Market View · An independent research project</span>
+    <span>Concept prototype v0.1 · October 2026</span>
+  </div>
+</footer>
+
+<dialog id="drawer" aria-labelledby="drTitle">
+  <div class="dr">
+    <div class="dr-head">
+      <span class="mono" id="drMono"></span>
+      <div><small id="drTeam"></small><strong id="drHouse"></strong></div>
+      <button type="button" class="x" id="drClose" aria-label="Close details">×</button>
+    </div>
+    <div class="dr-body" id="drBody"></div>
+  </div>
+</dialog>
+
+<script>
+/* ======================= ILLUSTRATIVE DATA ======================= */
+const EDITION = { label: "Q4 2026", prev: "Q3 2026", cutoff: "2026-10-15" };
+
+const HOUSES = [
+  { id:"jpm", mono:"JP", name:"J.P. Morgan", team:"Asset Management · Multi-Asset Solutions", pub:"Global Asset Allocation Views", cadence:"Quarterly", asOf:"2026-10-01", color:"#2F4BD8",
+    url:"https://am.jpmorgan.com/content/jpm-am-aem/global-institutional/us/en/institutional/insights/portfolio-insights/asset-class-views/asset-allocation.html",
+    scale:{"2":"Strong overweight","1":"Overweight","0":"Neutral","-1":"Underweight","-2":"Strong underweight"},
+    worldview:"Above-trend US growth with AI doing the heavy lifting: stay pro-risk, but diversify.", risk:"An aggressive Fed or an equity-led slowdown." },
+  { id:"ubs", mono:"UB", name:"UBS", team:"Global Wealth Management · Chief Investment Office", pub:"House View", cadence:"Monthly", asOf:"2026-10-09", color:"#7C3AED",
+    url:"https://www.ubs.com/global/en/wealthmanagement/insights/chief-investment-office/house-view.html",
+    scale:{"2":"Most attractive","1":"Attractive","0":"Neutral","-1":"Unattractive","-2":"Least attractive"},
+    worldview:"Rate cuts and AI keep the bull market alive; add quality bonds and gold as ballast.", risk:"A renewed inflation scare that stops Fed easing." },
+  { id:"blk", mono:"BR", name:"BlackRock", team:"BlackRock Investment Institute", pub:"Weekly commentary · tactical views", cadence:"Weekly", asOf:"2026-10-13", color:"#27272A",
+    url:"https://www.blackrock.com/corporate/insights/blackrock-investment-institute/global-weekly-commentary",
+    scale:{"2":"Strong overweight","1":"Overweight","0":"Neutral","-1":"Underweight","-2":"Strong underweight"},
+    worldview:"Mega forces reshape the economy; keep overall risk neutral and pick AI winners selectively.", risk:"Bond-market stress from fiscal deficits." },
+  { id:"gs", mono:"GS", name:"Goldman Sachs", team:"Wealth Management · Investment Strategy Group", pub:"ISG Outlook & tactical tilts", cadence:"Annual + updates", asOf:"2026-07-21", color:"#0E7490",
+    url:"https://pwm.gs.com/nam/en-us/insights/markets-and-investing",
+    scale:{"2":"Strong tactical overweight","1":"Tactical overweight","0":"Neutral","-1":"Tactical underweight","-2":"Strong tactical underweight"},
+    worldview:"US exceptionalism persists: stay invested and resist the urge to time the cycle.", risk:"Tariff escalation that hits margins." },
+  { id:"ms", mono:"MS", name:"Morgan Stanley", team:"Wealth Management · Global Investment Committee", pub:"On the Markets", cadence:"Monthly", asOf:"2026-10-01", color:"#B45309",
+    url:"https://graystone.morganstanley.com/graystone-consulting-new-york-ny-penn-plaza/thought_leadership",
+    scale:{"2":"Strong overweight","1":"Overweight","0":"Equal weight","-1":"Underweight","-2":"Strong underweight"},
+    worldview:"A strong but narrow rally: broaden out into Japan and emerging markets.", risk:"Concentration in a handful of mega-cap stocks." },
+];
+
+const CATS = [ {id:"eq",name:"Equities"}, {id:"fi",name:"Fixed income"}, {id:"ra",name:"Real assets"}, {id:"fx",name:"FX & cash"} ];
+
+const ASSETS = [
+  {id:"us-eq", name:"US equities", cat:"eq"},
+  {id:"eu-eq", name:"European equities", cat:"eq"},
+  {id:"jp-eq", name:"Japanese equities", cat:"eq"},
+  {id:"em-eq", name:"EM equities", cat:"eq"},
+  {id:"ust",   name:"US Treasuries", cat:"fi"},
+  {id:"ig",    name:"Investment-grade credit", cat:"fi"},
+  {id:"hy",    name:"High-yield credit", cat:"fi"},
+  {id:"emd",   name:"EM debt", cat:"fi"},
+  {id:"gold",  name:"Gold", cat:"ra"},
+  {id:"cmd",   name:"Oil & commodities", cat:"ra"},
+  {id:"usd",   name:"US dollar", cat:"fx"},
+  {id:"cash",  name:"Cash", cat:"fx"},
+];
+
+/* [current score, previous-quarter score, one-line thesis] in HOUSES order. null = no view published. */
+const VIEWS = {
+  "us-eq":[[1,1,"AI-driven earnings growth keeps US leadership intact."],[1,1,"Rate cuts and tech earnings extend the bull market."],[0,1,"Neutral overall, but AI beneficiaries are still preferred."],[1,1,"US exceptionalism in growth and profits persists."],[1,1,"Strong but concentrated; prefers broadening beyond mega-caps."]],
+  "eu-eq":[[0,0,"Cheap valuations offset by soft growth."],[0,0,"Fiscal support helps, but earnings momentum lags."],[-1,-1,"Political and fiscal noise weigh on the region."],[0,0,"The valuation discount is justified by weaker earnings."],[-1,0,"Earnings revisions are turning negative."]],
+  "jp-eq":[[1,0,"Corporate reform and buybacks support returns."],[0,0,"Governance gains, but yen strength is a headwind."],[1,1,"Shareholder-friendly reform remains a multi-year story."],[null,null,"No explicit view on Japan in the latest publication."],[1,1,"Reform and reflation favour domestic cyclicals."]],
+  "em-eq":[[0,0,"Oil, dollar and positioning temper earnings upside."],[1,1,"A weaker dollar and Asian tech demand help."],[0,0,"Selective: India and tech supply chains over broad EM."],[-1,0,"Tariff risk and China uncertainty outweigh cheap valuations."],[1,1,"Cheaper valuations and broadening growth."]],
+  "ust":[[0,0,"Yields fairly priced; duration as a hedge only."],[1,1,"Quality bonds offer attractive yields as the Fed cuts."],[1,0,"Higher starting yields now offer a bigger buffer."],[0,0,"Term premium keeps long-end risk elevated."],[1,1,"Intermediate maturities look tactically attractive."]],
+  "ig":[[0,0,"Tight spreads leave little room for error."],[0,0,"Solid fundamentals, but spreads near historic tights."],[-1,-1,"Heavy AI-related issuance pressures spreads."],[0,0,"Income appeal balanced by tight valuations."],[0,0,"Stay up in quality; spreads offer limited cushion."]],
+  "hy":[[1,1,"Carry still pays despite tight spreads."],[-1,-1,"Spreads do not compensate for default risk."],[0,0,"Only higher-rated high yield looks attractive."],[-1,-1,"Late-cycle risks argue for caution."],[-1,0,"Private-credit spillovers are a growing concern."]],
+  "emd":[[1,1,"High real yields and easing cycles support local debt."],[1,1,"Attractive carry with a softer dollar."],[0,0,"Prefers hard-currency debt, selectively."],[0,0,"Carry is appealing but vulnerable to risk-off."],[0,0,"Selective opportunities in Latin America."]],
+  "gold":[[1,1,"A diversifier against geopolitical and fiscal risk."],[2,1,"Central-bank buying and lower rates strengthen the case."],[1,1,"A hedge against fiscal and geopolitical shocks."],[-1,-1,"Not recommended as a long-term portfolio hedge."],[1,1,"Real assets help diversify equity-bond risk."]],
+  "cmd":[[0,0,"A supply surplus caps oil upside."],[0,0,"Balanced outlook; prefers gold within commodities."],[0,0,"No strong tactical view."],[1,1,"Tight supply in industrial metals supports prices."],[-1,-1,"Oversupply and slowing demand weigh on crude."]],
+  "usd":[[-1,-1,"Narrowing rate differentials weigh on the dollar."],[-1,-1,"Expects gradual depreciation as the Fed eases."],[0,0,"The dollar is no longer a reliable portfolio hedge."],[1,1,"US growth outperformance keeps the dollar supported."],[1,1,"Rate differentials still favour the dollar near term."]],
+  "cash":[[-1,-1,"Falling rates erode cash returns."],[-1,-1,"Lock in yields before further rate cuts."],[0,0,"Keeps dry powder for opportunities."],[0,0,"Neutral; cash as a source of funds."],[-1,-1,"Excess cash should be put to work."]],
+};
+
+const FORECASTS = [
+  {name:"S&P 500", sub:"Year-end 2027 target", kind:"level", spot:7050, dec:0, vals:{jpm:7800,ubs:7600,blk:null,gs:8000,ms:7700}},
+  {name:"US 10-year yield", sub:"End-2027 forecast", kind:"rate", spot:4.10, dec:2, unit:"%", vals:{jpm:3.90,ubs:3.75,blk:4.25,gs:4.00,ms:3.85}},
+  {name:"Fed funds rate", sub:"Upper bound, end-2027", kind:"rate", spot:3.75, dec:2, unit:"%", vals:{jpm:3.25,ubs:3.00,blk:3.50,gs:3.25,ms:3.00}},
+  {name:"EUR/USD", sub:"End-2027 forecast", kind:"level", spot:1.17, dec:2, vals:{jpm:1.20,ubs:1.22,blk:null,gs:1.14,ms:1.19}},
+  {name:"Gold", sub:"US$ per ounce, end-2027", kind:"level", spot:4200, dec:0, vals:{jpm:4500,ubs:4800,blk:null,gs:4300,ms:4600}},
+  {name:"Brent crude", sub:"US$ per barrel, end-2027", kind:"level", spot:64, dec:0, vals:{jpm:60,ubs:65,blk:null,gs:62,ms:58}},
+  {name:"US real GDP", sub:"2027 growth, % y/y", kind:"growth", spot:null, dec:1, unit:"%", vals:{jpm:1.8,ubs:1.6,blk:1.9,gs:2.1,ms:1.7}},
+  {name:"US core inflation", sub:"2027, % y/y", kind:"growth", spot:null, dec:1, unit:"%", vals:{jpm:2.7,ubs:2.5,blk:2.9,gs:2.6,ms:2.8}},
+];
+
+const THEMES = [
+  {name:"AI investment and earnings", h:["jpm","ubs","blk","gs","ms"]},
+  {name:"Fed easing cycle", h:["jpm","ubs","gs","ms"]},
+  {name:"Fiscal deficits and term premium", h:["ubs","blk","gs","ms"]},
+  {name:"Tariffs and trade policy", h:["jpm","gs","ms"]},
+  {name:"Geopolitical fragmentation", h:["jpm","ubs","blk"]},
+  {name:"Private-credit risks", h:["blk","ms"]},
+  {name:"China policy support", h:["jpm","blk"]},
+];
+
+/* ======================= HELPERS ======================= */
+const $ = (s, el=document) => el.querySelector(s);
+const $$ = (s, el=document) => [...el.querySelectorAll(s)];
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const SHORT = {"2":"OW+","1":"OW","0":"N","-1":"UW","-2":"UW−"};
+const COMMON = {"2":"Strong overweight","1":"Overweight","0":"Neutral","-1":"Underweight","-2":"Strong underweight"};
+const cls = s => s == null ? "none" : s >= 2 ? "ow2" : s === 1 ? "ow1" : s === 0 ? "n" : s === -1 ? "uw1" : "uw2";
+const pos = s => 50 + s * 22;
+const bucket = s => s > 0 ? "ow" : s < 0 ? "uw" : "n";
+const H = Object.fromEntries(HOUSES.map(h => [h.id, h]));
+const A = Object.fromEntries(ASSETS.map(a => [a.id, a]));
+const fmtDate = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"});
+const daysBetween = (a, b) => Math.round((new Date(b) - new Date(a)) / 864e5);
+const houseLabel = (h, s) => s == null ? "No view published" : h.scale[String(s)];
+
+function stats(assetId){
+  const calls = HOUSES.map((h, i) => { const [score, prev, thesis] = VIEWS[assetId][i]; return {h, score, prev, thesis}; });
+  const scored = calls.filter(c => c.score != null);
+  const n = scored.length;
+  const avg = scored.reduce((a, c) => a + c.score, 0) / n;
+  const sd = Math.sqrt(scored.reduce((a, c) => a + (c.score - avg) ** 2, 0) / n);
+  const counts = {ow:0, n:0, uw:0};
+  scored.forEach(c => counts[bucket(c.score)]++);
+  const mode = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const agree = counts[mode] / n;
+  let verdict, v;
+  if (agree >= .8 && mode === "ow") { verdict = "Consensus overweight"; v = "ow"; }
+  else if (agree >= .8 && mode === "uw") { verdict = "Consensus underweight"; v = "uw"; }
+  else if (agree >= .8) { verdict = "Consensus neutral"; v = "n"; }
+  else if (avg >= .3) { verdict = "Leaning overweight"; v = "lo"; }
+  else if (avg <= -.3) { verdict = "Leaning underweight"; v = "lu"; }
+  else if (mode === "n" && agree >= .6) { verdict = "Mostly neutral"; v = "n"; }
+  else { verdict = "Split"; v = "split"; }
+  const missing = calls.length - n;
+  return {calls, n, avg, sd, counts, mode, agree, verdict, v, missing};
+}
+const STATS = Object.fromEntries(ASSETS.map(a => [a.id, stats(a.id)]));
+const countsText = st => `${st.counts.ow} OW · ${st.counts.n} N · ${st.counts.uw} UW${st.missing ? ` · ${st.missing} no view` : ""}`;
+
+const CHANGES = [];
+ASSETS.forEach(a => STATS[a.id].calls.forEach(c => {
+  if (c.score != null && c.prev != null && c.score !== c.prev) CHANGES.push({a, h:c.h, from:c.prev, to:c.score, dir: c.score > c.prev ? "up" : "down"});
+}));
+
+function dotsFor(st, size){
+  const groups = {};
+  st.calls.forEach(c => { if (c.score != null) (groups[c.score] ||= []).push(c); });
+  const gap = size === "sm" ? 20 : 25;
+  return st.calls.filter(c => c.score != null).map((c, i) => {
+    const g = groups[c.score], k = g.indexOf(c), o = (k - (g.length - 1) / 2) * gap;
+    // compact two-row cluster for narrow screens
+    const cols = Math.ceil(g.length / 2), col = Math.floor(k / 2), row = k % 2;
+    const lastAlone = g.length % 2 === 1 && k === g.length - 1;
+    const ox = (col - (cols - 1) / 2) * 18, oy = g.length === 1 || lastAlone ? 0 : (row - .5) * 22;
+    return `<span class="m-dot" data-h="${c.h.id}" style="--p:${pos(c.score)};--o:${o};--ox:${ox};--oy:${oy};--hc:${c.h.color};--delay:${i * 80}ms" title="${c.h.name}: ${houseLabel(c.h, c.score)}" aria-hidden="true">${c.h.mono}</span>`;
+  }).join("");
+}
+
+/* ======================= HERO ======================= */
+function renderHero(){
+  const ranked = ASSETS.map(a => ({a, st:STATS[a.id]}));
+  const strong = ranked.filter(x => x.st.mode !== "n")
+    .sort((x, y) => (y.st.agree * 10 + Math.abs(y.st.avg) - Math.min(y.st.counts.ow, y.st.counts.uw)) - (x.st.agree * 10 + Math.abs(x.st.avg) - Math.min(x.st.counts.ow, x.st.counts.uw)))[0];
+  const split = [...ranked].sort((x, y) => x.st.agree - y.st.agree || y.st.sd - x.st.sd)[0];
+  const ups = CHANGES.filter(c => c.dir === "up").length, downs = CHANGES.length - ups;
+  const side = strong.st.mode === "ow" ? "Overweight" : "Underweight";
+  $("#glance").innerHTML = `
+    <div class="gl-item"><span class="gl-ico ow" aria-hidden="true">✓</span><span class="gl-lab">Strongest consensus</span><span class="gl-val">${side} ${strong.a.name}</span><span class="gl-meta">${strong.st.counts[strong.st.mode]} of ${strong.st.n} houses agree</span></div>
+    <div class="gl-item"><span class="gl-ico split" aria-hidden="true">⇄</span><span class="gl-lab">Biggest split</span><span class="gl-val">${split.a.name}</span><span class="gl-meta">${countsText(split.st)}</span></div>
+    <div class="gl-item"><span class="gl-ico move" aria-hidden="true">↕</span><span class="gl-lab">Moves since ${EDITION.prev}</span><span class="gl-val">${ups} upgrades · ${downs} downgrades</span><span class="gl-meta">${CHANGES.slice(0, 2).map(c => `${c.h.name} ${c.dir === "up" ? "upgrades" : "downgrades"} ${c.a.name}`).join("; ")}</span></div>`;
+  const nCalls = ASSETS.reduce((t, a) => t + STATS[a.id].n, 0);
+  const kpis = [[HOUSES.length, "global houses"], [ASSETS.length, "asset classes"], [nCalls, "calls reconciled"], [CHANGES.length, `calls changed vs ${EDITION.prev.split(" ")[0]}`]];
+  $("#kpis").innerHTML = kpis.map(([n, l]) => `<div class="kpi"><span class="kpi-n num" data-count="${n}">${reduceMotion ? n : 0}</span><span>${l}</span></div>`).join("");
+
+  // animated market lines
+  const svg = $("#heroLines");
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const colors = ["#3355FF", "#5BE3A8", "#7FA2FF"];
+  svg.innerHTML = colors.map((c, k) => {
+    let y = 380 + k * 40, d = `M0 ${y}`;
+    for (let x = 0; x <= 1200; x += 20) { y += (rnd() - .52) * 26 - k * .6; y = Math.max(260, Math.min(510, y)); d += ` L${x} ${y.toFixed(1)}`; }
+    return `<path d="${d}" stroke="${c}" stroke-opacity="${.5 - k * .12}"/>`;
+  }).join("");
+  if (!reduceMotion) $$("path", svg).forEach((p, k) => {
+    const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
+    p.getBoundingClientRect();
+    p.style.transition = `stroke-dashoffset ${2.6 + k * .5}s cubic-bezier(.4,.1,.2,1) ${k * .25}s`;
+    requestAnimationFrame(() => p.style.strokeDashoffset = 0);
+  });
+}
+
+function countUp(el){
+  const target = +el.dataset.count, t0 = performance.now(), dur = 1300;
+  const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(target * e); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+/* ======================= CONSENSUS METER ======================= */
+let state = {cat:"all", sort:"bull", hl:null};
+
+function renderMeter(){
+  $("#catSeg").innerHTML = [{id:"all", name:"All"}, ...CATS].map(c => `<button type="button" data-cat="${c.id}" aria-pressed="${c.id === state.cat}">${c.name}</button>`).join("");
+  $("#hlegend").insertAdjacentHTML("beforeend", HOUSES.map(h => `<button type="button" class="hchip" data-hl="${h.id}" aria-pressed="false"><span class="mono sm" style="--hc:${h.color}">${h.mono}</span>${h.name}</button>`).join("") + `<span class="hlegend-k avg-key"><span aria-hidden="true">◆</span> Average call</span>`);
+  $("#meter").innerHTML = ASSETS.map(a => {
+    const st = STATS[a.id];
+    const calls = st.calls.map(c => `
+      <li class="call"><span class="mono" style="--hc:${c.h.color}" aria-hidden="true">${c.h.mono}</span><div>
+        <div class="call-top"><strong>${c.h.name}</strong><span class="chip ${cls(c.score)}">${houseLabel(c.h, c.score)}</span>${c.prev != null && c.score != null && c.prev !== c.score ? `<span class="chg ${c.score > c.prev ? "up" : "down"}">${c.score > c.prev ? "▲" : "▼"} from ${c.h.scale[String(c.prev)]}</span>` : ""}</div>
+        <p>${c.thesis}</p>
+        <button type="button" class="linkbtn" data-open="${a.id}|${c.h.id}">Details and source</button>
+      </div></li>`).join("");
+    const summary = `${a.name}: ${st.verdict}. ${st.calls.map(c => `${c.h.name} ${houseLabel(c.h, c.score)}`).join(", ")}.`;
+    return `<li class="m-row" data-id="${a.id}" data-cat="${a.cat}">
+      <button type="button" class="m-btn m-grid" aria-expanded="false" aria-controls="exp-${a.id}">
+        <span class="m-name"><strong>${a.name}</strong><small>${CATS.find(c => c.id === a.cat).name}</small></span>
+        <span class="m-track" aria-hidden="true">${[6, 28, 50, 72, 94].map(p => `<span class="m-tick${p === 50 ? " c" : ""}" style="--p:${p}"></span>`).join("")}<span class="m-avg" style="--p:${pos(st.avg)}" title="Average"></span>${dotsFor(st)}</span>
+        <span class="m-verdict"><span class="vpill ${st.v}">${st.verdict}</span><small class="num">${countsText(st)}</small></span>
+        <span class="chev" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="sr-only">${summary}</span>
+      </button>
+      <div class="m-exp" id="exp-${a.id}" inert><div class="m-exp-in"><ul class="calls">${calls}</ul></div></div>
+    </li>`;
+  }).join("");
+  applySortFilter(false);
+}
+
+function applySortFilter(animate){
+  const list = $("#meter");
+  const rows = $$(".m-row", list);
+  const first = new Map(rows.map(r => [r, r.getBoundingClientRect().top]));
+  const key = r => STATS[r.dataset.id];
+  rows.sort((x, y) => state.sort === "bull"
+    ? key(y).avg - key(x).avg || key(y).agree - key(x).agree
+    : key(x).agree - key(y).agree || key(y).sd - key(x).sd);
+  rows.forEach(r => { r.hidden = state.cat !== "all" && r.dataset.cat !== state.cat; list.appendChild(r); });
+  if (!animate || reduceMotion) return;
+  rows.forEach(r => {
+    if (r.hidden) return;
+    const dy = first.get(r) - r.getBoundingClientRect().top;
+    if (!dy) return;
+    r.animate([{transform:`translateY(${dy}px)`}, {transform:"none"}], {duration:550, easing:"cubic-bezier(.2,.8,.2,1)"});
+  });
+}
+
+function setHighlight(id){
+  state.hl = state.hl === id ? null : id;
+  $$(".hchip").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.hl === state.hl)));
+  $$(".m-dot").forEach(d => { d.classList.toggle("dim", !!state.hl && d.dataset.h !== state.hl); d.classList.toggle("hl", d.dataset.h === state.hl); });
+}
+
+/* ======================= HEATMAP ======================= */
+function renderHeat(){
+  const head = `<thead><tr><th scope="col">Asset</th>${HOUSES.map(h => `<th scope="col"><span class="mono sm" style="--hc:${h.color}" aria-hidden="true">${h.mono}</span><span class="h-name">${h.name}</span><span class="h-sub">${h.cadence}</span></th>`).join("")}<th scope="col" class="cons">Consensus</th></tr></thead>`;
+  let r = 0;
+  const body = CATS.map(cat => {
+    const rows = ASSETS.filter(a => a.cat === cat.id).map(a => {
+      const st = STATS[a.id]; r++;
+      const cells = st.calls.map((c, ci) => {
+        const chg = c.prev != null && c.score != null && c.prev !== c.score ? (c.score > c.prev ? "up" : "down") : "";
+        const lab = houseLabel(c.h, c.score);
+        const aria = `${c.h.name}, ${a.name}: ${lab}${chg ? `, ${chg === "up" ? "upgraded" : "downgraded"} from ${c.h.scale[String(c.prev)]}` : ""}. Open details`;
+        return `<td><button type="button" class="cell ${cls(c.score)}" style="--i:${r + ci}" data-open="${a.id}|${c.h.id}" ${chg ? `data-chg="${chg}"` : ""} aria-label="${aria}">${c.score == null ? "—" : SHORT[String(c.score)]}${chg ? `<span class="c-chg ${chg}" aria-hidden="true">${chg === "up" ? "▲" : "▼"}</span><span class="c-from" aria-hidden="true">was ${SHORT[String(c.prev)]}</span>` : ""}</button></td>`;
+      }).join("");
+      const p = pos(st.avg), l = Math.min(50, p), w = Math.abs(p - 50);
+      return `<tr><th scope="row">${a.name}</th>${cells}<td class="cons"><span class="cbar" aria-hidden="true"><span style="--l:${l}%;--w:${w}%;background:${st.avg >= 0 ? "var(--ow1)" : "var(--uw1)"}"></span></span><span class="cv">${st.verdict}</span></td></tr>`;
+    }).join("");
+    return `<tr class="grp"><th colspan="${HOUSES.length + 2}" scope="colgroup">${cat.name}</th></tr>${rows}`;
+  }).join("");
+  $("#heat").innerHTML = `<caption class="sr-only">Calls by asset and house, ${EDITION.label}</caption>${head}<tbody>${body}</tbody>`;
+}
+
+/* ======================= AGREE / DISAGREE ======================= */
+function renderAgree(){
+  const items = ASSETS.map(a => ({a, st:STATS[a.id]}));
+  const agree = items.filter(x => x.st.mode !== "n").sort((x, y) => y.st.agree - x.st.agree || Math.abs(y.st.avg) - Math.abs(x.st.avg)).slice(0, 3);
+  const split = [...items].sort((x, y) => x.st.agree - y.st.agree || y.st.sd - x.st.sd).slice(0, 3);
+  const li = (x, kind) => {
+    const st = x.st;
+    let text;
+    if (kind === "agree") {
+      const dissent = st.calls.filter(c => c.score != null && bucket(c.score) !== st.mode);
+      text = `${st.counts[st.mode]} of ${st.n} ${st.mode === "ow" ? "overweight" : "underweight"}. ` + (dissent.length ? `Dissent: ${dissent.map(c => `${c.h.name} (${houseLabel(c.h, c.score)})`).join(", ")}.` : "No dissent.");
+    } else {
+      const bulls = st.calls.filter(c => c.score > 0).map(c => c.h.name), bears = st.calls.filter(c => c.score != null && c.score < 0).map(c => c.h.name);
+      text = `Positive: ${bulls.join(", ") || "none"}. Negative: ${bears.join(", ") || "none"}.`;
+    }
+    return `<li class="ad-item"><div class="ad-top"><strong>${x.a.name}</strong><span class="num">${countsText(st)}</span></div><div class="mini">${dotsFor(st, "sm")}</div><p>${text}</p></li>`;
+  };
+  $("#agreeList").innerHTML = agree.map(x => li(x, "agree")).join("");
+  $("#splitList").innerHTML = split.map(x => li(x, "split")).join("");
+}
+
+/* ======================= FORECASTS ======================= */
+function renderForecasts(){
+  $("#fc").innerHTML = FORECASTS.map((f, fi) => {
+    const fmt = v => v.toLocaleString("en-US", {minimumFractionDigits:f.dec, maximumFractionDigits:f.dec}) + (f.unit || "");
+    const entries = HOUSES.map(h => ({h, v:f.vals[h.id]}));
+    const vals = entries.filter(e => e.v != null).map(e => e.v).sort((a, b) => a - b);
+    const med = vals.length % 2 ? vals[(vals.length - 1) / 2] : (vals[vals.length / 2 - 1] + vals[vals.length / 2]) / 2;
+    const lo = Math.min(...vals, f.spot ?? Infinity), hi = Math.max(...vals, f.spot ?? -Infinity);
+    const pad = (hi - lo) * .14 || 1, min = lo - pad, max = hi + pad;
+    const X = v => ((v - min) / (max - min)) * 100;
+    let delta = "", dcls = "flat";
+    if (f.spot != null) {
+      if (f.kind === "rate") { const bp = Math.round((med - f.spot) * 100); delta = `${bp > 0 ? "▲ +" : bp < 0 ? "▼ −" : ""}${Math.abs(bp)} bp vs today`; }
+      else { const pct = (med / f.spot - 1) * 100; delta = `${pct > 0 ? "▲ +" : pct < 0 ? "▼ −" : ""}${Math.abs(pct).toFixed(1)}% vs today`; }
+    } else { delta = `${vals[0].toFixed(f.dec)}–${fmt(vals[vals.length - 1])} range`; }
+    // place dots in lanes so close values never overlap (lane 0, then above, then below)
+    const lanes = [[], [], []], laneY = [0, -24, 24];
+    const placed = new Map();
+    entries.filter(e => e.v != null).sort((a, b) => a.v - b.v).forEach(e => {
+      const x = X(e.v);
+      const lane = [0, 1, 2].find(l => lanes[l].every(px => Math.abs(px - x) >= 11)) ?? 0;
+      lanes[lane].push(x); placed.set(e.h.id, laneY[lane]);
+    });
+    const dots = entries.filter(e => e.v != null).map((e, i) => {
+      const y = placed.get(e.h.id);
+      return `<span class="f-dot" style="--x0:${X(med)};--x:${X(e.v)};--delay:${i * 90}ms" title="${e.h.name}: ${fmt(e.v)}"><span class="mono" style="--hc:${e.h.color};--y:${y}" aria-hidden="true">${e.h.mono}</span></span>`;
+    }).join("");
+    const list = entries.map(e => e.v == null
+      ? `<li class="np"><span class="mono sm" style="--hc:${e.h.color}" aria-hidden="true">${e.h.mono}</span><span><span class="sr-only">${e.h.name}: </span>n/p</span></li>`
+      : `<li><span class="mono sm" style="--hc:${e.h.color}" aria-hidden="true">${e.h.mono}</span><span class="num"><span class="sr-only">${e.h.name}: </span>${fmt(e.v)}</span></li>`).join("");
+    return `<article class="f-card reveal" style="--d:${(fi % 4) * 80}ms">
+      <h3 class="f-name">${f.name}</h3><p class="f-sub">${f.sub}</p>
+      <div class="f-big"><b class="num">${fmt(med)}</b><span class="${dcls}">${delta}</span></div>
+      <p class="f-medlab">Median of ${vals.length} published calls</p>
+      <div class="f-strip" aria-hidden="true">
+        <span class="f-axis"></span><span class="f-range" style="--a:${X(vals[0])};--b:${X(vals[vals.length - 1])}"></span>
+        ${f.spot != null ? `<span class="f-spot" style="--x:${X(f.spot)}"><em>Today ${fmt(f.spot)}</em></span>` : ""}
+        ${dots}
+      </div>
+      <div class="f-ends num" aria-hidden="true"><span>Low ${fmt(vals[0])}</span><span>High ${fmt(vals[vals.length - 1])}</span></div>
+      <ul class="f-vals" aria-label="${f.name} forecast by house">${list}</ul>
+    </article>`;
+  }).join("");
+}
+
+/* ======================= HOUSES ======================= */
+function renderHouses(){
+  $("#houseCards").innerHTML = HOUSES.map((h, hi) => {
+    const idx = HOUSES.indexOf(h);
+    const mine = ASSETS.map(a => ({a, s:VIEWS[a.id][idx][0]}));
+    const lean = mine.filter(x => x.s > 0).sort((x, y) => y.s - x.s);
+    const avoid = mine.filter(x => x.s != null && x.s < 0);
+    const age = daysBetween(h.asOf, EDITION.cutoff);
+    const fresh = age > 60 ? `<span class="fresh old">${Math.round(age / 30)} months old</span>` : `<span class="fresh">Fresh</span>`;
+    return `<article class="house reveal" style="--hc:${h.color};--d:${(hi % 3) * 90}ms">
+      <div class="h-head"><span class="mono lg" style="--hc:${h.color}" aria-hidden="true">${h.mono}</span><div><h3>${h.name}</h3><p>${h.team}</p></div></div>
+      <div class="h-pub"><span>${h.pub}</span><span class="pill">${h.cadence}</span></div>
+      <p class="h-date">Latest edition ${fmtDate(h.asOf)} ${fresh}</p>
+      <blockquote class="worldview">${h.worldview}</blockquote>
+      <div><div class="dna" role="img" aria-label="${h.name} profile: ${mine.map(x => `${x.a.name} ${houseLabel(h, x.s)}`).join(", ")}">${mine.map(x => `<span class="${cls(x.s)}" title="${x.a.name}: ${houseLabel(h, x.s)}"></span>`).join("")}</div><div class="dna-lab" aria-hidden="true"><span>Equities</span><span>Fixed income</span><span>Real assets · FX</span></div></div>
+      <dl class="h-dl">
+        <dt>Leans into</dt><dd>${lean.map(x => `<span class="chip ${cls(x.s)}">${x.a.name}</span>`).join("") || "—"}</dd>
+        <dt>Steers clear of</dt><dd>${avoid.map(x => `<span class="chip ${cls(x.s)}">${x.a.name}</span>`).join("") || "—"}</dd>
+        <dt>Key risk</dt><dd>${h.risk}</dd>
+      </dl>
+      <a class="h-link" href="${h.url}" target="_blank" rel="noopener noreferrer">Official publication page <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+    </article>`;
+  }).join("");
+}
+
+/* ======================= THEMES & CHANGES ======================= */
+function renderThemes(){
+  $("#themeList").innerHTML = THEMES.map((t, i) => `<li>
+    <div class="t-top"><span>${t.name}</span><span class="num">${t.h.length} of ${HOUSES.length}</span></div>
+    <div class="t-bar" aria-hidden="true"><span style="--w:${t.h.length / HOUSES.length * 100}%;--d:${i * 90}ms"></span></div>
+    <div class="t-houses">${t.h.map(id => `<span class="mono sm" style="--hc:${H[id].color}" title="${H[id].name}">${H[id].mono}</span>`).join("")}<span class="sr-only">Cited by ${t.h.map(id => H[id].name).join(", ")}</span></div>
+  </li>`).join("");
+  const ups = CHANGES.filter(c => c.dir === "up").length;
+  $("#chgSummary").textContent = `${CHANGES.length} calls moved: ${ups} upgrades and ${CHANGES.length - ups} downgrades.`;
+  $("#changeList").innerHTML = [...CHANGES].sort((x, y) => x.dir.localeCompare(y.dir) * -1).map(c => `<li class="change">
+    <span class="arr ${c.dir}" aria-hidden="true">${c.dir === "up" ? "▲" : "▼"}</span>
+    <div><strong>${c.h.name} ${c.dir === "up" ? "upgrades" : "downgrades"} ${c.a.name}</strong><span>${c.h.scale[String(c.from)]} → ${c.h.scale[String(c.to)]}</span></div>
+  </li>`).join("");
+}
+
+function renderScale(){
+  const rows = ["2", "1", "0", "-1", "-2"];
+  $("#scaleTbl").innerHTML = `<caption>One scale, five vocabularies<small>How each house's original wording maps onto the common scale.</small></caption>
+    <thead><tr><th scope="col">Common scale</th>${HOUSES.map(h => `<th scope="col">${h.name}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(s => `<tr><th scope="row"><span class="chip ${cls(+s)}">${COMMON[s]}</span></th>${HOUSES.map(h => `<td>${h.scale[s]}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+/* ======================= DRAWER ======================= */
+const drawer = $("#drawer");
+let lastTrigger = null;
+function openDrawer(assetId, houseId, trigger){
+  const a = A[assetId], h = H[houseId], idx = HOUSES.indexOf(h);
+  const [s, prev, thesis] = VIEWS[assetId][idx];
+  lastTrigger = trigger;
+  $("#drMono").textContent = h.mono; $("#drMono").style.setProperty("--hc", h.color);
+  $("#drHouse").textContent = h.name; $("#drTeam").textContent = h.team;
+  const chg = prev != null && s != null && prev !== s;
+  $("#drBody").innerHTML = `
+    <h2 id="drTitle">${a.name}</h2>
+    <div class="dr-stance"><div style="flex:1">
+      <div class="big">${houseLabel(h, s)}</div>
+      <small>${s == null ? "This publication does not state a view on this asset. We leave it empty rather than call it neutral." : `Original wording · common scale: ${COMMON[String(s)]}`}</small>
+      <div class="scale5" aria-hidden="true">${["-2", "-1", "0", "1", "2"].map(k => `<span class="${cls(+k)} ${String(s) === k ? "on" : ""}"></span>`).join("")}</div>
+    </div></div>
+    <div class="dr-sec"><h3>Why</h3><p>${thesis}</p></div>
+    <div class="dr-sec"><h3>Change since ${EDITION.prev}</h3><p>${chg ? `${s > prev ? "▲ Upgraded" : "▼ Downgraded"} from ${h.scale[String(prev)]}.` : s == null ? "No view in either quarter." : "Unchanged."}</p></div>
+    <div class="dr-sec"><h3>Source</h3><dl class="dr-meta">
+      <dt>Team</dt><dd>${h.team}</dd>
+      <dt>Publication</dt><dd>${h.pub}</dd>
+      <dt>Edition date</dt><dd>${fmtDate(h.asOf)}</dd>
+      <dt>Cadence</dt><dd>${h.cadence}</dd>
+    </dl></div>
+    <a class="btn primary" style="background:var(--ink);color:#fff;justify-content:center" href="${h.url}" target="_blank" rel="noopener noreferrer">Open official publication page <span aria-hidden="true">↗</span></a>
+    <p class="dr-note">Illustrative prototype data. In the live product this panel shows the exact section of the report the call comes from.</p>`;
+  drawer.showModal();
+  $("#drClose").focus();
+}
+function closeDrawer(){ drawer.close(); }
+drawer.addEventListener("close", () => { if (lastTrigger) lastTrigger.focus({preventScroll:true}); });
+drawer.addEventListener("click", e => { if (e.target === drawer) closeDrawer(); });
+$("#drClose").addEventListener("click", closeDrawer);
+
+/* ======================= EVENTS ======================= */
+document.addEventListener("click", e => {
+  const open = e.target.closest("[data-open]");
+  if (open) { const [a, h] = open.dataset.open.split("|"); openDrawer(a, h, open); return; }
+  const mb = e.target.closest(".m-btn");
+  if (mb) {
+    const row = mb.closest(".m-row"), isOpen = row.classList.toggle("open");
+    mb.setAttribute("aria-expanded", String(isOpen));
+    $(".m-exp", row).inert = !isOpen;
+    return;
+  }
+  const cat = e.target.closest("[data-cat]");
+  if (cat && cat.tagName === "BUTTON") { state.cat = cat.dataset.cat; $$("#catSeg button").forEach(b => b.setAttribute("aria-pressed", String(b === cat))); applySortFilter(true); return; }
+  const srt = e.target.closest("[data-sort]");
+  if (srt) { state.sort = srt.dataset.sort; $$("#sortSeg button").forEach(b => b.setAttribute("aria-pressed", String(b === srt))); applySortFilter(true); return; }
+  const hl = e.target.closest("[data-hl]");
+  if (hl) { setHighlight(hl.dataset.hl); return; }
+});
+$("#chgToggle").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", String(on));
+  $("#heat").classList.toggle("changes", on);
+});
+
+/* ======================= RENDER + REVEAL ======================= */
+renderHero(); renderMeter(); renderHeat(); renderAgree(); renderForecasts(); renderHouses(); renderThemes(); renderScale();
+
+const revealTargets = [...$$(".reveal"), $("#meter"), $(".heat-scroll"), ...$$(".mini"), ...$$(".f-card"), $("#themeList"), $("#kpis")];
+const onIn = el => {
+  el.classList.add("in");
+  if (el.id === "kpis" && !reduceMotion) $$("[data-count]", el).forEach(countUp);
+  if (el.id === "meter") $$(".m-row", el).forEach(r => r.classList.add("in"));
+};
+if ("IntersectionObserver" in window && !reduceMotion) {
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { onIn(en.target); io.unobserve(en.target); } }), {threshold:.15, rootMargin:"0px 0px -40px 0px"});
+  revealTargets.forEach(el => el && io.observe(el));
+} else revealTargets.forEach(el => el && onIn(el));
+
+// active nav link
+const sections = ["consensus", "grid", "numbers", "houses", "themes", "method"].map(id => document.getElementById(id));
+const navIO = new IntersectionObserver(es => es.forEach(en => {
+  if (en.isIntersecting) $$("#links a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+}), {rootMargin:"-45% 0px -50% 0px"});
+sections.forEach(s => navIO.observe(s));
+</script>
+</body>
+</html>
