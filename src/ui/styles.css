@@ -2415,3 +2415,59 @@ dialog.drawer::backdrop {
   font-size: 12px !important;
   color: var(--muted) !important;
 }
+
+/* ============================== Share ============================== */
+.share {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0;
+  color: var(--night-ink);
+  background:
+    radial-gradient(700px 420px at 85% 30%, rgb(51 85 255 / 26%) 0%, transparent 60%),
+    radial-gradient(600px 400px at 0% 100%, rgb(91 227 168 / 12%) 0%, transparent 60%), var(--night);
+}
+.share-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+}
+.share-kick {
+  color: var(--mint);
+}
+.share-title {
+  font-size: clamp(34px, 4.4vw, 54px);
+  margin-bottom: 18px;
+}
+.share-lead {
+  color: #c9d0de;
+  font-size: 18px;
+  max-width: 520px;
+}
+.share-preview {
+  display: block;
+  justify-self: center;
+  width: min(100%, 380px);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgb(0 0 0 / 45%),
+    0 0 0 1px rgb(255 255 255 / 10%);
+}
+.share-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 860px) {
+  .share {
+    padding: 68px 0;
+  }
+  .share-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .share-preview {
+    width: min(100%, 320px);
+  }
+}

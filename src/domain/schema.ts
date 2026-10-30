@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ASSET_IDS, HOUSE_IDS } from './catalog';
+import { ASSET_IDS, HOUSE_IDS } from './catalog.ts';
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use YYYY-MM-DD');
 const httpsUrl = z.url().refine((u) => u.startsWith('https://'), 'URL must use HTTPS');

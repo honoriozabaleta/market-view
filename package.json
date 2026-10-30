@@ -2,6 +2,7 @@
   "name": "market-view",
   "private": true,
   "version": "0.2.0",
+  "homepage": "https://honoriozabaleta.github.io/market-view/",
   "type": "module",
   "engines": {
     "node": ">=24 <25"
@@ -18,7 +19,8 @@
     "test:browser": "npm run build && playwright test",
     "check": "npm run validate && npm run typecheck && npm run lint && npm test && npm run build",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "share": "tsx scripts/share/preview.ts"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "5.3.0",
@@ -30,7 +32,10 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@fontsource/bricolage-grotesque": "5.3.0",
+    "@fontsource/inter": "5.3.0",
     "@playwright/test": "1.64.1",
+    "@resvg/resvg-js": "2.6.2",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -38,6 +43,7 @@
     "eslint": "10.13.0",
     "globals": "17.13.0",
     "prettier": "3.9.10",
+    "satori": "0.63.2",
     "tsx": "4.23.15",
     "typescript": "5.9.3",
     "typescript-eslint": "8.72.0",

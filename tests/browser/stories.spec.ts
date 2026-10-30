@@ -88,3 +88,19 @@ test('filters and sorting work by keyboard', async ({ page }) => {
   await expect(divided).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('#consensus .m-row')).toHaveCount(4);
 });
+
+test('the share section offers the edition image and the page carries a link preview', async ({
+  page,
+  request,
+}) => {
+  const link = page.getByRole('link', { name: /Download the image/ });
+  await link.scrollIntoViewIfNeeded();
+  const href = await link.getAttribute('href');
+  const res = await request.get(href!);
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toContain('image/png');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    /^https:\/\/.+\/share\/market-view-\d{4}-q[1-4]\.png$/,
+  );
+});

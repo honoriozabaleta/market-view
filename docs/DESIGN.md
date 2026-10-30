@@ -25,6 +25,7 @@ The owner's brief: a beautiful, dynamic page with things moving, easy and pleasa
 | Houses             | Cards rise; profile bars grow; a soft spotlight follows the pointer                                                                                                                              | Motion, CSS custom properties  |
 | Narrative          | Theme bars fill; change rows slide in                                                                                                                                                            | Motion                         |
 | Detail drawer      | Slides in over a blurred backdrop                                                                                                                                                                | Native `<dialog>` + CSS        |
+| Share band         | The edition's portrait image floats in tilted and straightens on hover                                                                                                                           | Motion                         |
 
 Switching edition in the header re-computes everything, so the whole page animates from one quarter to the other.
 
@@ -41,4 +42,8 @@ Switching edition in the header re-computes everything, so the whole page animat
 - Per-asset and per-house pages with history across editions (animated timelines).
 - A "time machine" slider across all editions once several real quarters exist.
 - Themes as an animated bubble cluster; a world map of regional calls.
-- Share cards: an auto-generated image of the consensus for LinkedIn posts.
+- An "outlook season" tracker and a year-end targets chart for the annual outlook edition.
+
+## Share images
+
+Generated at build time by `scripts/share/cards.ts` with the same palette and fonts: the **link card** (1200×630, night background, headline consensus and a compact grid) and the **post image** (1080×1350, the full grid with verdicts, legend and the site address). The `≈` mark is not drawn in the images because the font subset lacks the glyph; the footer points readers to the site for sources.

@@ -1,5 +1,5 @@
-import { HOUSE_IDS, type AssetId, type HouseId, type Score } from './catalog';
-import type { Call, Edition, Forecast } from './schema';
+import { HOUSE_IDS, type AssetId, type HouseId, type Score } from './catalog.ts';
+import type { Call, Edition, Forecast } from './schema.ts';
 
 /**
  * The consensus measure is deliberately simple and transparent:

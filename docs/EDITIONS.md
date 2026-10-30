@@ -87,4 +87,6 @@ Open each source and confirm, call by call: the original label, the score mappin
 
 When you are satisfied, change `"status": "draft"` to `"published"`, move the file to `data/editions/`, and run `npm run check`. Illustrative sample editions live in `data/examples/` and never mix with published ones (the validator enforces it); changes are only computed between editions of the same nature.
 
+The share images and link-preview tags for the new edition are generated automatically by the build; run `npm run share` to look at them first.
+
 Deployment (GitHub Pages, manual workflow on `main`) is a separate step that only the owner triggers.

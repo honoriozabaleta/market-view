@@ -8,7 +8,7 @@ import {
   type HouseId,
   type Score,
   type ScoreKey,
-} from './catalog';
+} from './catalog.ts';
 import {
   ageInDays,
   bucketOf,
@@ -19,8 +19,8 @@ import {
   type Change,
   type ConsensusStats,
   type ForecastSummary,
-} from './consensus';
-import type { Call, Edition, HouseEdition, Theme } from './schema';
+} from './consensus.ts';
+import type { Call, Edition, HouseEdition, Theme } from './schema.ts';
 
 /** Everything the page needs for one edition, derived once from the data. */
 

@@ -52,6 +52,7 @@ Playwright needs a browser. Either `npx playwright install chromium`, or reuse a
 - **React + TypeScript + Vite**, a single static page. Animations with [Motion](https://motion.dev); fonts (Inter, Bricolage Grotesque) are self-hosted from npm packages under the SIL Open Font License, so the page makes no third-party requests.
 - `src/domain/` holds the rules: the catalogue of houses and assets, the data schema (zod) and the consensus maths. The UI only consumes them.
 - `src/ui/` holds the presentation. `Globe.tsx` draws the animated globe on a canvas from `src/assets/land-points.json` (Natural Earth 1:110m land, public domain).
+- **Share images** are drawn at build time from each edition (`scripts/share/`, satori + resvg with the site's fonts): a 1200×630 link-preview card referenced by Open Graph/Twitter tags, and a 1080×1350 portrait grid for posts, downloadable from the page's Share section. `npm run share` writes them to `.local/share/` for a quick look. The absolute link uses `SITE_URL` (set by the Pages workflow) or `homepage` in `package.json`.
 - `data/editions/*.json` are the published editions. `data/examples/` holds illustrative fixtures for tests. `data/drafts/` is private work and is blocked from public builds by `vite.config.ts`.
 
 Read next: [Methodology](docs/METHODOLOGY.md) · [Adding an edition](docs/EDITIONS.md) · [Design system](docs/DESIGN.md) · [Publication map of the five institutions](docs/RESEARCH_PUBLICATION_MAP.md).

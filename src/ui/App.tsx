@@ -13,6 +13,7 @@ import { HousesSection } from './Houses';
 import { MethodSection } from './Method';
 import { NarrativeSection } from './Narrative';
 import { NumbersSection } from './Numbers';
+import { ShareSection } from './Share';
 import { SignalSection } from './Signal';
 
 function Page({ editions, errors }: { editions: Edition[]; errors: typeof loaded.errors }) {
@@ -49,6 +50,7 @@ function Page({ editions, errors }: { editions: Edition[]; errors: typeof loaded
         <HousesSection model={model} />
         <NarrativeSection model={model} />
         <MethodSection model={model} />
+        <ShareSection model={model} />
       </main>
       <footer>
         <div className="wrap">
